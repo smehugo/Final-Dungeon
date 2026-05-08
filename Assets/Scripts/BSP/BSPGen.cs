@@ -89,7 +89,7 @@ public class BSPGen : MonoBehaviour
             int InW = leaf.rect.width - 2 * roomPadding;
             int InH = leaf.rect.height - 2 * roomPadding;
 
-            if (InW <= minRoomSize || InH <= minRoomSize)
+            if (InW < minRoomSize || InH < minRoomSize)
                 continue;
 
             int roomW = Random.Range(minRoomSize, InW + 1);
@@ -106,7 +106,10 @@ public class BSPGen : MonoBehaviour
                 roomH
             );
             leaf.hasRoom = true;
+            if (!leaf.hasRoom)
+                Debug.Log("no room");
         }
+
     }
 
 

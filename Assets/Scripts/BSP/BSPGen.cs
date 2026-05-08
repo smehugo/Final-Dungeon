@@ -14,6 +14,8 @@ public class BSPGen : MonoBehaviour
 
     [SerializeField] private int minRoomSize = 8;
     [SerializeField] private int maxDepth = 5;
+    [SerializeField] private float roomFillMin = 0.5f;
+    [SerializeField] private float roomFillMax = 0.9f;
 
     private int MinLeafSize => minRoomSize + 2 * roomPadding;
 
@@ -92,8 +94,8 @@ public class BSPGen : MonoBehaviour
             if (InW < minRoomSize || InH < minRoomSize)
                 continue;
 
-            int roomW = Random.Range(minRoomSize, InW + 1);
-            int roomH = Random.Range(minRoomSize, InH + 1);
+            int roomW = Mathf.RoundToInt(Random.Range(roomFillMin, roomFillMax) * InW);
+            int roomH = Mathf.RoundToInt(Random.Range(roomFillMin, roomFillMax) * InH);
             int maxRoomX = InX + InW - roomW;
             int maxRoomY = InY + InH - roomH;
             int roomX = Random.Range(InX, maxRoomX + 1);

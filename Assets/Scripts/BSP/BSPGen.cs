@@ -12,12 +12,14 @@ public class BSPGen : MonoBehaviour
     [SerializeField] private int minRoomSize = 8;
     [SerializeField] private int maxDepth = 5;
 
+    private BSPNode rootNode;
+
     [ContextMenu("Generate Dungeon")]
 
     private void GenerateDungeon()
     {
-        BSPNode root = new BSPNode(new RectInt(0, 0, width, height));
-        Split(root, 0);
+        rootNode = new BSPNode(new RectInt(0, 0, width, height));
+        Split(rootNode, 0);
     }
 
     private void Split(BSPNode node, int currentDepth)
@@ -43,5 +45,30 @@ public class BSPGen : MonoBehaviour
         }
         Split(node.left, currentDepth + 1);
         Split(node.right, currentDepth + 1);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (rootNode == null)
+            return;
+
+        DrawNode(rootNode);
+    }
+
+    private void DrawNode(BSPNode node)
+    {
+        if (node == null) return;
+
+        Vector3 center = new Vector3(
+            node.rect.x + node.rect.width * 0.5f,
+            node.rect.y + node.rect.height * 0.5f,
+            0f
+        );
+
+        Vector3 size = new Vector3(node.rect.width, node.rect.height, 0f);
+        Gizmos.DrawWireCube(center, size);
+
+        DrawNode(node.left);
+        DrawNode(node.right);
     }
 }

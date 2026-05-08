@@ -29,7 +29,7 @@ public class BSPGen : MonoBehaviour
             node.rect.height < minRoomSize * 2)
             return;
 
-        bool splitHorizontally = Random.value > 0.5f; //gamba
+        bool splitHorizontally = SplitDirection(node.rect, currentDepth);
         float splitRatio = Random.Range(0.3f, 0.7f); //gamba
         if (splitHorizontally)
         {
@@ -45,6 +45,17 @@ public class BSPGen : MonoBehaviour
         }
         Split(node.left, currentDepth + 1);
         Split(node.right, currentDepth + 1);
+    }
+
+    // so we dont have long and skinny rooms, alternating on ratio
+    private bool SplitDirection(RectInt rect, int depth)
+    {
+        float ratio = (float)rect.width / rect.height;
+
+        if (ratio > 1.35f) return false;
+        if (ratio < 0.75f) return true;
+
+        return depth % 2 == 0;
     }
 
     private void OnDrawGizmos()

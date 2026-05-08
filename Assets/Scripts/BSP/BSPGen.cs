@@ -4,8 +4,8 @@ using UnityEngine.Tilemaps;
 
 public class BSPGen : MonoBehaviour
 {
-    [SerializeField] private int width = 48;
-    [SerializeField] private int height = 48;
+    [SerializeField] private int MapWidth = 48;
+    [SerializeField] private int MapHeight = 48;
     [SerializeField] private int roomPadding;
 
 
@@ -15,39 +15,49 @@ public class BSPGen : MonoBehaviour
     [SerializeField] private int minRoomSize = 8;
     [SerializeField] private int maxDepth = 5;
 
+    private int MinLeafSize => minRoomSize + 2 * roomPadding;
+
     private BSPNode rootNode;
 
     [ContextMenu("Generate Dungeon")]
 
     private void GenerateDungeon()
     {
-        rootNode = new BSPNode(new RectInt(0, 0, width, height));
+        rootNode = new BSPNode(new RectInt(0, 0, MapWidth, MapHeight));
         Split(rootNode, 0);
 
         //collect the final rects
         List<BSPNode> leaves = new List<BSPNode>();
         GetLeaves(rootNode, leaves);
         Debug.Log($"leaves: {leaves.Count}");
+        MakeRooms(leaves);
     }
 
     private void Split(BSPNode node, int currentDepth)
     {
-        if (currentDepth >= maxDepth ||
-            node.rect.width < minRoomSize * 2 ||
-            node.rect.height < minRoomSize * 2)
+        if (currentDepth >= maxDepth)
             return;
 
-        bool splitHorizontally = SplitDirection(node.rect, currentDepth);
-        float splitRatio = Random.Range(0.3f, 0.7f); //gamba
+        bool CanSplitHor = node.rect.height >= MinLeafSize * 2;
+        bool CanSplitVert = node.rect.width >= MinLeafSize * 2;
+
+        if (!CanSplitHor && !CanSplitVert)
+            return;
+
+        bool splitHorizontally = CanSplitHor && (!CanSplitVert || SplitDirection(node.rect, currentDepth));
         if (splitHorizontally)
         {
-            int splitY = Mathf.RoundToInt(node.rect.yMin + node.rect.height * splitRatio);
+            int minCutY = node.rect.yMin + MinLeafSize;
+            int maxCutY = node.rect.yMax - MinLeafSize;
+            int splitY = Random.Range(minCutY, maxCutY + 1);
             node.left = new BSPNode(new RectInt(node.rect.xMin, node.rect.yMin, node.rect.width, splitY - node.rect.yMin));
             node.right = new BSPNode(new RectInt(node.rect.xMin, splitY, node.rect.width, node.rect.yMax - splitY));
         }
         else
         {
-            int splitX = Mathf.RoundToInt(node.rect.xMin + node.rect.width * splitRatio);
+            int minCutX = node.rect.xMin + MinLeafSize;
+            int maxCutX = node.rect.xMax - MinLeafSize;
+            int splitX = Random.Range(minCutX, maxCutX + 1);
             node.left = new BSPNode(new RectInt(node.rect.xMin, node.rect.yMin, splitX - node.rect.xMin, node.rect.height));
             node.right = new BSPNode(new RectInt(splitX, node.rect.yMin, node.rect.xMax - splitX, node.rect.height));
         }
@@ -69,6 +79,39 @@ public class BSPGen : MonoBehaviour
         GetLeaves(node.left, leaves);
         GetLeaves(node.right, leaves);
     }
+
+    private void MakeRooms(List<BSPNode> leaves)
+    {
+        foreach (var leaf in leaves)
+        {
+            int InX = leaf.rect.xMin + roomPadding;
+            int InY = leaf.rect.yMin + roomPadding;
+            int InW = leaf.rect.width - 2 * roomPadding;
+            int InH = leaf.rect.height - 2 * roomPadding;
+
+            if (InW <= minRoomSize || InH <= minRoomSize)
+                continue;
+
+            int roomW = Random.Range(minRoomSize, InW + 1);
+            int roomH = Random.Range(minRoomSize, InH + 1);
+            int maxRoomX = InX + InW - roomW;
+            int maxRoomY = InY + InH - roomH;
+            int roomX = Random.Range(InX, maxRoomX + 1);
+            int roomY = Random.Range(InY, maxRoomY + 1);
+
+            leaf.roomRect = new RectInt(
+                roomX,
+                roomY,
+                roomW,
+                roomH
+            );
+            leaf.hasRoom = true;
+        }
+    }
+
+
+
+
 
     // so we dont have long and skinny rooms, alternating on ratio
     private bool SplitDirection(RectInt rect, int depth)
@@ -93,16 +136,28 @@ public class BSPGen : MonoBehaviour
     {
         if (node == null) return;
 
-        Vector3 center = new Vector3(
-            node.rect.x + node.rect.width * 0.5f,
-            node.rect.y + node.rect.height * 0.5f,
-            0f
-        );
-
-        Vector3 size = new Vector3(node.rect.width, node.rect.height, 0f);
-        Gizmos.DrawWireCube(center, size);
+        DrawRect(node.rect, Color.white);
 
         DrawNode(node.left);
         DrawNode(node.right);
+
+        if (node.hasRoom)
+        {
+            DrawRect(node.roomRect, Color.green);
+        }
+    }
+
+    private void DrawRect(RectInt rect, Color color)
+    {
+        Gizmos.color = color;
+
+        Vector3 center = new Vector3(
+            rect.x + rect.width * 0.5f,
+            rect.y + rect.height * 0.5f,
+            0f
+        );
+
+        Vector3 size = new Vector3(rect.width, rect.height, 0f);
+        Gizmos.DrawWireCube(center, size);
     }
 }

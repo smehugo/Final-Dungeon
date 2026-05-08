@@ -1,5 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -11,10 +9,39 @@ public class BSPGen : MonoBehaviour
     [SerializeField] private Tilemap floorTilemap;
     [SerializeField] private Tilemap wallTilemap;
 
+    [SerializeField] private int minRoomSize = 8;
+    [SerializeField] private int maxDepth = 5;
+
     [ContextMenu("Generate Dungeon")]
 
     private void GenerateDungeon()
     {
+        BSPNode root = new BSPNode(new RectInt(0, 0, width, height));
+        Split(root, 0);
+    }
 
+    private void Split(BSPNode node, int currentDepth)
+    {
+        if (currentDepth >= maxDepth ||
+            node.rect.width < minRoomSize * 2 ||
+            node.rect.height < minRoomSize * 2)
+            return;
+
+        bool splitHorizontally = Random.value > 0.5f; //gamba
+        float splitRatio = Random.Range(0.3f, 0.7f); //gamba
+        if (splitHorizontally)
+        {
+            int splitY = Mathf.RoundToInt(node.rect.yMin + node.rect.height * splitRatio);
+            node.left = new BSPNode(new RectInt(node.rect.xMin, node.rect.yMin, node.rect.width, splitY - node.rect.yMin));
+            node.right = new BSPNode(new RectInt(node.rect.xMin, splitY, node.rect.width, node.rect.yMax - splitY));
+        }
+        else
+        {
+            int splitX = Mathf.RoundToInt(node.rect.xMin + node.rect.width * splitRatio);
+            node.left = new BSPNode(new RectInt(node.rect.xMin, node.rect.yMin, splitX - node.rect.xMin, node.rect.height));
+            node.right = new BSPNode(new RectInt(splitX, node.rect.yMin, node.rect.xMax - splitX, node.rect.height));
+        }
+        Split(node.left, currentDepth + 1);
+        Split(node.right, currentDepth + 1);
     }
 }

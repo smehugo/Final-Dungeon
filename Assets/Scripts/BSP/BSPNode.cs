@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class BSPNode
 {
@@ -16,5 +17,21 @@ public class BSPNode
 
         this.hasRoom = false;
         this.roomRect = new RectInt();
+    }
+
+    public void GetRooms(List<BSPNode> output)
+    {
+        if (hasRoom)
+        {
+            output.Add(this);
+        }
+        if (left != null)
+        {
+            left.GetRooms(output);
+        }
+        if (right != null)
+        {
+            right.GetRooms(output);
+        }
     }
 }

@@ -20,6 +20,12 @@ public class BSPGen : MonoBehaviour
     private int MinLeafSize => minRoomSize + 2 * roomPadding;
 
     private BSPNode rootNode;
+    private List<RoomEdge> allEdges = new List<RoomEdge>();
+    private List<Vector2Int> roomCenterPoints = new List<Vector2Int>();
+    private List<RoomEdge> mstEdges = new List<RoomEdge>();
+    private int[] MSTparent;
+    private int[] MSTrank;
+    private List<RectInt> corridors = new List<RectInt>();
 
     [ContextMenu("Generate Dungeon")]
 
@@ -33,6 +39,101 @@ public class BSPGen : MonoBehaviour
         GetLeaves(rootNode, leaves);
         Debug.Log($"leaves: {leaves.Count}");
         MakeRooms(leaves);
+
+        //MST
+        GetRoomCenters();
+        BuildEdgeList();
+        BuildMST();
+        BuildCorridors();
+
+    }
+
+    private void BuildCorridors()
+    {
+        corridors.Clear();
+        foreach (var edge in mstEdges)
+        {
+            Vector2Int a = roomCenterPoints[edge.a];
+            Vector2Int b = roomCenterPoints[edge.b];
+
+            if (Random.value < 0.5f)
+            {
+                //hor then vert
+                corridors.Add(new RectInt(Mathf.Min(a.x, b.x), a.y, Mathf.Abs(a.x - b.x) + 1, 1));
+                corridors.Add(new RectInt(b.x, Mathf.Min(a.y, b.y), 1, Mathf.Abs(a.y - b.y) + 1));
+            }
+            else
+            {
+                //vert then hor
+                corridors.Add(new RectInt(a.x, Mathf.Min(a.y, b.y), 1, Mathf.Abs(a.y - b.y) + 1));
+                corridors.Add(new RectInt(Mathf.Min(a.x, b.x), b.y, Mathf.Abs(a.x - b.x) + 1, 1));
+            }
+        }
+    }
+
+    private void BuildMST(int RoomCount = 0)
+    {
+        MSTparent = new int[roomCenterPoints.Count];
+        MSTrank = new int[roomCenterPoints.Count];
+        for (int i = 0; i < roomCenterPoints.Count; i++)
+        {
+            MSTparent[i] = i;
+            MSTrank[i] = 0;
+        }
+
+        mstEdges.Clear();
+        foreach (var edge in allEdges)
+        {
+            if (Find(edge.a) != Find(edge.b) && mstEdges.Count < roomCenterPoints.Count - 1)
+            {
+                mstEdges.Add(edge);
+                Union(edge.a, edge.b);
+            }
+        }
+        // Debug.Log($"mst edges: {mstEdges.Count}");
+        // foreach (var edge in mstEdges)        {
+        //     Debug.Log($"mst edge: {edge.a} to {edge.b} dist: {edge.dist}");
+        // }
+    }
+
+    private void BuildEdgeList()
+    {
+        //build the edge list for MST
+        allEdges.Clear();
+        for (int i = 0; i < roomCenterPoints.Count; i++)
+        {
+            for (int j = i + 1; j < roomCenterPoints.Count; j++)
+            {
+                float dist = Vector2Int.Distance(roomCenterPoints[i], roomCenterPoints[j]);
+                allEdges.Add(new RoomEdge(i, j, dist));
+            }
+        }
+
+        allEdges.Sort((a, b) => a.dist.CompareTo(b.dist));
+        // Debug.Log($"edges: {allEdges.Count}");
+        // foreach (var edge in allEdges)
+        // {
+        //     Debug.Log($"edge: {edge.a} to {edge.b} dist: {edge.dist}");
+        // }
+    }
+
+    private void GetRoomCenters()
+    {
+        //collect the room centers for corridor generation
+        List<BSPNode> roomNodes = new List<BSPNode>();
+        roomNodes.Clear();
+        rootNode.GetRooms(roomNodes);
+        Debug.Log($"rooms: {roomNodes.Count}");
+
+        roomCenterPoints.Clear();
+        foreach (var room in roomNodes)
+        {
+            Vector2Int center = new Vector2Int(
+                room.roomRect.x + room.roomRect.width / 2,
+                room.roomRect.y + room.roomRect.height / 2
+            );
+            roomCenterPoints.Add(center);
+        }
     }
 
     private void Split(BSPNode node, int currentDepth)
@@ -131,9 +232,6 @@ public class BSPGen : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (rootNode == null)
-            return;
-
         DrawNode(rootNode);
     }
 
@@ -150,6 +248,11 @@ public class BSPGen : MonoBehaviour
         {
             DrawRect(node.roomRect, Color.green);
         }
+
+        foreach (var corridor in corridors)
+        {
+            DrawRect(corridor, Color.red);
+        }
     }
 
     private void DrawRect(RectInt rect, Color color)
@@ -162,7 +265,33 @@ public class BSPGen : MonoBehaviour
             0f
         );
 
-        Vector3 size = new Vector3(rect.width, rect.height, 0f);
+        Vector3 size = new(rect.width, rect.height, 0f);
         Gizmos.DrawWireCube(center, size);
+    }
+
+    private int Find(int i)
+    {
+        if (MSTparent[i] != i)
+            MSTparent[i] = Find(MSTparent[i]);
+        return MSTparent[i];
+    }
+
+    private void Union(int a, int b)
+    {
+        int rootA = Find(a);
+        int rootB = Find(b);
+
+        if (rootA == rootB)
+            return;
+
+        if (MSTrank[rootA] < MSTrank[rootB])
+            MSTparent[rootA] = rootB;
+        else if (MSTrank[rootB] < MSTrank[rootA])
+            MSTparent[rootB] = rootA;
+        else
+        {
+            MSTparent[rootB] = rootA;
+            MSTrank[rootA]++;
+        }
     }
 }

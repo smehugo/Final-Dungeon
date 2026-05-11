@@ -7,6 +7,7 @@ public class BSPGen : MonoBehaviour
     [SerializeField] private int MapWidth = 48;
     [SerializeField] private int MapHeight = 48;
     [SerializeField] private int roomPadding;
+    [SerializeField] private int roomCount = 10;
 
 
     [SerializeField] private Tilemap floorTilemap;
@@ -18,6 +19,7 @@ public class BSPGen : MonoBehaviour
     [SerializeField] private float roomFillMax = 0.9f;
 
     private int MinLeafSize => minRoomSize + 2 * roomPadding;
+    private int currentLeafCount;
 
     private BSPNode rootNode;
     private List<RoomEdge> allEdges = new List<RoomEdge>();
@@ -26,12 +28,14 @@ public class BSPGen : MonoBehaviour
     private int[] MSTparent;
     private int[] MSTrank;
     private List<RectInt> corridors = new List<RectInt>();
+    private HashSet<Vector2Int> roomTiles = new HashSet<Vector2Int>();
 
     [ContextMenu("Generate Dungeon")]
 
     private void GenerateDungeon()
     {
         rootNode = new BSPNode(new RectInt(0, 0, MapWidth, MapHeight));
+        currentLeafCount = 1;
         Split(rootNode, 0);
 
         //collect the final rects
@@ -39,6 +43,21 @@ public class BSPGen : MonoBehaviour
         GetLeaves(rootNode, leaves);
         Debug.Log($"leaves: {leaves.Count}");
         MakeRooms(leaves);
+
+        roomTiles.Clear();
+        foreach (var leaf in leaves)
+        {
+            if (leaf.hasRoom)
+            {
+                for (int x = leaf.roomRect.xMin; x < leaf.roomRect.xMax; x++)
+                {
+                    for (int y = leaf.roomRect.yMin; y < leaf.roomRect.yMax; y++)
+                    {
+                        roomTiles.Add(new Vector2Int(x, y));
+                    }
+                }
+            }
+        }
 
         //MST
         GetRoomCenters();
@@ -55,19 +74,24 @@ public class BSPGen : MonoBehaviour
         {
             Vector2Int a = roomCenterPoints[edge.a];
             Vector2Int b = roomCenterPoints[edge.b];
+            Vector2Int p = a;
 
-            if (Random.value < 0.5f)
-            {
-                //hor then vert
-                corridors.Add(new RectInt(Mathf.Min(a.x, b.x), a.y, Mathf.Abs(a.x - b.x) + 1, 1));
-                corridors.Add(new RectInt(b.x, Mathf.Min(a.y, b.y), 1, Mathf.Abs(a.y - b.y) + 1));
-            }
-            else
-            {
-                //vert then hor
-                corridors.Add(new RectInt(a.x, Mathf.Min(a.y, b.y), 1, Mathf.Abs(a.y - b.y) + 1));
-                corridors.Add(new RectInt(Mathf.Min(a.x, b.x), b.y, Mathf.Abs(a.x - b.x) + 1, 1));
-            }
+            while (p.x != b.x)
+        {
+            if (!roomTiles.Contains(p))
+                corridors.Add(new RectInt(p.x, p.y, 1, 1));
+            p.x += p.x < b.x ? 1 : -1;
+        }
+
+        while (p.y != b.y)
+        {
+            if (!roomTiles.Contains(p))
+                corridors.Add(new RectInt(p.x, p.y, 1, 1));
+            p.y += p.y < b.y ? 1 : -1;
+        }
+
+        if (!roomTiles.Contains(p))
+            corridors.Add(new RectInt(p.x, p.y, 1, 1));
         }
     }
 
@@ -138,7 +162,7 @@ public class BSPGen : MonoBehaviour
 
     private void Split(BSPNode node, int currentDepth)
     {
-        if (currentDepth >= maxDepth)
+        if (currentDepth >= maxDepth || currentLeafCount >= roomCount)
             return;
 
         bool CanSplitHor = node.rect.height >= MinLeafSize * 2;
@@ -164,6 +188,7 @@ public class BSPGen : MonoBehaviour
             node.left = new BSPNode(new RectInt(node.rect.xMin, node.rect.yMin, splitX - node.rect.xMin, node.rect.height));
             node.right = new BSPNode(new RectInt(splitX, node.rect.yMin, node.rect.xMax - splitX, node.rect.height));
         }
+        currentLeafCount++;
         Split(node.left, currentDepth + 1);
         Split(node.right, currentDepth + 1);
 
@@ -183,10 +208,12 @@ public class BSPGen : MonoBehaviour
         GetLeaves(node.right, leaves);
     }
 
-    private void MakeRooms(List<BSPNode> leaves)
+    private void MakeRooms(List<BSPNode> leaves, int roomsCreated = 0)
     {
         foreach (var leaf in leaves)
         {
+            // if (roomsCreated >= roomCount)
+            //     break;
             int InX = leaf.rect.xMin + roomPadding;
             int InY = leaf.rect.yMin + roomPadding;
             int InW = leaf.rect.width - 2 * roomPadding;
@@ -209,6 +236,7 @@ public class BSPGen : MonoBehaviour
                 roomH
             );
             leaf.hasRoom = true;
+            roomsCreated++;
             if (!leaf.hasRoom)
                 Debug.Log("no room");
         }
@@ -239,7 +267,7 @@ public class BSPGen : MonoBehaviour
     {
         if (node == null) return;
 
-        DrawRect(node.rect, Color.white);
+        // DrawRect(node.rect, Color.white);
 
         DrawNode(node.left);
         DrawNode(node.right);

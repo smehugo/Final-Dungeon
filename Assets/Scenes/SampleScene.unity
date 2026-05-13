@@ -163,15 +163,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac80d8700ab899b084b1c310c08a7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BSPGen
-  MapWidth: 48
-  MapHeight: 48
+  MapWidth: 128
+  MapHeight: 128
   roomPadding: 1
+  roomCount: 10
   floorTilemap: {fileID: 687295390}
   wallTilemap: {fileID: 1537809896}
-  minRoomSize: 6
+  minRoomSize: 24
   maxDepth: 4
-  roomFillMin: 0.6
-  roomFillMax: 0.9
+  roomFillMin: 0.8
+  roomFillMax: 1
 --- !u!1 &218489714
 GameObject:
   m_ObjectHideFlags: 0

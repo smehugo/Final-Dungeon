@@ -3,6 +3,8 @@ using UnityEngine;
 
 public partial class BSPGen
 {
+    public int roomsCreated = 0;
+
     private void MakeRooms(List<BSPNode> leaves)
     {
         foreach (var leaf in leaves)
@@ -24,6 +26,7 @@ public partial class BSPGen
 
             leaf.roomRect = new RectInt(roomX, roomY, roomW, roomH);
             leaf.hasRoom = true;
+            roomsCreated++;
             if (!leaf.hasRoom)
                 Debug.Log("no room");
         }

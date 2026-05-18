@@ -30,6 +30,8 @@ public partial class BSPGen : MonoBehaviour
     private List<RectInt> corridors = new List<RectInt>();
     private HashSet<Vector2Int> roomTiles = new HashSet<Vector2Int>();
 
+    private List<DungeonRoom> dungeonRooms = new List<DungeonRoom>();
+
     [ContextMenu("Generate Dungeon")]
 
     private void GenerateDungeon()

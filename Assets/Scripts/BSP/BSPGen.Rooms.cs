@@ -39,13 +39,24 @@ public partial class BSPGen
         Debug.Log($"rooms: {roomNodes.Count}");
 
         roomCenterPoints.Clear();
-        foreach (var room in roomNodes)
+        dungeonRooms.Clear();
+
+        for (int i = 0; i < roomNodes.Count; i++)
         {
+            var room = roomNodes[i];
+            // Debug.Log($"room {i} rect: {room.roomRect}");
+
             Vector2Int center = new Vector2Int(
                 room.roomRect.x + room.roomRect.width / 2,
                 room.roomRect.y + room.roomRect.height / 2
             );
             roomCenterPoints.Add(center);
+            dungeonRooms.Add(new DungeonRoom
+            {
+                id = i,
+                bounds = room.roomRect,
+                center = center
+            });
         }
     }
 }

@@ -21,7 +21,9 @@ public partial class BSPGen
             foreach (var room in dungeonRooms)
             {
                 foreach (var door in room.doors)
+                {
                     DrawRect(new RectInt(door.position.x, door.position.y, 1, 1), Color.yellow);
+                }
             }
         }
 
@@ -31,7 +33,9 @@ public partial class BSPGen
             foreach (var room in dungeonRooms)
             {
                 foreach (var tile in room.reservedTiles)
+                {
                     DrawRect(new RectInt(tile.x, tile.y, 1, 1), Color.magenta);
+                }
             }
         }
 
@@ -40,8 +44,18 @@ public partial class BSPGen
         {
             foreach (var room in dungeonRooms)
             {
-                foreach (var zone in room.zones) DrawRect(zone.bounds, Color.cyan);
-                foreach (var wall in room.interiorWalls) DrawRect(wall.bounds, Color.white);
+                foreach (var zone in room.zones)
+                {
+                    DrawRect(zone.bounds, Color.cyan);
+                }
+
+                foreach (var wall in room.interiorWalls)
+                {
+                    foreach (var tile in wall.tiles)
+                    {
+                        DrawRect(new RectInt(tile.x, tile.y, 1, 1), Color.white);
+                    }
+                }
             }
         }
     }

@@ -5,23 +5,28 @@ public partial class BSPGen
 {
     private void BuildEdgeList()
     {
-        //build the edge list for MST
         allEdges.Clear();
-        for (int i = 0; i < roomCenterPoints.Count; i++)
+        //build the edge list for MST
+        for (int i = 0; i < dungeonRooms.Count; i++)
         {
-            for (int j = i + 1; j < roomCenterPoints.Count; j++)
+            for (int j = i + 1; j < dungeonRooms.Count; j++)
             {
-                float dist = Vector2Int.Distance(roomCenterPoints[i], roomCenterPoints[j]);
-                allEdges.Add(new RoomEdge(i, j, dist));
+                var a = dungeonRooms[i].bounds;
+                var b = dungeonRooms[j].bounds;
+
+                //check ovelap for straight corridors
+                bool xGood = (a.xMax <= b.xMin || b.xMax <= a.xMin) && Mathf.Min(a.yMax, b.yMax) - Mathf.Max(a.yMin, b.yMin) > 1;
+                bool yGood = (a.yMax <= b.yMin || b.yMax <= a.yMin) && Mathf.Min(a.xMax, b.xMax) - Mathf.Max(a.xMin, b.xMin) > 1; // holy check
+
+                if (!xGood && !yGood)
+                    continue;
+
+                // add edge
+                float length = Vector2Int.Distance(roomCenterPoints[i], roomCenterPoints[j]);
+                allEdges.Add(new RoomEdge { a = i, b = j, dist = length });
             }
         }
-
         allEdges.Sort((a, b) => a.dist.CompareTo(b.dist));
-        // Debug.Log($"edges: {allEdges.Count}");
-        // foreach (var edge in allEdges)
-        // {
-        //     Debug.Log($"edge: {edge.a} to {edge.b} dist: {edge.dist}");
-        // }
     }
 
     private void BuildMST()
@@ -65,7 +70,7 @@ public partial class BSPGen
             {
                 // attached
                 if (edge.a != roomId && edge.b != roomId)
-                continue;
+                    continue;
 
                 int otherId = edge.a == roomId ? edge.b : edge.a;
 

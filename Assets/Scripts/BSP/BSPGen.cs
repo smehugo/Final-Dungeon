@@ -68,5 +68,6 @@ public partial class BSPGen : MonoBehaviour
         BuildMSTSecondPass();
         BuildCorridors();
         BuildReservedTiles();
+        BuildRoomInteriors();
     }
 }

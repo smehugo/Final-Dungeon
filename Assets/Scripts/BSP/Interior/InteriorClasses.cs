@@ -8,6 +8,8 @@ public class DungeonRoom
     public Vector2Int center;
     public List<DoorData> doors = new();
     public HashSet<Vector2Int> reservedTiles = new();
+    public List<RoomZone> zones = new();
+    public List<InteriorWall> interiorWalls = new();
 
     public bool isStartRoom;
     public bool isFinalRoom;
@@ -18,4 +20,16 @@ public class DoorData
 {
     public Vector2Int position;
     public Vector2Int inwardDir;
+}
+
+public class RoomZone
+{
+    public RectInt bounds;
+}
+
+public class InteriorWall
+{
+    public RectInt bounds;
+    public bool isVertical;
+    public List<Vector2Int> tiles = new();
 }

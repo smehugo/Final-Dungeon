@@ -34,6 +34,16 @@ public partial class BSPGen
                     DrawRect(new RectInt(tile.x, tile.y, 1, 1), Color.magenta);
             }
         }
+
+        // interior
+        if (dungeonRooms != null)
+        {
+            foreach (var room in dungeonRooms)
+            {
+                foreach (var zone in room.zones) DrawRect(zone.bounds, Color.cyan);
+                foreach (var wall in room.interiorWalls) DrawRect(wall.bounds, Color.white);
+            }
+        }
     }
 
     private void DrawNode(BSPNode node)

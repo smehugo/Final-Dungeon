@@ -32,6 +32,9 @@ public partial class BSPGen : MonoBehaviour
 
     private List<DungeonRoom> dungeonRooms = new List<DungeonRoom>();
 
+    private Dictionary<Vector2Int, int> tileToRoom = new Dictionary<Vector2Int, int>();
+    // private HashSet<Vector2Int> debugLastFlood = new HashSet<Vector2Int>();
+
     [ContextMenu("Generate Dungeon")]
 
     private void GenerateDungeon()

@@ -20,25 +20,41 @@ public partial class BSPGen
             room.bounds.height - 2
             );
 
-        int depth = GetInteriorBspDepth(interior);
-        List<RectInt> leaves = new List<RectInt>();
-        List<InteriorWall> walls = new List<InteriorWall>();
-        SplitInterior(interior, 0, depth, leaves);
-        GetWallsByZone(leaves, walls);
-        room.interiorWalls.AddRange(walls);
+        for (int attempt = 0; attempt < 10; attempt++)
+        {
+            room.zones.Clear();
+            room.interiorWalls.Clear();
 
-        foreach (var leaf in leaves)
-        {
-            room.zones.Add(new RoomZone { bounds = leaf });
-        }
+            int depth = GetInteriorBspDepth(interior);
+            List<RectInt> leaves = new List<RectInt>();
+            List<InteriorWall> walls = new List<InteriorWall>();
+            SplitInterior(interior, 0, depth, leaves);
+            GetWallsByZone(leaves, walls);
+            room.interiorWalls.AddRange(walls);
 
-        foreach (var wall in room.interiorWalls)
-        {
-            PopulateWallTiles(wall, room.reservedTiles);
-        }
-        foreach (var wall in room.interiorWalls)
-        {
-            WallOpener(wall, room.reservedTiles);
+            foreach (var leaf in leaves)
+            {
+                room.zones.Add(new RoomZone { bounds = leaf });
+            }
+
+            foreach (var wall in room.interiorWalls)
+            {
+                PopulateWallTiles(wall, room.reservedTiles);
+            }
+            foreach (var wall in room.interiorWalls)
+            {
+                WallOpener(wall, room.reservedTiles);
+            }
+
+            // validate room
+            if (IsRoomValid(room))
+            {
+                return;
+            }
+            //fallback to empty
+            room.zones.Clear();
+            room.interiorWalls.Clear();
+            room.zones.Add(new RoomZone { bounds = interior });
         }
     }
 

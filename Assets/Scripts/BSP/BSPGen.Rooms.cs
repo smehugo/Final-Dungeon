@@ -57,6 +57,11 @@ public partial class BSPGen
                 bounds = room.roomRect,
                 center = center
             });
+
+            // map tiles to room id
+            for (int x = room.roomRect.xMin; x < room.roomRect.xMax; x++)
+                for (int y = room.roomRect.yMin; y < room.roomRect.yMax; y++)
+                    tileToRoom[new Vector2Int(x, y)] = i;
         }
     }
 }

@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac80d8700ab899b084b1c310c08a7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BSPGen
+  roomsCreated: 112
   MapWidth: 128
   MapHeight: 128
   roomPadding: 1

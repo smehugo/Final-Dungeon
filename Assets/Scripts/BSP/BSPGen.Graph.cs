@@ -45,6 +45,46 @@ public partial class BSPGen
         }
     }
 
+    private void BuildMSTSecondPass()
+    {
+        //second pass to add extra connects
+        var existing = new int[roomCenterPoints.Count];
+        foreach (var edge in mstEdges)
+        {
+            existing[edge.a]++;
+            existing[edge.b]++;
+        }
+
+        for (int roomId = 0; roomId < roomCenterPoints.Count; roomId++)
+        {
+            if (existing[roomId] >= 2)
+            {
+                continue;
+            }
+            foreach (var edge in allEdges)
+            {
+                // attached
+                if (edge.a != roomId && edge.b != roomId)
+                continue;
+
+                int otherId = edge.a == roomId ? edge.b : edge.a;
+
+                // // already has 2
+                // if (existing[otherId] >= 2)
+                //     continue;
+
+                // already in MST
+                if (mstEdges.Contains(edge))
+                    continue;
+
+                mstEdges.Add(edge);
+                existing[edge.a]++;
+                existing[edge.b]++;
+                break;
+            }
+        }
+    }
+
     private int Find(int i)
     {
         if (MSTparent[i] != i)

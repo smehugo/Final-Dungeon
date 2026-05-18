@@ -63,6 +63,7 @@ public partial class BSPGen : MonoBehaviour
         GetRoomCenters();
         BuildEdgeList();
         BuildMST();
+        BuildMSTSecondPass();
         BuildCorridors();
     }
 }

@@ -7,60 +7,70 @@ public partial class BSPGen
         corridors.Clear();
         foreach (var edge in mstEdges)
         {
-            Vector2Int a = roomCenterPoints[edge.a];
+            Vector2Int p = roomCenterPoints[edge.a];
             Vector2Int b = roomCenterPoints[edge.b];
-            Vector2Int p = a;
             bool inCorr = false;
 
             while (p.x != b.x)
             {
-                bool wasInRoom = roomTiles.Contains(p);
-                if (!wasInRoom)
-                    corridors.Add(new RectInt(p.x, p.y, 1, 1));
-
+                bool was = roomTiles.Contains(p);
+                if (!was) corridors.Add(new RectInt(p.x, p.y, 1, 1));
                 Vector2Int prev = p;
-                p.x += p.x < b.x ? 1 : -1;
-                bool nowInRoom = roomTiles.Contains(p);
-
-                if (wasInRoom && !nowInRoom && !inCorr)
-                {
-                    dungeonRooms[edge.a].doors.Add(new DoorData { position = prev });
-                    inCorr = true;
-                }
-                else if (!wasInRoom && nowInRoom && inCorr)
-                {
-                    dungeonRooms[edge.b].doors.Add(new DoorData { position = p });
-                    inCorr = false;
-                }
+                if (p.x < b.x)
+                { p.x += 1; }
+                else
+                { p.x += -1; }
+                CheckDoorTransition(was, roomTiles.Contains(p), ref inCorr, prev, p, edge);
             }
 
             while (p.y != b.y)
             {
-                bool wasInRoom = roomTiles.Contains(p);
-                if (!wasInRoom)
-                    corridors.Add(new RectInt(p.x, p.y, 1, 1));
-
+                bool was = roomTiles.Contains(p);
+                if (!was) corridors.Add(new RectInt(p.x, p.y, 1, 1));
                 Vector2Int prev = p;
-                p.y += p.y < b.y ? 1 : -1;
-                bool nowInRoom = roomTiles.Contains(p);
-
-                if (wasInRoom && !nowInRoom && !inCorr)
-                {
-                    dungeonRooms[edge.a].doors.Add(new DoorData { position = prev });
-                    inCorr = true;
-                }
-                else if (!wasInRoom && nowInRoom && inCorr)
-                {
-                    dungeonRooms[edge.b].doors.Add(new DoorData { position = p });
-                    inCorr = false;
-                }
+                if (p.y < b.y)
+                { p.y += 1; }
+                else
+                { p.y += -1; }
+                CheckDoorTransition(was, roomTiles.Contains(p), ref inCorr, prev, p, edge);
             }
 
             if (!roomTiles.Contains(p))
                 corridors.Add(new RectInt(p.x, p.y, 1, 1));
+        }
+    }
 
-                Debug.Log($"corridor from {edge.a} to {edge.b} length: {Vector2Int.Distance(a, b)}");
-                Debug.Log($"doors {edge.a}: {dungeonRooms[edge.a].doors.Count}, doors in room {edge.b}: {dungeonRooms[edge.b].doors.Count}");
+    private void CheckDoorTransition(bool wasInRoom, bool nowInRoom, ref bool inCorr, Vector2Int prev, Vector2Int p, RoomEdge edge)
+    {
+        Vector2Int stepDir = p - prev;
+
+        if (wasInRoom && !nowInRoom && !inCorr)
+        {
+            dungeonRooms[edge.a].doors.Add(new DoorData { position = prev, inwardDir = -stepDir });
+            inCorr = true;
+        }
+        else if (!wasInRoom && nowInRoom && inCorr)
+        {
+            dungeonRooms[edge.b].doors.Add(new DoorData { position = p, inwardDir = stepDir });
+            inCorr = false;
+        }
+    }
+
+    private void BuildReservedTiles()
+    {
+        foreach (var room in dungeonRooms)
+        {
+            foreach (var door in room.doors)
+            {
+                Vector2Int tile = door.position;
+                for (int i = 0; i < 3; i++)
+                {
+                    if (!room.bounds.Contains(tile))
+                        break;
+                    room.reservedTiles.Add(tile);
+                    tile += door.inwardDir;
+                }
+            }
         }
     }
 }

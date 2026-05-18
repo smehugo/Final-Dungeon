@@ -14,6 +14,26 @@ public partial class BSPGen
         {
             DrawRect(corridor, Color.red);
         }
+
+        // doors
+        if (dungeonRooms != null)
+        {
+            foreach (var room in dungeonRooms)
+            {
+                foreach (var door in room.doors)
+                    DrawRect(new RectInt(door.position.x, door.position.y, 1, 1), Color.yellow);
+            }
+        }
+
+        // reserved blokcs
+        if (dungeonRooms != null)
+        {
+            foreach (var room in dungeonRooms)
+            {
+                foreach (var tile in room.reservedTiles)
+                    DrawRect(new RectInt(tile.x, tile.y, 1, 1), Color.magenta);
+            }
+        }
     }
 
     private void DrawNode(BSPNode node)

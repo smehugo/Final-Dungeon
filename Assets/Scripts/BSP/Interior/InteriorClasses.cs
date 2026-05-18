@@ -7,6 +7,7 @@ public class DungeonRoom
     public RectInt bounds;
     public Vector2Int center;
     public List<DoorData> doors = new();
+    public HashSet<Vector2Int> reservedTiles = new();
 
     public bool isStartRoom;
     public bool isFinalRoom;
@@ -16,4 +17,5 @@ public class DungeonRoom
 public class DoorData
 {
     public Vector2Int position;
+    public Vector2Int inwardDir;
 }

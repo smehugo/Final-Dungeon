@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
+  m_Name: Floor_RT
+  m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.RuleTile
+  m_DefaultSprite: {fileID: -1687716702, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+  m_DefaultGameObject: {fileID: 8911403631282596878, guid: 542878ee56b72934687c8622440a9894, type: 3}
+  m_DefaultColliderType: 1
+  m_TilingRules:
+  - m_Id: 0
+    m_Sprites:
+    - {fileID: -1371926303, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: -409723624, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: -1979954403, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: 788743314, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: -2099634898, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: 1965176339, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: 1125641625, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: -446991268, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: -1881567341, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: -1230362436, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: 1293587099, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: 1295242595, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: 1020252421, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: 1823881336, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: 1386019415, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: 1268986652, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: -1734903046, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: -265374293, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: -1574441418, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    - {fileID: 564696868, guid: 288aaeb80d0603f75a228083ec623833, type: 3}
+    m_GameObject: {fileID: 8911403631282596878, guid: 542878ee56b72934687c8622440a9894, type: 3}
+    m_MinAnimationSpeed: 1
+    m_MaxAnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_Output: 1
+    m_ColliderType: 1
+    m_RandomTransform: 5
+    m_Neighbors: 
+    m_NeighborPositions: []
+    m_RuleTransform: 0

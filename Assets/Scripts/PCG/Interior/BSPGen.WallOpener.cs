@@ -21,11 +21,10 @@ public partial class BSPGen
         // not reserved
         List<Vector2Int> candidates = new List<Vector2Int>(wall.tiles);
 
-        int openingW = Random.Range(3, candidates.Count / 3);
-
+        int openingW = Random.Range(wallOpeningMin, Mathf.Max(wallOpeningMin + 1, (int)(candidates.Count * wallOpeningMax)));
         foreach (var tile in candidates)
         {
-            if (Random.value < 0.05f)
+            if (Random.value < wallExtraHoleGamba)
                 wall.tiles.Remove(tile);
         }
 

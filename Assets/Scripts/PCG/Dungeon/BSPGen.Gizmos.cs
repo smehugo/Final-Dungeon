@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public partial class BSPGen
 {
     private void OnDrawGizmos()
     {
+        return;
         if (rootNode == null)
             return;
 

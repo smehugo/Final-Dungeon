@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 
 public partial class BSPGen : MonoBehaviour
 {
+    [Header("Map Settings")]
     [SerializeField] private int MapWidth = 48;
     [SerializeField] private int MapHeight = 48;
     [SerializeField] private int roomPadding;
@@ -24,6 +25,14 @@ public partial class BSPGen : MonoBehaviour
     [SerializeField] private int maxDepth = 5;
     [SerializeField] private float roomFillMin = 0.5f;
     [SerializeField] private float roomFillMax = 0.9f;
+
+    [Header("Interior Settings")]
+    [SerializeField] private int minZoneSize = 8;
+    [SerializeField] private int interiorDepthStep = 12;
+    [SerializeField] private int interiorMaxDepth = 4;
+    [SerializeField] private int wallOpeningMin = 3;
+    [SerializeField] private float wallOpeningMax = 0.3f;
+    [SerializeField] private float wallExtraHoleGamba = 0.05f;
 
     private int MinLeafSize => minRoomSize + 2 * roomPadding;
     private int currentLeafCount;

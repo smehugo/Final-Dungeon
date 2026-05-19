@@ -62,10 +62,7 @@ public partial class BSPGen
     private int GetInteriorBspDepth(RectInt bounds)
     {
         int minDim = Mathf.Min(bounds.width, bounds.height);
-        if (minDim < 16) return 1;
-        if (minDim < 28) return 2;
-        if (minDim < 36) return 3;
-        return 4;
+        return Mathf.Clamp(minDim / interiorDepthStep, 1, interiorMaxDepth);
     }
 
     private void SplitInterior(RectInt rect, int depth, int maxDepth, List<RectInt> leaves)

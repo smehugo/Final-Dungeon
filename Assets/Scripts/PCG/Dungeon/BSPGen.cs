@@ -9,9 +9,16 @@ public partial class BSPGen : MonoBehaviour
     [SerializeField] private int roomPadding;
     [SerializeField] private int roomCount = 10;
 
-
+    // TODO: clean this up when done!!!
     [SerializeField] private Tilemap floorTilemap;
     [SerializeField] private Tilemap wallTilemap;
+    [SerializeField] private TileBase floorTile;
+    [SerializeField] private TileBase wallTile;
+    [SerializeField] private TileBase corridorTile;
+
+    private HashSet<Vector2Int> finalFloorTiles = new HashSet<Vector2Int>();
+    private HashSet<Vector2Int> finalWallTiles = new HashSet<Vector2Int>();
+    private HashSet<Vector2Int> blockedTiles = new HashSet<Vector2Int>();
 
     [SerializeField] private int minRoomSize = 8;
     [SerializeField] private int maxDepth = 5;
@@ -72,5 +79,6 @@ public partial class BSPGen : MonoBehaviour
         BuildCorridors();
         BuildReservedTiles();
         BuildRoomInteriors();
+        BuildAllTM();
     }
 }

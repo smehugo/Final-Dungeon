@@ -18,10 +18,16 @@ public partial class BSPGen
 
     private void WallOpener(InteriorWall wall, HashSet<Vector2Int> reserved)
     {
-        int openingW = Random.Range(3, 5);
-
         // not reserved
         List<Vector2Int> candidates = new List<Vector2Int>(wall.tiles);
+
+        int openingW = Random.Range(3, candidates.Count / 3);
+
+        foreach (var tile in candidates)
+        {
+            if (Random.value < 0.05f)
+                wall.tiles.Remove(tile);
+        }
 
         // find start
         for (int attempt = 0; attempt < 20; attempt++)
@@ -48,5 +54,6 @@ public partial class BSPGen
                 return;
             }
         }
+
     }
 }

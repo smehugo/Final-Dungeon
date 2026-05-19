@@ -34,7 +34,8 @@ public partial class BSPGen
 
             foreach (var leaf in leaves)
             {
-                room.zones.Add(new RoomZone { bounds = leaf });
+                ZoneType type = (ZoneType)Random.Range(0, 3);
+                room.zones.Add(new RoomZone { bounds = leaf, type = type });
             }
 
             foreach (var wall in room.interiorWalls)
@@ -54,7 +55,7 @@ public partial class BSPGen
             //fallback to empty
             room.zones.Clear();
             room.interiorWalls.Clear();
-            room.zones.Add(new RoomZone { bounds = interior });
+            room.zones.Add(new RoomZone { bounds = interior, type = ZoneType.Empty });
         }
     }
 

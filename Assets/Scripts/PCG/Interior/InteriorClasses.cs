@@ -1,6 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+public enum ZoneType
+{
+    Empty,
+    Enemy,
+    Treasure,
+}
+
 public class DungeonRoom
 {
     public int id;
@@ -25,6 +32,7 @@ public class DoorData
 public class RoomZone
 {
     public RectInt bounds;
+    public ZoneType type;
 }
 
 public class InteriorWall

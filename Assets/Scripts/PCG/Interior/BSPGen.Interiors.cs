@@ -68,11 +68,13 @@ public partial class BSPGen
     private void SplitInterior(RectInt rect, int depth, int maxDepth, List<RectInt> leaves)
     {
         int minZone = minZoneSize;
+        int maxZone = maxZoneSize;
 
         bool canSplitH = rect.height >= minZone * 2;
         bool canSplitV = rect.width >= minZone * 2;
+        bool gottaStopThoseSteroidsMate = rect.width > maxZone || rect.height > maxZone;
 
-        if (depth >= maxDepth || (!canSplitH && !canSplitV))
+        if ((!gottaStopThoseSteroidsMate && depth >= maxDepth) || (!canSplitH && !canSplitV))
         {
             leaves.Add(rect);
             return;

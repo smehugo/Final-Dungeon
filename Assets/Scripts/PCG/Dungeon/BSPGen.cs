@@ -37,6 +37,7 @@ public partial class BSPGen : MonoBehaviour
 
     [Header("Interior Settings")]
     [SerializeField] private int minZoneSize = 8;
+    [SerializeField] private int maxZoneSize = 20;
     [SerializeField] private int interiorDepthStep = 12;
     [SerializeField] private int interiorMaxDepth = 4;
     [SerializeField] private int wallOpeningMin = 3;

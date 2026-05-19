@@ -16,14 +16,14 @@ public partial class BSPGen
         HashSet<Vector2Int> visited = FloodFill(room.center, room.bounds, blocked);
         // debugLastFlood = visited;
 
-        Debug.Log($"Room {room.id} bounds={room.bounds} center={room.center} inBounds={room.bounds.Contains(room.center)} doors={room.doors.Count} visited={visited.Count} blocked={blocked.Count}");
+        // Debug.Log($"Room {room.id} bounds={room.bounds} center={room.center} inBounds={room.bounds.Contains(room.center)} doors={room.doors.Count} visited={visited.Count} blocked={blocked.Count}");
 
         // verify doors
         foreach (var door in room.doors)
         {
             if (!visited.Contains(door.position))
             {
-                Debug.Log($"  door pos={door.position} inBounds={room.bounds.Contains(door.position)} inBlocked={blocked.Contains(door.position)} inVisited={visited.Contains(door.position)}");
+                // Debug.Log($"  door pos={door.position} inBounds={room.bounds.Contains(door.position)} inBlocked={blocked.Contains(door.position)} inVisited={visited.Contains(door.position)}");
                 return false;
             }
         }

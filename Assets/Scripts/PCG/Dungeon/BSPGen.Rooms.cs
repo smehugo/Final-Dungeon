@@ -36,7 +36,7 @@ public partial class BSPGen
     {
         List<BSPNode> roomNodes = new List<BSPNode>();
         rootNode.GetRooms(roomNodes);
-        Debug.Log($"rooms: {roomNodes.Count}");
+        // Debug.Log($"rooms: {roomNodes.Count}");
 
         roomCenterPoints.Clear();
         dungeonRooms.Clear();

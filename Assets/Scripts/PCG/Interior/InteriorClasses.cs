@@ -8,6 +8,17 @@ public enum ZoneType
     Treasure,
 }
 
+public enum FloorTheme
+{
+    Default,
+    Stone,
+    Wood,
+    Metal,
+    Dirt,
+    Carpet,
+    Demonic,
+}
+
 public class DungeonRoom
 {
     public int id;
@@ -33,6 +44,7 @@ public class RoomZone
 {
     public RectInt bounds;
     public ZoneType type;
+    public FloorTheme theme;
 }
 
 public class InteriorWall

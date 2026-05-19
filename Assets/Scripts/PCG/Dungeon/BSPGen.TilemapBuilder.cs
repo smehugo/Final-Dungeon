@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public partial class BSPGen
 {
@@ -15,6 +16,7 @@ public partial class BSPGen
             {
                 for (int y = corridor.yMin; y < corridor.yMax; y++)
                 {
+                    finalCorridorTiles.Add(new Vector2Int(x, y));
                     finalFloorTiles.Add(new Vector2Int(x, y));
                 }
             }
@@ -63,11 +65,17 @@ public partial class BSPGen
         AddFloorTM();
         AddCorridorTM();
         AddInteriorWallTM();
+        AddZoneThemes();
         AddWallTM();
 
         foreach (var tile in finalFloorTiles)
         {
+            TileBase floorTile = Tile2ThemeSetter(floorThemeByTile.ContainsKey(tile) ? floorThemeByTile[tile] : FloorTheme.Default);
             floorTilemap.SetTile(new Vector3Int(tile.x, tile.y, 0), floorTile);
+        }
+        foreach (var tile in finalCorridorTiles)
+        {
+            floorTilemap.SetTile(new Vector3Int(tile.x, tile.y, 0), corridorTile);
         }
         foreach (var tile in finalWallTiles)
         {
@@ -85,6 +93,50 @@ public partial class BSPGen
         wallTilemap.ClearAllTiles();
         blockedTiles.Clear();
         finalFloorTiles.Clear();
+        finalCorridorTiles.Clear();
         finalWallTiles.Clear();
+        floorThemeByTile.Clear();
+    }
+
+    private void AddZoneThemes()
+    {
+        // holy loop
+        foreach (var room in dungeonRooms)
+        {
+            foreach (var zone in room.zones)
+            {
+                for (int x = zone.bounds.xMin; x < zone.bounds.xMax; x++)
+                {
+                    for (int y = zone.bounds.yMin; y < zone.bounds.yMax; y++)
+                    {
+                        if (roomTiles.Contains(new Vector2Int(x, y)) && !finalWallTiles.Contains(new Vector2Int(x, y)))
+                        {
+                            var tile = new Vector2Int(x, y);
+                            floorThemeByTile[tile] = zone.theme;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private TileBase Tile2ThemeSetter(FloorTheme theme)
+    {
+        switch (theme)
+        {
+            case FloorTheme.Stone:
+                return stoneTile;
+            case FloorTheme.Wood:
+                return woodTile;
+            case FloorTheme.Metal:
+                return metalTile;
+            case FloorTheme.Dirt:
+                return dirtTile;
+            case FloorTheme.Carpet:
+                return carpetTile;
+            case FloorTheme.Demonic:
+                return demonicTile;
+            default: return floorTile;
+        }
     }
 }

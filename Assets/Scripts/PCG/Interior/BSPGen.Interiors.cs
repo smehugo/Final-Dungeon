@@ -35,7 +35,7 @@ public partial class BSPGen
             foreach (var leaf in leaves)
             {
                 ZoneType type = (ZoneType)Random.Range(0, 3);
-                room.zones.Add(new RoomZone { bounds = leaf, type = type });
+                room.zones.Add(new RoomZone { bounds = leaf, type = type, theme = SetFloorTheme(room, type) });
             }
 
             foreach (var wall in room.interiorWalls)
@@ -55,7 +55,7 @@ public partial class BSPGen
             //fallback to empty
             room.zones.Clear();
             room.interiorWalls.Clear();
-            room.zones.Add(new RoomZone { bounds = interior, type = ZoneType.Empty });
+            room.zones.Add(new RoomZone { bounds = interior, type = ZoneType.Empty, theme = SetFloorTheme(room, ZoneType.Empty) });
         }
     }
 
@@ -67,7 +67,7 @@ public partial class BSPGen
 
     private void SplitInterior(RectInt rect, int depth, int maxDepth, List<RectInt> leaves)
     {
-        const int minZone = 8;
+        int minZone = minZoneSize;
 
         bool canSplitH = rect.height >= minZone * 2;
         bool canSplitV = rect.width >= minZone * 2;
@@ -141,6 +141,26 @@ public partial class BSPGen
                 }
 
             }
+        }
+    }
+
+    private FloorTheme SetFloorTheme(DungeonRoom room, ZoneType type)
+    {
+        if (room.isStartRoom)
+            return FloorTheme.Stone;
+        if (room.isFinalRoom)
+            return FloorTheme.Demonic;
+
+        switch (type)
+        {
+            case ZoneType.Empty:
+                return FloorTheme.Default;
+            case ZoneType.Enemy:
+                return FloorTheme.Dirt;
+            case ZoneType.Treasure:
+                return FloorTheme.Carpet;
+            default:
+                return FloorTheme.Default;
         }
     }
 }

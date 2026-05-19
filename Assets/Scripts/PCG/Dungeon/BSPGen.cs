@@ -17,7 +17,16 @@ public partial class BSPGen : MonoBehaviour
     [SerializeField] private TileBase wallTile;
     [SerializeField] private TileBase corridorTile;
 
+    [Header("Floor Theme Tiles")]
+    [SerializeField] private TileBase stoneTile;
+    [SerializeField] private TileBase woodTile;
+    [SerializeField] private TileBase metalTile;
+    [SerializeField] private TileBase dirtTile;
+    [SerializeField] private TileBase carpetTile;
+    [SerializeField] private TileBase demonicTile;
+
     private HashSet<Vector2Int> finalFloorTiles = new HashSet<Vector2Int>();
+    private HashSet<Vector2Int> finalCorridorTiles = new();
     private HashSet<Vector2Int> finalWallTiles = new HashSet<Vector2Int>();
     private HashSet<Vector2Int> blockedTiles = new HashSet<Vector2Int>();
 
@@ -49,6 +58,7 @@ public partial class BSPGen : MonoBehaviour
     private List<DungeonRoom> dungeonRooms = new List<DungeonRoom>();
 
     private Dictionary<Vector2Int, int> tileToRoom = new Dictionary<Vector2Int, int>();
+    private Dictionary<Vector2Int, FloorTheme> floorThemeByTile = new();
     // private HashSet<Vector2Int> debugLastFlood = new HashSet<Vector2Int>();
 
     [ContextMenu("Generate Dungeon")]
@@ -62,7 +72,7 @@ public partial class BSPGen : MonoBehaviour
         //collect the final rects
         List<BSPNode> leaves = new List<BSPNode>();
         GetLeaves(rootNode, leaves);
-        Debug.Log($"leaves: {leaves.Count}");
+        // Debug.Log($"leaves: {leaves.Count}");
         MakeRooms(leaves);
 
         roomTiles.Clear();

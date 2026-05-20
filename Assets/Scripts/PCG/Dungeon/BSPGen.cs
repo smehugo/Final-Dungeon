@@ -45,6 +45,9 @@ public partial class BSPGen : MonoBehaviour
     [SerializeField] private float wallExtraHoleGamba = 0.05f;
     [SerializeField] private int artifactZones = 5;
 
+    [Header("Map Data")]
+    [SerializeField] private DungeonContentPlacer contentPlacer;
+
     private int MinLeafSize => minRoomSize + 2 * roomPadding;
     private int currentLeafCount;
 
@@ -101,5 +104,11 @@ public partial class BSPGen : MonoBehaviour
         BuildReservedTiles();
         BuildRoomInteriors();
         BuildAllTM();
+
+        var mapData = new DungeonMapData(dungeonRooms, finalFloorTiles, blockedTiles);
+        if (contentPlacer != null)
+        {
+            contentPlacer.PlaceContent(mapData);
+        }
     }
 }

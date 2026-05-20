@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65fa23de45becf25382816f35976b034, type: 3}
-  m_Name: Spawn_test
+  m_Name: Candle
   m_EditorClassIdentifier: Assembly-CSharp::SpawnDefinition
-  prefab: {fileID: 0}
+  prefab: {fileID: 4447810809411658742, guid: 49a5a734dbb900e3fbadd8741d09e670, type: 3}
   requiredTag: 0
-  avoidStartRoom: 1
+  avoidStartRoom: 0
   avoidFinalRoom: 0
-  minDistanceFromDoors: 2
-  minPerRoom: 0
-  maxPerRoom: 2
+  minDistanceFromDoors: 1
+  minPerRoom: 5
+  maxPerRoom: 15
   roomChance: 1
-  blocksMovement: 1
+  blocksMovement: 0

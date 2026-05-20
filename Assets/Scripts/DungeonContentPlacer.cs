@@ -10,6 +10,7 @@ public class DungeonContentPlacer : MonoBehaviour
     public void PlaceContent(DungeonMapData mapData)
     {
         ClearPrefabs();
+        var placedPositions = new List<Vector2Int>();
 
         foreach (var def in spawnDefs)
         {
@@ -25,8 +26,9 @@ public class DungeonContentPlacer : MonoBehaviour
                 int range = Random.Range(def.minPerRoom, def.maxPerRoom + 1);
                 for (int i = 0; i < range; i++)
                 {
-                    if (GetFreeTile(room, def, mapData, out Vector2Int tile))
+                    if (GetFreeTile(room, def, mapData, placedPositions, out Vector2Int tile))
                         SpawnObj(def, tile, mapData);
+                    placedPositions.Add(tile);
                 }
             }
         }
@@ -36,13 +38,16 @@ public class DungeonContentPlacer : MonoBehaviour
     {
         foreach (var obj in spawnedObj)
         {
+#if UNITY_EDITOR
             DestroyImmediate(obj);
+#else
             Destroy(obj);
+#endif
         }
         spawnedObj.Clear();
     }
 
-    private bool GetFreeTile(DungeonRoom room, SpawnDefinition def, DungeonMapData mapData, out Vector2Int result)
+    private bool GetFreeTile(DungeonRoom room, SpawnDefinition def, DungeonMapData mapData, List<Vector2Int> placedPositions, out Vector2Int result)
     {
         var avaliables = new List<Vector2Int>();
 
@@ -55,7 +60,7 @@ public class DungeonContentPlacer : MonoBehaviour
                 for (int y = zone.bounds.yMin; y < zone.bounds.yMax; y++)
                 {
                     var cell = new Vector2Int(x, y);
-                    if (!IsValidSpawnCell(cell, room, def, mapData)) continue;
+                    if (!IsValidSpawnCell(cell, room, def, mapData, placedPositions)) continue;
                     avaliables.Add(cell);
                 }
             }
@@ -77,12 +82,18 @@ public class DungeonContentPlacer : MonoBehaviour
             mapData.Occupy(tile);
     }
 
-    private bool IsValidSpawnCell(Vector2Int cell, DungeonRoom room, SpawnDefinition def, DungeonMapData mapData)
+    private bool IsValidSpawnCell(Vector2Int cell, DungeonRoom room, SpawnDefinition def, DungeonMapData mapData, List<Vector2Int> placedPositions)
     {
         // better do now then later for validation
         if (!mapData.IsFree(cell)) return false;
         if (room.reservedTiles.Contains(cell)) return false;
         if (DistToDoor(room, cell) < def.minDistanceFromDoors) return false;
+        foreach (var placed in placedPositions)
+        {
+            int dist = Mathf.Abs(cell.x - placed.x) + Mathf.Abs(cell.y - placed.y);
+            if (dist < def.minSpacingFromSelf)
+                return false;
+        }
         return true;
     }
 

@@ -15,6 +15,6 @@ public class SpawnDefinition : ScriptableObject
     public int maxPerRoom = 2;
     [Range(0f, 1f)] public float roomChance = 1f;
     public bool blocksMovement = true;
-
+    public int minSpacingFromSelf = 0;
 
 }

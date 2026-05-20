@@ -17,7 +17,8 @@ MonoBehaviour:
   avoidStartRoom: 0
   avoidFinalRoom: 0
   minDistanceFromDoors: 1
-  minPerRoom: 5
-  maxPerRoom: 15
+  minPerRoom: 50
+  maxPerRoom: 50
   roomChance: 1
   blocksMovement: 0
+  minSpacingFromSelf: 10

@@ -9,6 +9,7 @@ public partial class BSPGen
         {
             BuildRoomInterior(room);
         }
+        AssignZoneTypes();
     }
 
     private void BuildRoomInterior(DungeonRoom room)
@@ -34,8 +35,7 @@ public partial class BSPGen
 
             foreach (var leaf in leaves)
             {
-                ZoneType type = (ZoneType)Random.Range(0, 3);
-                room.zones.Add(new RoomZone { bounds = leaf, type = type, theme = SetFloorTheme(room, type) });
+                room.zones.Add(new RoomZone { bounds = leaf });
             }
 
             foreach (var wall in room.interiorWalls)
@@ -161,8 +161,92 @@ public partial class BSPGen
                 return FloorTheme.Dirt;
             case ZoneType.Treasure:
                 return FloorTheme.Carpet;
+            case ZoneType.Open:
+                return FloorTheme.Default;
+            case ZoneType.Decoration:
+                return FloorTheme.Default;
+            case ZoneType.Artifact:
+                return FloorTheme.Carpet;
             default:
                 return FloorTheme.Default;
+        }
+    }
+
+    private ZoneSpawnTag GetZoneTag(DungeonRoom room, ZoneType type)
+    {
+        if (room.isStartRoom)
+            return ZoneSpawnTag.Light | ZoneSpawnTag.Decoration;
+
+        return type switch
+        {
+            ZoneType.Enemy => ZoneSpawnTag.Enemy | ZoneSpawnTag.Light | ZoneSpawnTag.Decoration,
+            ZoneType.Treasure => ZoneSpawnTag.Loot | ZoneSpawnTag.Light | ZoneSpawnTag.Decoration,
+            ZoneType.Decoration => ZoneSpawnTag.Decoration | ZoneSpawnTag.Obstacle | ZoneSpawnTag.Light,
+            ZoneType.Artifact => ZoneSpawnTag.Artifact | ZoneSpawnTag.Light | ZoneSpawnTag.Decoration,
+            ZoneType.Open => ZoneSpawnTag.Light,
+            _ => ZoneSpawnTag.Light,
+        };
+    }
+
+    private void AssignZoneTypes()
+    {
+        // https://www.geeksforgeeks.org/c-sharp/c-sharp-tuple-class/
+        var privilegedZones = new List<(DungeonRoom room, RoomZone zone)>();
+        var normalZones = new List<(DungeonRoom room, RoomZone zone)>();
+
+        // privileged zones remove
+        foreach (var room in dungeonRooms)
+        {
+            foreach (var zone in room.zones)
+            {
+                if (room.isStartRoom || room.isFinalRoom)
+                {
+                    privilegedZones.Add((room, zone));
+                }
+                else
+                {
+                    normalZones.Add((room, zone));
+                }
+            }
+        }
+
+        foreach (var (room, zone) in privilegedZones)
+        {
+            zone.type = ZoneType.Open;
+            zone.theme = SetFloorTheme(room, zone.type);
+            zone.allowedTags = GetZoneTag(room, zone.type);
+        }
+
+        // shuffle normals https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
+        for (int i = normalZones.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (normalZones[i], normalZones[j]) = (normalZones[j], normalZones[i]);
+        }
+
+        var budget = new List<ZoneType>();
+
+        for (int i = 0; i < artifactZones; i++)
+            budget.Add(ZoneType.Artifact);
+
+        // fill the rest
+        int remaining = normalZones.Count - artifactZones;
+        for (int i = 0; i < remaining; i++)
+        {
+            int gamba = Random.Range(0, 10);
+            if (gamba < 4) budget.Add(ZoneType.Enemy);
+            else if (gamba < 6) budget.Add(ZoneType.Treasure);
+            else if (gamba < 8) budget.Add(ZoneType.Decoration);
+            else budget.Add(ZoneType.Open);
+        }
+
+        // normal zones
+        for (int i = 0; i < normalZones.Count; i++)
+        {
+            var (room, zone) = normalZones[i];
+            zone.type = budget[i];
+            zone.theme = SetFloorTheme(room, zone.type);
+            zone.allowedTags = GetZoneTag(room, zone.type);
         }
     }
 }

@@ -1,11 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public enum ZoneType
 {
     Empty,
     Enemy,
     Treasure,
+    Open,
+    Decoration,
+    Artifact,
 }
 
 public enum FloorTheme
@@ -17,6 +21,19 @@ public enum FloorTheme
     Dirt,
     Carpet,
     Demonic,
+}
+
+[Flags]
+public enum ZoneSpawnTag
+{
+    // use bits to flag tags
+    None = 0,
+    Enemy = 1 << 0,
+    Loot = 1 << 1,
+    Light = 1 << 2,
+    Decoration = 1 << 3,
+    Obstacle = 1 << 4,
+    Artifact = 1 << 5,
 }
 
 public class DungeonRoom
@@ -45,6 +62,8 @@ public class RoomZone
     public RectInt bounds;
     public ZoneType type;
     public FloorTheme theme;
+
+    public ZoneSpawnTag allowedTags;
 }
 
 public class InteriorWall

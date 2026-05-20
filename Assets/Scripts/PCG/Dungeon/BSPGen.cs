@@ -43,6 +43,7 @@ public partial class BSPGen : MonoBehaviour
     [SerializeField] private int wallOpeningMin = 3;
     [SerializeField] private float wallOpeningMax = 0.3f;
     [SerializeField] private float wallExtraHoleGamba = 0.05f;
+    [SerializeField] private int artifactZones = 5;
 
     private int MinLeafSize => minRoomSize + 2 * roomPadding;
     private int currentLeafCount;

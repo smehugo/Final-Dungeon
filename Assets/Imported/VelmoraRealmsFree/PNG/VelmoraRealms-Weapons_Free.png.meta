@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: b74abd271a67435248a0c52581ad01d7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6989301740544315512
+    second: VelmoraRealms-Weapons_Free_0
+  - first:
+      213: -4461848229423863425
+    second: VelmoraRealms-Weapons_Free_1
+  - first:
+      213: -3199470268452943034
+    second: VelmoraRealms-Weapons_Free_2
+  - first:
+      213: 5427624771221759313
+    second: VelmoraRealms-Weapons_Free_3
+  - first:
+      213: 3784693561502579077
+    second: VelmoraRealms-Weapons_Free_4
+  - first:
+      213: 2489472301843107369
+    second: VelmoraRealms-Weapons_Free_5
+  - first:
+      213: -2037422288132552277
+    second: VelmoraRealms-Weapons_Free_6
+  - first:
+      213: 722196881904443671
+    second: VelmoraRealms-Weapons_Free_7
+  - first:
+      213: 6438774673965124211
+    second: VelmoraRealms-Weapons_Free_8
+  - first:
+      213: 8535800365104207915
+    second: VelmoraRealms-Weapons_Free_9
+  - first:
+      213: -4094205450939763798
+    second: VelmoraRealms-Weapons_Free_10
+  - first:
+      213: -5422827306534978575
+    second: VelmoraRealms-Weapons_Free_11
+  - first:
+      213: 2890005261393765439
+    second: VelmoraRealms-Weapons_Free_12
+  - first:
+      213: 5656807646445236136
+    second: VelmoraRealms-Weapons_Free_13
+  - first:
+      213: -7885889865783763707
+    second: VelmoraRealms-Weapons_Free_14
+  - first:
+      213: 4317977816156755576
+    second: VelmoraRealms-Weapons_Free_15
+  - first:
+      213: -7736293623593567458
+    second: VelmoraRealms-Weapons_Free_16
+  - first:
+      213: 431562129946660119
+    second: VelmoraRealms-Weapons_Free_17
+  - first:
+      213: 6901674305214826672
+    second: VelmoraRealms-Weapons_Free_18
+  - first:
+      213: -6248656983362790311
+    second: VelmoraRealms-Weapons_Free_19
+  - first:
+      213: -3283441179861642850
+    second: VelmoraRealms-Weapons_Free_20
+  - first:
+      213: -6877023112241972587
+    second: VelmoraRealms-Weapons_Free_21
+  - first:
+      213: -7661801349707036429
+    second: VelmoraRealms-Weapons_Free_22
+  - first:
+      213: 2199130743350148348
+    second: VelmoraRealms-Weapons_Free_23
+  - first:
+      213: 5961966798988710725
+    second: VelmoraRealms-Weapons_Free_24
+  - first:
+      213: 8830292354962130139
+    second: VelmoraRealms-Weapons_Free_25
+  - first:
+      213: 212604498483568134
+    second: VelmoraRealms-Weapons_Free_26
+  - first:
+      213: 6627943673653811984
+    second: VelmoraRealms-Weapons_Free_27
+  - first:
+      213: -1001248672654264114
+    second: VelmoraRealms-Weapons_Free_28
+  - first:
+      213: -4396574199035939674
+    second: VelmoraRealms-Weapons_Free_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 79
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88f26de0913010f90800000000000000
+      internalID: -6989301740544315512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 79
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f792c7bdca45412c0800000000000000
+      internalID: -4461848229423863425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_2
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 79
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64b407b0eb23993d0800000000000000
+      internalID: -3199470268452943034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_3
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 79
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 155a8cef8fbc25b40800000000000000
+      internalID: 5427624771221759313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_4
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 79
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 589b115fdbee58430800000000000000
+      internalID: 3784693561502579077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_5
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 79
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e48856ed16c8220800000000000000
+      internalID: 2489472301843107369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_6
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 79
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba94562493f99b3e0800000000000000
+      internalID: -2037422288132552277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_7
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 79
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7112fcbdc32c50a00800000000000000
+      internalID: 722196881904443671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_8
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 79
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37a097ea37f1b5950800000000000000
+      internalID: 6438774673965124211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_9
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 79
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b289fab1531457670800000000000000
+      internalID: 8535800365104207915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_10
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 47
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa3744b95d57e27c0800000000000000
+      internalID: -4094205450939763798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_11
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 47
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fbb1bbcb4f3eb4b0800000000000000
+      internalID: -5422827306534978575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_12
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 47
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f34a26c297c5b1820800000000000000
+      internalID: 2890005261393765439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_13
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 47
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8afe4195594018e40800000000000000
+      internalID: 5656807646445236136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_14
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 47
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50d1b14c2f0bf8290800000000000000
+      internalID: -7885889865783763707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_15
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 47
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8765a0832f98ceb30800000000000000
+      internalID: 4317977816156755576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_16
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 47
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1bf59f10f923a490800000000000000
+      internalID: -7736293623593567458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_17
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 47
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71d4bfd78773df500800000000000000
+      internalID: 431562129946660119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_18
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 47
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b845c5c63ca7cf50800000000000000
+      internalID: 6901674305214826672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_19
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 46
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95c9567949f4849a0800000000000000
+      internalID: -6248656983362790311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_20
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e911571b4afde62d0800000000000000
+      internalID: -3283441179861642850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_21
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 15
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59a7aaa5ae7ef80a0800000000000000
+      internalID: -6877023112241972587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_22
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 15
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f88a133440dba590800000000000000
+      internalID: -7661801349707036429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_23
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 15
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfcb60472c1e48e10800000000000000
+      internalID: 2199130743350148348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_24
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 15
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 543156047392db250800000000000000
+      internalID: 5961966798988710725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_25
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 15
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd48d58ac108b8a70800000000000000
+      internalID: 8830292354962130139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_26
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 15
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60e53c93aa253f200800000000000000
+      internalID: 212604498483568134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_27
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 15
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01bde63a7af2bfb50800000000000000
+      internalID: 6627943673653811984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_28
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 15
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec87c9613a9da12f0800000000000000
+      internalID: -1001248672654264114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Weapons_Free_29
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 15
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a4b0dd5f0b3cf2c0800000000000000
+      internalID: -4396574199035939674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VelmoraRealms-Weapons_Free_0: -6989301740544315512
+      VelmoraRealms-Weapons_Free_1: -4461848229423863425
+      VelmoraRealms-Weapons_Free_10: -4094205450939763798
+      VelmoraRealms-Weapons_Free_11: -5422827306534978575
+      VelmoraRealms-Weapons_Free_12: 2890005261393765439
+      VelmoraRealms-Weapons_Free_13: 5656807646445236136
+      VelmoraRealms-Weapons_Free_14: -7885889865783763707
+      VelmoraRealms-Weapons_Free_15: 4317977816156755576
+      VelmoraRealms-Weapons_Free_16: -7736293623593567458
+      VelmoraRealms-Weapons_Free_17: 431562129946660119
+      VelmoraRealms-Weapons_Free_18: 6901674305214826672
+      VelmoraRealms-Weapons_Free_19: -6248656983362790311
+      VelmoraRealms-Weapons_Free_2: -3199470268452943034
+      VelmoraRealms-Weapons_Free_20: -3283441179861642850
+      VelmoraRealms-Weapons_Free_21: -6877023112241972587
+      VelmoraRealms-Weapons_Free_22: -7661801349707036429
+      VelmoraRealms-Weapons_Free_23: 2199130743350148348
+      VelmoraRealms-Weapons_Free_24: 5961966798988710725
+      VelmoraRealms-Weapons_Free_25: 8830292354962130139
+      VelmoraRealms-Weapons_Free_26: 212604498483568134
+      VelmoraRealms-Weapons_Free_27: 6627943673653811984
+      VelmoraRealms-Weapons_Free_28: -1001248672654264114
+      VelmoraRealms-Weapons_Free_29: -4396574199035939674
+      VelmoraRealms-Weapons_Free_3: 5427624771221759313
+      VelmoraRealms-Weapons_Free_4: 3784693561502579077
+      VelmoraRealms-Weapons_Free_5: 2489472301843107369
+      VelmoraRealms-Weapons_Free_6: -2037422288132552277
+      VelmoraRealms-Weapons_Free_7: 722196881904443671
+      VelmoraRealms-Weapons_Free_8: 6438774673965124211
+      VelmoraRealms-Weapons_Free_9: 8535800365104207915
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: 56b8a3cfab5f0ad15b4a1be1049162f4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7121549177679093677
+    second: VelmoraRealms-Environments_Free_0
+  - first:
+      213: -5132245258912327722
+    second: VelmoraRealms-Environments_Free_1
+  - first:
+      213: 2761016867344539890
+    second: VelmoraRealms-Environments_Free_2
+  - first:
+      213: 7887980405074040227
+    second: VelmoraRealms-Environments_Free_3
+  - first:
+      213: 7933567435145150314
+    second: VelmoraRealms-Environments_Free_4
+  - first:
+      213: 5697772581460730247
+    second: VelmoraRealms-Environments_Free_5
+  - first:
+      213: -7329412469772115513
+    second: VelmoraRealms-Environments_Free_6
+  - first:
+      213: 5967739943947902967
+    second: VelmoraRealms-Environments_Free_7
+  - first:
+      213: 8070952369905944115
+    second: VelmoraRealms-Environments_Free_8
+  - first:
+      213: 6572494439207864462
+    second: VelmoraRealms-Environments_Free_9
+  - first:
+      213: -1047807439669534000
+    second: VelmoraRealms-Environments_Free_10
+  - first:
+      213: -3523971887127292889
+    second: VelmoraRealms-Environments_Free_11
+  - first:
+      213: 4149596509370231865
+    second: VelmoraRealms-Environments_Free_12
+  - first:
+      213: -1876916115428034245
+    second: VelmoraRealms-Environments_Free_13
+  - first:
+      213: -543692875888075194
+    second: VelmoraRealms-Environments_Free_14
+  - first:
+      213: 1400992320908423607
+    second: VelmoraRealms-Environments_Free_15
+  - first:
+      213: -172051388109218740
+    second: VelmoraRealms-Environments_Free_16
+  - first:
+      213: 5850837522395206474
+    second: VelmoraRealms-Environments_Free_17
+  - first:
+      213: -6060214816234635868
+    second: VelmoraRealms-Environments_Free_18
+  - first:
+      213: 1176027712610769773
+    second: VelmoraRealms-Environments_Free_19
+  - first:
+      213: -4977748387067414909
+    second: VelmoraRealms-Environments_Free_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 129
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35066f521cc2b2d90800000000000000
+      internalID: -7121549177679093677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 159
+        width: 246
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d7195af02a96c8b0800000000000000
+      internalID: -5132245258912327722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 132
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f0eeec563a115620800000000000000
+      internalID: 2761016867344539890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_3
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 132
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a51ea7d26cb77d60800000000000000
+      internalID: 7887980405074040227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 132
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6ffe656c81b91e60800000000000000
+      internalID: 7933567435145150314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_5
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 132
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7816de889fd821f40800000000000000
+      internalID: 5697772581460730247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_6
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 63
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c12aee0132b84a90800000000000000
+      internalID: -7329412469772115513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_7
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 31
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ff9cee4cdba1d250800000000000000
+      internalID: 5967739943947902967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_8
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 63
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 336475f2b68c10070800000000000000
+      internalID: 8070952369905944115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_9
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 31
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e880731bed0363b50800000000000000
+      internalID: 6572494439207864462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_10
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 63
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d26c756fa07571f0800000000000000
+      internalID: -1047807439669534000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_11
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 31
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 724905d4d36581fc0800000000000000
+      internalID: -3523971887127292889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_12
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 63
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93ca63e2a04569930800000000000000
+      internalID: 4149596509370231865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_13
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 31
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b39b4b2ccbad3f5e0800000000000000
+      internalID: -1876916115428034245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_14
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 63
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64ed7c1c53a6478f0800000000000000
+      internalID: -543692875888075194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_15
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 31
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b1fbc4d713517310800000000000000
+      internalID: 1400992320908423607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_16
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 0
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c13a09c20cc9df0800000000000000
+      internalID: -172051388109218740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_17
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 0
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4394e04ab9523150800000000000000
+      internalID: 5850837522395206474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_18
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 0
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ad76c7abbac5eba0800000000000000
+      internalID: -6060214816234635868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_19
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 0
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6b1e2849f6125010800000000000000
+      internalID: 1176027712610769773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-Environments_Free_20
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 0
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 386b297173c7beab0800000000000000
+      internalID: -4977748387067414909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VelmoraRealms-Environments_Free_0: -7121549177679093677
+      VelmoraRealms-Environments_Free_1: -5132245258912327722
+      VelmoraRealms-Environments_Free_10: -1047807439669534000
+      VelmoraRealms-Environments_Free_11: -3523971887127292889
+      VelmoraRealms-Environments_Free_12: 4149596509370231865
+      VelmoraRealms-Environments_Free_13: -1876916115428034245
+      VelmoraRealms-Environments_Free_14: -543692875888075194
+      VelmoraRealms-Environments_Free_15: 1400992320908423607
+      VelmoraRealms-Environments_Free_16: -172051388109218740
+      VelmoraRealms-Environments_Free_17: 5850837522395206474
+      VelmoraRealms-Environments_Free_18: -6060214816234635868
+      VelmoraRealms-Environments_Free_19: 1176027712610769773
+      VelmoraRealms-Environments_Free_2: 2761016867344539890
+      VelmoraRealms-Environments_Free_20: -4977748387067414909
+      VelmoraRealms-Environments_Free_3: 7887980405074040227
+      VelmoraRealms-Environments_Free_4: 7933567435145150314
+      VelmoraRealms-Environments_Free_5: 5697772581460730247
+      VelmoraRealms-Environments_Free_6: -7329412469772115513
+      VelmoraRealms-Environments_Free_7: 5967739943947902967
+      VelmoraRealms-Environments_Free_8: 8070952369905944115
+      VelmoraRealms-Environments_Free_9: 6572494439207864462
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

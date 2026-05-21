@@ -1,0 +1,1664 @@
+fileFormatVersion: 2
+guid: 262df676016f87d7687697ee05f8ae19
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1482604177883024067
+    second: VelmoraRealms-GreenSlime-Animation_0
+  - first:
+      213: -6583229520128404444
+    second: VelmoraRealms-GreenSlime-Animation_1
+  - first:
+      213: -5670615778895586045
+    second: VelmoraRealms-GreenSlime-Animation_2
+  - first:
+      213: 5630229739482590161
+    second: VelmoraRealms-GreenSlime-Animation_3
+  - first:
+      213: -7589846014394765951
+    second: VelmoraRealms-GreenSlime-Animation_4
+  - first:
+      213: -2833441999914101231
+    second: VelmoraRealms-GreenSlime-Animation_5
+  - first:
+      213: 9002485736894585558
+    second: VelmoraRealms-GreenSlime-Animation_6
+  - first:
+      213: 3275464327331713107
+    second: VelmoraRealms-GreenSlime-Animation_7
+  - first:
+      213: -7746325394113427805
+    second: VelmoraRealms-GreenSlime-Animation_8
+  - first:
+      213: 313284752894509583
+    second: VelmoraRealms-GreenSlime-Animation_9
+  - first:
+      213: 2871303223599794477
+    second: VelmoraRealms-GreenSlime-Animation_10
+  - first:
+      213: 4279488750435068302
+    second: VelmoraRealms-GreenSlime-Animation_11
+  - first:
+      213: -453037107996599119
+    second: VelmoraRealms-GreenSlime-Animation_12
+  - first:
+      213: -2401753401616813541
+    second: VelmoraRealms-GreenSlime-Animation_13
+  - first:
+      213: 5287084129413418051
+    second: VelmoraRealms-GreenSlime-Animation_14
+  - first:
+      213: 2882835369144748041
+    second: VelmoraRealms-GreenSlime-Animation_15
+  - first:
+      213: 8388361825674016283
+    second: VelmoraRealms-GreenSlime-Animation_16
+  - first:
+      213: 3812691324840392305
+    second: VelmoraRealms-GreenSlime-Animation_17
+  - first:
+      213: 2297409164965585303
+    second: VelmoraRealms-GreenSlime-Animation_18
+  - first:
+      213: -4535066398110939184
+    second: VelmoraRealms-GreenSlime-Animation_19
+  - first:
+      213: -6074044611535459098
+    second: VelmoraRealms-GreenSlime-Animation_20
+  - first:
+      213: -6944765955918180278
+    second: VelmoraRealms-GreenSlime-Animation_21
+  - first:
+      213: 1133496676419095153
+    second: VelmoraRealms-GreenSlime-Animation_22
+  - first:
+      213: -5105463503618435479
+    second: VelmoraRealms-GreenSlime-Animation_23
+  - first:
+      213: -8396654537254921339
+    second: VelmoraRealms-GreenSlime-Animation_24
+  - first:
+      213: -7954724994634041284
+    second: VelmoraRealms-GreenSlime-Animation_25
+  - first:
+      213: 4260094655163479196
+    second: VelmoraRealms-GreenSlime-Animation_26
+  - first:
+      213: 7832134493375089383
+    second: VelmoraRealms-GreenSlime-Animation_27
+  - first:
+      213: -854336021932753642
+    second: VelmoraRealms-GreenSlime-Animation_28
+  - first:
+      213: -3210115439459778899
+    second: VelmoraRealms-GreenSlime-Animation_29
+  - first:
+      213: 1633437013898147171
+    second: VelmoraRealms-GreenSlime-Animation_30
+  - first:
+      213: 7362643393219625463
+    second: VelmoraRealms-GreenSlime-Animation_31
+  - first:
+      213: 5987779287361170307
+    second: VelmoraRealms-GreenSlime-Animation_32
+  - first:
+      213: 622269646035700039
+    second: VelmoraRealms-GreenSlime-Animation_33
+  - first:
+      213: 8741951483953980573
+    second: VelmoraRealms-GreenSlime-Animation_34
+  - first:
+      213: 3300904436972749892
+    second: VelmoraRealms-GreenSlime-Animation_35
+  - first:
+      213: 5103466315018476039
+    second: VelmoraRealms-GreenSlime-Animation_36
+  - first:
+      213: -5279263363574087318
+    second: VelmoraRealms-GreenSlime-Animation_37
+  - first:
+      213: -3377438309546163931
+    second: VelmoraRealms-GreenSlime-Animation_38
+  - first:
+      213: 7320221068167337482
+    second: VelmoraRealms-GreenSlime-Animation_39
+  - first:
+      213: -4077792157512087199
+    second: VelmoraRealms-GreenSlime-Animation_40
+  - first:
+      213: 5241893690977192735
+    second: VelmoraRealms-GreenSlime-Animation_41
+  - first:
+      213: 5201038398730565532
+    second: VelmoraRealms-GreenSlime-Animation_42
+  - first:
+      213: 4534292597525796579
+    second: VelmoraRealms-GreenSlime-Animation_43
+  - first:
+      213: -3255190816120299341
+    second: VelmoraRealms-GreenSlime-Animation_44
+  - first:
+      213: -4152022080389587950
+    second: VelmoraRealms-GreenSlime-Animation_45
+  - first:
+      213: -8021570818619534767
+    second: VelmoraRealms-GreenSlime-Animation_46
+  - first:
+      213: 3931716519835544889
+    second: VelmoraRealms-GreenSlime-Animation_47
+  - first:
+      213: -7696392059185058418
+    second: VelmoraRealms-GreenSlime-Animation_48
+  - first:
+      213: -2337185807133911269
+    second: VelmoraRealms-GreenSlime-Animation_49
+  - first:
+      213: -7175416460327642856
+    second: VelmoraRealms-GreenSlime-Animation_50
+  - first:
+      213: -4697958156964863685
+    second: VelmoraRealms-GreenSlime-Animation_51
+  - first:
+      213: -3769085386637757262
+    second: VelmoraRealms-GreenSlime-Animation_52
+  - first:
+      213: 4234297367936652457
+    second: VelmoraRealms-GreenSlime-Animation_53
+  - first:
+      213: 3876883873178902267
+    second: VelmoraRealms-GreenSlime-Animation_54
+  - first:
+      213: -1828484720848084976
+    second: VelmoraRealms-GreenSlime-Animation_55
+  - first:
+      213: -3393958018132785248
+    second: VelmoraRealms-GreenSlime-Animation_56
+  - first:
+      213: -4318992788006365220
+    second: VelmoraRealms-GreenSlime-Animation_57
+  - first:
+      213: -9048075672206444886
+    second: VelmoraRealms-GreenSlime-Animation_58
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 297
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d35b5cafa5bbc6be0800000000000000
+      internalID: -1482604177883024067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 297
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42491e181aba3a4a0800000000000000
+      internalID: -6583229520128404444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 297
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d14394efced41b0800000000000000
+      internalID: -5670615778895586045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_3
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 297
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1db23b92e18922e40800000000000000
+      internalID: 5630229739482590161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_4
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 297
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18de51c33437ba690800000000000000
+      internalID: -7589846014394765951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_5
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 297
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 116927763879da8d0800000000000000
+      internalID: -2833441999914101231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_6
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 297
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6da5f1b94114fec70800000000000000
+      internalID: 9002485736894585558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_7
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 297
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35012199379c47d20800000000000000
+      internalID: 3275464327331713107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 265
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a6084988168f7490800000000000000
+      internalID: -7746325394113427805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_9
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 265
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f02c2d9a2d2095400800000000000000
+      internalID: 313284752894509583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_10
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 265
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d29891da11be8d720800000000000000
+      internalID: 2871303223599794477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_11
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 265
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8966f5485cc36b30800000000000000
+      internalID: 4279488750435068302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_12
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 265
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bcdacb862d76b9f0800000000000000
+      internalID: -453037107996599119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_13
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 265
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b123b8a91024baed0800000000000000
+      internalID: -2401753401616813541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_14
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 233
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34cca47e00f7f5940800000000000000
+      internalID: 5287084129413418051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_15
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 233
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9080ecb8e73e10820800000000000000
+      internalID: 2882835369144748041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_16
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 233
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b163fb213a2796470800000000000000
+      internalID: 8388361825674016283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_17
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 233
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17633573f8669e430800000000000000
+      internalID: 3812691324840392305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_18
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 233
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 791208d967902ef10800000000000000
+      internalID: 2297409164965585303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_19
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 233
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d789c383253011c0800000000000000
+      internalID: -4535066398110939184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_20
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 201
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ecad838b98a4bba0800000000000000
+      internalID: -6074044611535459098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_21
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 201
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a405545782c3f9f90800000000000000
+      internalID: -6944765955918180278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_22
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 201
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17acb00c83dfabf00800000000000000
+      internalID: 1133496676419095153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_23
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 201
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9661a1d4effb529b0800000000000000
+      internalID: -5105463503618435479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_24
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 201
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58b9f3d8f27197b80800000000000000
+      internalID: -8396654537254921339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_25
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 202
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38bae863c32b9190800000000000000
+      internalID: -7954724994634041284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_26
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 169
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c943f869485ee1b30800000000000000
+      internalID: 4260094655163479196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_27
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 169
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eac4b643d451bc60800000000000000
+      internalID: 7832134493375089383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_28
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 169
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61db0ed1ae9c424f0800000000000000
+      internalID: -854336021932753642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_29
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 169
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daeb00704016373d0800000000000000
+      internalID: -3210115439459778899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_30
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 169
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 365bf505f422ba610800000000000000
+      internalID: 1633437013898147171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_31
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 169
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f18bbc382d5d2660800000000000000
+      internalID: 7362643393219625463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_32
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 137
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38baa98898dd81350800000000000000
+      internalID: 5987779287361170307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_33
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 137
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 749477632feb2a800800000000000000
+      internalID: 622269646035700039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_34
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 138
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d94a6ccce86a15970800000000000000
+      internalID: 8741951483953980573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_35
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 137
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4448543b81b2fcd20800000000000000
+      internalID: 3300904436972749892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_36
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 137
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70a19ddf29723d640800000000000000
+      internalID: 5103466315018476039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_37
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 105
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a61ce6a01f94cb6b0800000000000000
+      internalID: -5279263363574087318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_38
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 105
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52184bc70cde021d0800000000000000
+      internalID: -3377438309546163931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_39
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 106
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a06d17df646a69560800000000000000
+      internalID: 7320221068167337482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_40
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 105
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1694e9743a5c867c0800000000000000
+      internalID: -4077792157512087199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_41
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 105
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1b8e090a82feb840800000000000000
+      internalID: 5241893690977192735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_42
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 73
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c97708b0edccd2840800000000000000
+      internalID: 5201038398730565532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_43
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 73
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e6553ff71b0dee30800000000000000
+      internalID: 4534292597525796579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_44
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 74
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b02901133d33d2d0800000000000000
+      internalID: -3255190816120299341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_45
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 73
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21cdcce8aed0166c0800000000000000
+      internalID: -4152022080389587950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_46
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 73
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1521b8f27d7ada090800000000000000
+      internalID: -8021570818619534767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_47
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 41
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93d255af753409630800000000000000
+      internalID: 3931716519835544889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_48
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 41
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8d232c033ce03590800000000000000
+      internalID: -7696392059185058418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_49
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 42
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b17d2bf24e5a09fd0800000000000000
+      internalID: -2337185807133911269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_50
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 42
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8191eae0fbccb6c90800000000000000
+      internalID: -7175416460327642856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_51
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 41
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b31e57472ff7dceb0800000000000000
+      internalID: -4697958156964863685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_52
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 9
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b437517fc481bbc0800000000000000
+      internalID: -3769085386637757262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_53
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 9
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a45c39950f33ca30800000000000000
+      internalID: 4234297367936652457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_54
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 9
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfed44097557dc530800000000000000
+      internalID: 3876883873178902267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_55
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 9
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 010ee9885daef96e0800000000000000
+      internalID: -1828484720848084976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_56
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 8
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a74b9a1a2d36e0d0800000000000000
+      internalID: -3393958018132785248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_57
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 8
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd7186b31fadf04c0800000000000000
+      internalID: -4318992788006365220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VelmoraRealms-GreenSlime-Animation_58
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 8
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa6f7496d17ce6280800000000000000
+      internalID: -9048075672206444886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VelmoraRealms-GreenSlime-Animation_0: -1482604177883024067
+      VelmoraRealms-GreenSlime-Animation_1: -6583229520128404444
+      VelmoraRealms-GreenSlime-Animation_10: 2871303223599794477
+      VelmoraRealms-GreenSlime-Animation_11: 4279488750435068302
+      VelmoraRealms-GreenSlime-Animation_12: -453037107996599119
+      VelmoraRealms-GreenSlime-Animation_13: -2401753401616813541
+      VelmoraRealms-GreenSlime-Animation_14: 5287084129413418051
+      VelmoraRealms-GreenSlime-Animation_15: 2882835369144748041
+      VelmoraRealms-GreenSlime-Animation_16: 8388361825674016283
+      VelmoraRealms-GreenSlime-Animation_17: 3812691324840392305
+      VelmoraRealms-GreenSlime-Animation_18: 2297409164965585303
+      VelmoraRealms-GreenSlime-Animation_19: -4535066398110939184
+      VelmoraRealms-GreenSlime-Animation_2: -5670615778895586045
+      VelmoraRealms-GreenSlime-Animation_20: -6074044611535459098
+      VelmoraRealms-GreenSlime-Animation_21: -6944765955918180278
+      VelmoraRealms-GreenSlime-Animation_22: 1133496676419095153
+      VelmoraRealms-GreenSlime-Animation_23: -5105463503618435479
+      VelmoraRealms-GreenSlime-Animation_24: -8396654537254921339
+      VelmoraRealms-GreenSlime-Animation_25: -7954724994634041284
+      VelmoraRealms-GreenSlime-Animation_26: 4260094655163479196
+      VelmoraRealms-GreenSlime-Animation_27: 7832134493375089383
+      VelmoraRealms-GreenSlime-Animation_28: -854336021932753642
+      VelmoraRealms-GreenSlime-Animation_29: -3210115439459778899
+      VelmoraRealms-GreenSlime-Animation_3: 5630229739482590161
+      VelmoraRealms-GreenSlime-Animation_30: 1633437013898147171
+      VelmoraRealms-GreenSlime-Animation_31: 7362643393219625463
+      VelmoraRealms-GreenSlime-Animation_32: 5987779287361170307
+      VelmoraRealms-GreenSlime-Animation_33: 622269646035700039
+      VelmoraRealms-GreenSlime-Animation_34: 8741951483953980573
+      VelmoraRealms-GreenSlime-Animation_35: 3300904436972749892
+      VelmoraRealms-GreenSlime-Animation_36: 5103466315018476039
+      VelmoraRealms-GreenSlime-Animation_37: -5279263363574087318
+      VelmoraRealms-GreenSlime-Animation_38: -3377438309546163931
+      VelmoraRealms-GreenSlime-Animation_39: 7320221068167337482
+      VelmoraRealms-GreenSlime-Animation_4: -7589846014394765951
+      VelmoraRealms-GreenSlime-Animation_40: -4077792157512087199
+      VelmoraRealms-GreenSlime-Animation_41: 5241893690977192735
+      VelmoraRealms-GreenSlime-Animation_42: 5201038398730565532
+      VelmoraRealms-GreenSlime-Animation_43: 4534292597525796579
+      VelmoraRealms-GreenSlime-Animation_44: -3255190816120299341
+      VelmoraRealms-GreenSlime-Animation_45: -4152022080389587950
+      VelmoraRealms-GreenSlime-Animation_46: -8021570818619534767
+      VelmoraRealms-GreenSlime-Animation_47: 3931716519835544889
+      VelmoraRealms-GreenSlime-Animation_48: -7696392059185058418
+      VelmoraRealms-GreenSlime-Animation_49: -2337185807133911269
+      VelmoraRealms-GreenSlime-Animation_5: -2833441999914101231
+      VelmoraRealms-GreenSlime-Animation_50: -7175416460327642856
+      VelmoraRealms-GreenSlime-Animation_51: -4697958156964863685
+      VelmoraRealms-GreenSlime-Animation_52: -3769085386637757262
+      VelmoraRealms-GreenSlime-Animation_53: 4234297367936652457
+      VelmoraRealms-GreenSlime-Animation_54: 3876883873178902267
+      VelmoraRealms-GreenSlime-Animation_55: -1828484720848084976
+      VelmoraRealms-GreenSlime-Animation_56: -3393958018132785248
+      VelmoraRealms-GreenSlime-Animation_57: -4318992788006365220
+      VelmoraRealms-GreenSlime-Animation_58: -9048075672206444886
+      VelmoraRealms-GreenSlime-Animation_6: 9002485736894585558
+      VelmoraRealms-GreenSlime-Animation_7: 3275464327331713107
+      VelmoraRealms-GreenSlime-Animation_8: -7746325394113427805
+      VelmoraRealms-GreenSlime-Animation_9: 313284752894509583
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

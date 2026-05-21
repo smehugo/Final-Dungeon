@@ -8,15 +8,19 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
+    private PlayerAnimator playerAnimator;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<PlayerAnimator>();
     }
 
     public void OnMove(InputValue val)
     {
         moveInput = val.Get<Vector2>();
         Debug.Log(moveInput);
+        playerAnimator.SetMovement(moveInput);
     }
 
     private void FixedUpdate()

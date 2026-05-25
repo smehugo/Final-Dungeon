@@ -72,6 +72,7 @@ public class BSPGen : MonoBehaviour
     private CorridorBuilder corridorBuilder = new CorridorBuilder();
     private RoomInteriorGen interiorGenerator = new RoomInteriorGen();
     private BuildTilemap tilemapBuilder = new BuildTilemap();
+    private AssignFinStartRooms finStartAssigner = new AssignFinStartRooms();
 
     [ContextMenu("Generate Dungeon")]
 
@@ -109,6 +110,7 @@ public class BSPGen : MonoBehaviour
         graphBuilder.BuildMSTSecondPass(roomCenterPoints, mstEdges, allEdges);
         corridorBuilder.BuildCorridors(mstEdges, dungeonRooms, roomTiles, corridors);
         corridorBuilder.BuildReservedTiles(dungeonRooms);
+        finStartAssigner.AssignSpecialRooms(dungeonRooms, artifactZones);
         interiorGenerator.BuildRoomInteriors(dungeonRooms, minZoneSize, maxZoneSize, interiorDepthStep, interiorMaxDepth, wallOpeningMin, wallOpeningMax, wallExtraHoleGamba, artifactZones);
         tilemapBuilder.BuildAllTM(floorTilemap, wallTilemap, floorTile, wallTile, corridorTile, stoneTile, woodTile, metalTile, dirtTile, carpetTile, demonicTile, roomTiles, corridors, dungeonRooms, finalFloorTiles, finalCorridorTiles, finalWallTiles, blockedTiles, floorThemeByTile);
 

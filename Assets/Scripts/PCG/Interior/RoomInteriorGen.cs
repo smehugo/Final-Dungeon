@@ -18,10 +18,10 @@ public class RoomInteriorGen
     private void BuildRoomInterior(DungeonRoom room, int minZoneSize, int maxZoneSize, int interiorDepthStep, int interiorMaxDepth, int wallOpeningMin, float wallOpeningMax, float wallExtraHoleGamba)
     {
         RectInt interior = new RectInt(
-            room.bounds.xMin + 1,
-            room.bounds.yMin + 1,
-            room.bounds.width - 2,
-            room.bounds.height - 2
+            room.bounds.xMin,
+            room.bounds.yMin,
+            room.bounds.width,
+            room.bounds.height
             );
 
         for (int attempt = 0; attempt < 10; attempt++)
@@ -194,30 +194,47 @@ public class RoomInteriorGen
     private void AssignZoneTypes(List<DungeonRoom> dungeonRooms, int artifactZones)
     {
         // https://www.geeksforgeeks.org/c-sharp/c-sharp-tuple-class/
-        var privilegedZones = new List<(DungeonRoom room, RoomZone zone)>();
         var normalZones = new List<(DungeonRoom room, RoomZone zone)>();
 
         // privileged zones remove
         foreach (var room in dungeonRooms)
         {
-            foreach (var zone in room.zones)
+            if (room.isStartRoom || room.isFinalRoom)
             {
-                if (room.isStartRoom || room.isFinalRoom)
+                foreach (var zone in room.zones)
                 {
-                    privilegedZones.Add((room, zone));
+                    zone.type = ZoneType.Open;
+                    zone.theme = SetFloorTheme(room, zone.type);
+                    zone.allowedTags = GetZoneTag(room, zone.type);
                 }
-                else
+                continue;
+            }
+
+            if (room.hasArtifact && room.zones.Count > 0)
+            {
+                int artifactZoneIndex = Random.Range(0, room.zones.Count);
+
+                for (int i = 0; i < room.zones.Count; i++)
                 {
-                    normalZones.Add((room, zone));
+                    var zone = room.zones[i];
+
+                    if (i == artifactZoneIndex)
+                    {
+                        zone.type = ZoneType.Artifact;
+                        zone.theme = SetFloorTheme(room, zone.type);
+                        zone.allowedTags = GetZoneTag(room, zone.type);
+                    }
+                    else
+                    {
+                        normalZones.Add((room, zone));
+                    }
                 }
             }
-        }
-
-        foreach (var (room, zone) in privilegedZones)
-        {
-            zone.type = ZoneType.Open;
-            zone.theme = SetFloorTheme(room, zone.type);
-            zone.allowedTags = GetZoneTag(room, zone.type);
+            else
+            {
+                foreach (var zone in room.zones)
+                    normalZones.Add((room, zone));
+            }
         }
 
         // shuffle normals https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
@@ -227,27 +244,15 @@ public class RoomInteriorGen
             (normalZones[i], normalZones[j]) = (normalZones[j], normalZones[i]);
         }
 
-        var budget = new List<ZoneType>();
-
-        for (int i = 0; i < artifactZones; i++)
-            budget.Add(ZoneType.Artifact);
-
         // fill the rest
-        int remaining = normalZones.Count - artifactZones;
-        for (int i = 0; i < remaining; i++)
+        foreach (var (room, zone) in normalZones)
         {
             int gamba = Random.Range(0, 10);
-            if (gamba < 4) budget.Add(ZoneType.Enemy);
-            else if (gamba < 6) budget.Add(ZoneType.Treasure);
-            else if (gamba < 8) budget.Add(ZoneType.Decoration);
-            else budget.Add(ZoneType.Open);
-        }
+            if (gamba < 4) zone.type = ZoneType.Enemy;
+            else if (gamba < 6) zone.type = ZoneType.Treasure;
+            else if (gamba < 8) zone.type = ZoneType.Decoration;
+            else zone.type = ZoneType.Open;
 
-        // normal zones
-        for (int i = 0; i < normalZones.Count; i++)
-        {
-            var (room, zone) = normalZones[i];
-            zone.type = budget[i];
             zone.theme = SetFloorTheme(room, zone.type);
             zone.allowedTags = GetZoneTag(room, zone.type);
         }

@@ -36,14 +36,16 @@ public class DungeonContentPlacer : MonoBehaviour
 
     private void ClearPrefabs()
     {
-        foreach (var obj in spawnedObj)
+        for (int i = transform.childCount - 1; i >= 0; i--)
         {
-#if UNITY_EDITOR
-            DestroyImmediate(obj);
-#else
-            Destroy(obj);
-#endif
+            GameObject child = transform.GetChild(i).gameObject;
+
+            if (Application.isPlaying)
+                Destroy(child);
+            else
+                DestroyImmediate(child);
         }
+
         spawnedObj.Clear();
     }
 

@@ -74,6 +74,18 @@ public class BSPGen : MonoBehaviour
     private BuildTilemap tilemapBuilder = new BuildTilemap();
     private AssignFinStartRooms finStartAssigner = new AssignFinStartRooms();
 
+    // debug getters for DebugObject
+    public BSPNode DebugRootNode => rootNode;
+    public List<DungeonRoom> DebugDungeonRooms => dungeonRooms;
+    public List<Vector2Int> DebugRoomCenters => roomCenterPoints;
+    public List<RoomEdge> DebugAllEdges => allEdges;
+    public List<RoomEdge> DebugMstEdges => mstEdges;
+    public List<RectInt> DebugCorridors => corridors;
+    public HashSet<Vector2Int> DebugFinalFloorTiles => finalFloorTiles;
+    public HashSet<Vector2Int> DebugFinalCorridorTiles => finalCorridorTiles;
+    public HashSet<Vector2Int> DebugFinalWallTiles => finalWallTiles;
+    public HashSet<Vector2Int> DebugBlockedTiles => blockedTiles;
+
     [ContextMenu("Generate Dungeon")]
 
     private void GenerateDungeon()

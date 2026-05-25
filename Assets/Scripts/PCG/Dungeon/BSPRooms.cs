@@ -1,11 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class BSPGen
+public class BSPRooms
 {
-    public int roomsCreated = 0;
-
-    private void MakeRooms(List<BSPNode> leaves)
+    public void MakeRooms(List<BSPNode> leaves, int roomPadding, int minRoomSize, float roomFillMin, float roomFillMax, ref int roomsCreated)
     {
         foreach (var leaf in leaves)
         {
@@ -32,7 +30,7 @@ public partial class BSPGen
         }
     }
 
-    private void GetRoomCenters()
+    public void GetRoomCenters(BSPNode rootNode, List<Vector2Int> roomCenterPoints, List<DungeonRoom> dungeonRooms, Dictionary<Vector2Int, int> tileToRoom)
     {
         List<BSPNode> roomNodes = new List<BSPNode>();
         rootNode.GetRooms(roomNodes);

@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public partial class BSPGen
+public class InteriorWallOpener
 {
-    private void PopulateWallTiles(InteriorWall wall, HashSet<Vector2Int> reserved)
+    public void PopulateWallTiles(InteriorWall wall, HashSet<Vector2Int> reserved)
     {
         for (int x = wall.bounds.xMin; x < wall.bounds.xMax; x++)
         {
@@ -16,7 +16,7 @@ public partial class BSPGen
         }
     }
 
-    private void WallOpener(InteriorWall wall, HashSet<Vector2Int> reserved)
+    public void WallOpener(InteriorWall wall, HashSet<Vector2Int> reserved, int wallOpeningMin, float wallOpeningMax, float wallExtraHoleGamba)
     {
         // not reserved
         List<Vector2Int> candidates = new List<Vector2Int>(wall.tiles);

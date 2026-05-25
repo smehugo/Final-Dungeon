@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System.Collections.Generic;
 
-public partial class BSPGen
+public class BuildTilemap
 {
-    private void AddFloorTM()
+    private void AddFloorTM(HashSet<Vector2Int> finalFloorTiles, HashSet<Vector2Int> roomTiles)
     {
         finalFloorTiles.UnionWith(roomTiles);
     }
 
-    private void AddCorridorTM()
+    private void AddCorridorTM(List<RectInt> corridors, HashSet<Vector2Int> finalCorridorTiles, HashSet<Vector2Int> finalFloorTiles)
     {
         foreach (var corridor in corridors)
         {
@@ -23,7 +24,7 @@ public partial class BSPGen
         }
     }
 
-    private void AddInteriorWallTM()
+    private void AddInteriorWallTM(List<DungeonRoom> dungeonRooms, HashSet<Vector2Int> finalWallTiles, HashSet<Vector2Int> blockedTiles)
     {
         foreach (var room in dungeonRooms)
         {
@@ -38,7 +39,7 @@ public partial class BSPGen
         }
     }
 
-    private void AddWallTM()
+    private void AddWallTM(HashSet<Vector2Int> finalFloorTiles, HashSet<Vector2Int> finalWallTiles, HashSet<Vector2Int> blockedTiles)
     {
         // O(n^2)?
         foreach (var tile in finalFloorTiles)
@@ -58,20 +59,20 @@ public partial class BSPGen
         }
     }
 
-    private void BuildAllTM()
+    public void BuildAllTM(Tilemap floorTilemap, Tilemap wallTilemap, TileBase floorTile, TileBase wallTile, TileBase corridorTile, TileBase stoneTile, TileBase woodTile, TileBase metalTile, TileBase dirtTile, TileBase carpetTile, TileBase demonicTile, HashSet<Vector2Int> roomTiles, List<RectInt> corridors, List<DungeonRoom> dungeonRooms, HashSet<Vector2Int> finalFloorTiles, HashSet<Vector2Int> finalCorridorTiles, HashSet<Vector2Int> finalWallTiles, HashSet<Vector2Int> blockedTiles, Dictionary<Vector2Int, FloorTheme> floorThemeByTile)
     {
-        ClearTilemaps();
+        ClearTilemaps(floorTilemap, wallTilemap, blockedTiles, finalFloorTiles, finalCorridorTiles, finalWallTiles, floorThemeByTile);
 
-        AddFloorTM();
-        AddCorridorTM();
-        AddInteriorWallTM();
-        AddZoneThemes();
-        AddWallTM();
+        AddFloorTM(finalFloorTiles, roomTiles);
+        AddCorridorTM(corridors, finalCorridorTiles, finalFloorTiles);
+        AddInteriorWallTM(dungeonRooms, finalWallTiles, blockedTiles);
+        AddZoneThemes(dungeonRooms, roomTiles, finalWallTiles, floorThemeByTile);
+        AddWallTM(finalFloorTiles, finalWallTiles, blockedTiles);
 
         foreach (var tile in finalFloorTiles)
         {
-            TileBase floorTile = Tile2ThemeSetter(floorThemeByTile.ContainsKey(tile) ? floorThemeByTile[tile] : FloorTheme.Default);
-            floorTilemap.SetTile(new Vector3Int(tile.x, tile.y, 0), floorTile);
+            TileBase selectedFloorTile = Tile2ThemeSetter(floorThemeByTile.ContainsKey(tile) ? floorThemeByTile[tile] : FloorTheme.Default, floorTile, stoneTile, woodTile, metalTile, dirtTile, carpetTile, demonicTile);
+            floorTilemap.SetTile(new Vector3Int(tile.x, tile.y, 0), selectedFloorTile);
         }
         foreach (var tile in finalCorridorTiles)
         {
@@ -87,7 +88,7 @@ public partial class BSPGen
         wallTilemap.CompressBounds();
     }
 
-    private void ClearTilemaps()
+    private void ClearTilemaps(Tilemap floorTilemap, Tilemap wallTilemap, HashSet<Vector2Int> blockedTiles, HashSet<Vector2Int> finalFloorTiles, HashSet<Vector2Int> finalCorridorTiles, HashSet<Vector2Int> finalWallTiles, Dictionary<Vector2Int, FloorTheme> floorThemeByTile)
     {
         floorTilemap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
@@ -98,7 +99,7 @@ public partial class BSPGen
         floorThemeByTile.Clear();
     }
 
-    private void AddZoneThemes()
+    private void AddZoneThemes(List<DungeonRoom> dungeonRooms, HashSet<Vector2Int> roomTiles, HashSet<Vector2Int> finalWallTiles, Dictionary<Vector2Int, FloorTheme> floorThemeByTile)
     {
         // holy loop
         foreach (var room in dungeonRooms)
@@ -120,7 +121,7 @@ public partial class BSPGen
         }
     }
 
-    private TileBase Tile2ThemeSetter(FloorTheme theme)
+    private TileBase Tile2ThemeSetter(FloorTheme theme, TileBase floorTile, TileBase stoneTile, TileBase woodTile, TileBase metalTile, TileBase dirtTile, TileBase carpetTile, TileBase demonicTile)
     {
         switch (theme)
         {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public partial class BSPGen : MonoBehaviour
+public class BSPGen : MonoBehaviour
 {
     [Header("Map Settings")]
     [SerializeField] private int MapWidth = 48;
@@ -55,8 +55,6 @@ public partial class BSPGen : MonoBehaviour
     private List<RoomEdge> allEdges = new List<RoomEdge>();
     private List<Vector2Int> roomCenterPoints = new List<Vector2Int>();
     private List<RoomEdge> mstEdges = new List<RoomEdge>();
-    private int[] MSTparent;
-    private int[] MSTrank;
     private List<RectInt> corridors = new List<RectInt>();
     private HashSet<Vector2Int> roomTiles = new HashSet<Vector2Int>();
 
@@ -66,19 +64,28 @@ public partial class BSPGen : MonoBehaviour
     private Dictionary<Vector2Int, FloorTheme> floorThemeByTile = new();
     // private HashSet<Vector2Int> debugLastFlood = new HashSet<Vector2Int>();
 
+    public int roomsCreated = 0;
+
+    private BSPSplitter splitter = new BSPSplitter();
+    private BSPRooms roomBuilder = new BSPRooms();
+    private GraphBuilder graphBuilder = new GraphBuilder();
+    private CorridorBuilder corridorBuilder = new CorridorBuilder();
+    private RoomInteriorGen interiorGenerator = new RoomInteriorGen();
+    private BuildTilemap tilemapBuilder = new BuildTilemap();
+
     [ContextMenu("Generate Dungeon")]
 
     private void GenerateDungeon()
     {
         rootNode = new BSPNode(new RectInt(0, 0, MapWidth, MapHeight));
         currentLeafCount = 1;
-        Split(rootNode, 0);
+        splitter.Split(rootNode, 0, maxDepth, roomCount, MinLeafSize, ref currentLeafCount);
 
         //collect the final rects
         List<BSPNode> leaves = new List<BSPNode>();
-        GetLeaves(rootNode, leaves);
+        splitter.GetLeaves(rootNode, leaves);
         // Debug.Log($"leaves: {leaves.Count}");
-        MakeRooms(leaves);
+        roomBuilder.MakeRooms(leaves, roomPadding, minRoomSize, roomFillMin, roomFillMax, ref roomsCreated);
 
         roomTiles.Clear();
         foreach (var leaf in leaves)
@@ -96,14 +103,14 @@ public partial class BSPGen : MonoBehaviour
         }
 
         //MST
-        GetRoomCenters();
-        BuildEdgeList();
-        BuildMST();
-        BuildMSTSecondPass();
-        BuildCorridors();
-        BuildReservedTiles();
-        BuildRoomInteriors();
-        BuildAllTM();
+        roomBuilder.GetRoomCenters(rootNode, roomCenterPoints, dungeonRooms, tileToRoom);
+        graphBuilder.BuildEdgeList(dungeonRooms, roomCenterPoints, allEdges);
+        graphBuilder.BuildMST(allEdges, roomCenterPoints, mstEdges);
+        graphBuilder.BuildMSTSecondPass(roomCenterPoints, mstEdges, allEdges);
+        corridorBuilder.BuildCorridors(mstEdges, dungeonRooms, roomTiles, corridors);
+        corridorBuilder.BuildReservedTiles(dungeonRooms);
+        interiorGenerator.BuildRoomInteriors(dungeonRooms, minZoneSize, maxZoneSize, interiorDepthStep, interiorMaxDepth, wallOpeningMin, wallOpeningMax, wallExtraHoleGamba, artifactZones);
+        tilemapBuilder.BuildAllTM(floorTilemap, wallTilemap, floorTile, wallTile, corridorTile, stoneTile, woodTile, metalTile, dirtTile, carpetTile, demonicTile, roomTiles, corridors, dungeonRooms, finalFloorTiles, finalCorridorTiles, finalWallTiles, blockedTiles, floorThemeByTile);
 
         var mapData = new DungeonMapData(dungeonRooms, finalFloorTiles, blockedTiles);
         if (contentPlacer != null)

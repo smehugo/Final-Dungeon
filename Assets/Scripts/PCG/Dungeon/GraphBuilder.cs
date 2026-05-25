@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class BSPGen
+public class GraphBuilder
 {
-    private void BuildEdgeList()
+    private int[] MSTparent;
+    private int[] MSTrank;
+
+    public void BuildEdgeList(List<DungeonRoom> dungeonRooms, List<Vector2Int> roomCenterPoints, List<RoomEdge> allEdges)
     {
         allEdges.Clear();
         //build the edge list for MST
@@ -29,7 +32,7 @@ public partial class BSPGen
         allEdges.Sort((a, b) => a.dist.CompareTo(b.dist));
     }
 
-    private void BuildMST()
+    public void BuildMST(List<RoomEdge> allEdges, List<Vector2Int> roomCenterPoints, List<RoomEdge> mstEdges)
     {
         MSTparent = new int[roomCenterPoints.Count];
         MSTrank = new int[roomCenterPoints.Count];
@@ -50,7 +53,7 @@ public partial class BSPGen
         }
     }
 
-    private void BuildMSTSecondPass()
+    public void BuildMSTSecondPass(List<Vector2Int> roomCenterPoints, List<RoomEdge> mstEdges, List<RoomEdge> allEdges)
     {
         //second pass to add extra connects
         var existing = new int[roomCenterPoints.Count];

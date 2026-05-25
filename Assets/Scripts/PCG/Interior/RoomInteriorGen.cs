@@ -1,18 +1,21 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public partial class BSPGen
+public class RoomInteriorGen
 {
-    private void BuildRoomInteriors()
+    private InteriorWallOpener wallOpener = new InteriorWallOpener();
+    private RoomValidaton roomValidator = new RoomValidaton();
+
+    public void BuildRoomInteriors(List<DungeonRoom> dungeonRooms, int minZoneSize, int maxZoneSize, int interiorDepthStep, int interiorMaxDepth, int wallOpeningMin, float wallOpeningMax, float wallExtraHoleGamba, int artifactZones)
     {
         foreach (var room in dungeonRooms)
         {
-            BuildRoomInterior(room);
+            BuildRoomInterior(room, minZoneSize, maxZoneSize, interiorDepthStep, interiorMaxDepth, wallOpeningMin, wallOpeningMax, wallExtraHoleGamba);
         }
-        AssignZoneTypes();
+        AssignZoneTypes(dungeonRooms, artifactZones);
     }
 
-    private void BuildRoomInterior(DungeonRoom room)
+    private void BuildRoomInterior(DungeonRoom room, int minZoneSize, int maxZoneSize, int interiorDepthStep, int interiorMaxDepth, int wallOpeningMin, float wallOpeningMax, float wallExtraHoleGamba)
     {
         RectInt interior = new RectInt(
             room.bounds.xMin + 1,
@@ -26,10 +29,10 @@ public partial class BSPGen
             room.zones.Clear();
             room.interiorWalls.Clear();
 
-            int depth = GetInteriorBspDepth(interior);
+            int depth = GetInteriorBspDepth(interior, interiorDepthStep, interiorMaxDepth);
             List<RectInt> leaves = new List<RectInt>();
             List<InteriorWall> walls = new List<InteriorWall>();
-            SplitInterior(interior, 0, depth, leaves);
+            SplitInterior(interior, 0, depth, leaves, minZoneSize, maxZoneSize);
             GetWallsByZone(leaves, walls);
             room.interiorWalls.AddRange(walls);
 
@@ -40,15 +43,15 @@ public partial class BSPGen
 
             foreach (var wall in room.interiorWalls)
             {
-                PopulateWallTiles(wall, room.reservedTiles);
+                wallOpener.PopulateWallTiles(wall, room.reservedTiles);
             }
             foreach (var wall in room.interiorWalls)
             {
-                WallOpener(wall, room.reservedTiles);
+                wallOpener.WallOpener(wall, room.reservedTiles, wallOpeningMin, wallOpeningMax, wallExtraHoleGamba);
             }
 
             // validate room
-            if (IsRoomValid(room))
+            if (roomValidator.IsRoomValid(room))
             {
                 return;
             }
@@ -59,13 +62,13 @@ public partial class BSPGen
         }
     }
 
-    private int GetInteriorBspDepth(RectInt bounds)
+    private int GetInteriorBspDepth(RectInt bounds, int interiorDepthStep, int interiorMaxDepth)
     {
         int minDim = Mathf.Min(bounds.width, bounds.height);
         return Mathf.Clamp(minDim / interiorDepthStep, 1, interiorMaxDepth);
     }
 
-    private void SplitInterior(RectInt rect, int depth, int maxDepth, List<RectInt> leaves)
+    private void SplitInterior(RectInt rect, int depth, int maxDepth, List<RectInt> leaves, int minZoneSize, int maxZoneSize)
     {
         int minZone = minZoneSize;
         int maxZone = maxZoneSize;
@@ -87,16 +90,16 @@ public partial class BSPGen
             int minCut = rect.yMin + minZone;
             int maxCut = rect.yMax - minZone;
             int splitY = Random.Range(minCut, maxCut + 1);
-            SplitInterior(new RectInt(rect.xMin, rect.yMin, rect.width, splitY - rect.yMin), depth + 1, maxDepth, leaves);
-            SplitInterior(new RectInt(rect.xMin, splitY, rect.width, rect.yMax - splitY), depth + 1, maxDepth, leaves);
+            SplitInterior(new RectInt(rect.xMin, rect.yMin, rect.width, splitY - rect.yMin), depth + 1, maxDepth, leaves, minZoneSize, maxZoneSize);
+            SplitInterior(new RectInt(rect.xMin, splitY, rect.width, rect.yMax - splitY), depth + 1, maxDepth, leaves, minZoneSize, maxZoneSize);
         }
         else
         {
             int minCut = rect.xMin + minZone;
             int maxCut = rect.xMax - minZone;
             int splitX = Random.Range(minCut, maxCut + 1);
-            SplitInterior(new RectInt(rect.xMin, rect.yMin, splitX - rect.xMin, rect.height), depth + 1, maxDepth, leaves);
-            SplitInterior(new RectInt(splitX, rect.yMin, rect.xMax - splitX, rect.height), depth + 1, maxDepth, leaves);
+            SplitInterior(new RectInt(rect.xMin, rect.yMin, splitX - rect.xMin, rect.height), depth + 1, maxDepth, leaves, minZoneSize, maxZoneSize);
+            SplitInterior(new RectInt(splitX, rect.yMin, rect.xMax - splitX, rect.height), depth + 1, maxDepth, leaves, minZoneSize, maxZoneSize);
         }
     }
 
@@ -188,7 +191,7 @@ public partial class BSPGen
         };
     }
 
-    private void AssignZoneTypes()
+    private void AssignZoneTypes(List<DungeonRoom> dungeonRooms, int artifactZones)
     {
         // https://www.geeksforgeeks.org/c-sharp/c-sharp-tuple-class/
         var privilegedZones = new List<(DungeonRoom room, RoomZone zone)>();
@@ -248,5 +251,15 @@ public partial class BSPGen
             zone.theme = SetFloorTheme(room, zone.type);
             zone.allowedTags = GetZoneTag(room, zone.type);
         }
+    }
+
+    private bool SplitDirection(RectInt rect, int depth)
+    {
+        float ratio = (float)rect.width / rect.height;
+
+        if (ratio > 1.35f) return false;
+        if (ratio < 0.75f) return true;
+
+        return depth % 2 == 0;
     }
 }

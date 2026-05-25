@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public partial class BSPGen
+public class GizmoDraws
 {
     // private void OnDrawGizmos()
     // {

@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public partial class BSPGen
+public class RoomValidaton
 {
-    private bool IsRoomValid(DungeonRoom room)
+    public bool IsRoomValid(DungeonRoom room)
     {
         // need all blocked tiles: walls
         HashSet<Vector2Int> blocked = new();

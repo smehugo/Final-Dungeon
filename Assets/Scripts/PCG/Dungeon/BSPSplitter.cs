@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class BSPGen
+public class BSPSplitter
 {
-    private void Split(BSPNode node, int currentDepth)
+    public void Split(BSPNode node, int currentDepth, int maxDepth, int roomCount, int MinLeafSize, ref int currentLeafCount)
     {
         if (currentDepth >= maxDepth || currentLeafCount >= roomCount)
             return;
@@ -33,11 +33,11 @@ public partial class BSPGen
         }
 
         currentLeafCount++;
-        Split(node.left, currentDepth + 1);
-        Split(node.right, currentDepth + 1);
+        Split(node.left, currentDepth + 1, maxDepth, roomCount, MinLeafSize, ref currentLeafCount);
+        Split(node.right, currentDepth + 1, maxDepth, roomCount, MinLeafSize, ref currentLeafCount);
     }
 
-    private void GetLeaves(BSPNode node, List<BSPNode> leaves)
+    public void GetLeaves(BSPNode node, List<BSPNode> leaves)
     {
         if (node == null) return;
 

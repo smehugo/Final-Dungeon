@@ -1,19 +1,20 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public partial class BSPGen
+public class CorridorBuilder
 {
-    private void BuildCorridors()
+    public void BuildCorridors(List<RoomEdge> mstEdges, List<DungeonRoom> dungeonRooms, HashSet<Vector2Int> roomTiles, List<RectInt> corridors)
     {
         corridors.Clear();
         foreach (var edge in mstEdges)
         {
             var roomA = dungeonRooms[edge.a];
             var roomB = dungeonRooms[edge.b];
-            TryBuildCorr(roomA, roomB);
+            TryBuildCorr(roomA, roomB, roomTiles, corridors);
         }
     }
 
-    private bool TryBuildCorr(DungeonRoom ra, DungeonRoom rb)
+    private bool TryBuildCorr(DungeonRoom ra, DungeonRoom rb, HashSet<Vector2Int> roomTiles, List<RectInt> corridors)
     {
         // horizontal
 
@@ -22,7 +23,7 @@ public partial class BSPGen
         int yMax = Mathf.Min(ra.bounds.yMax, rb.bounds.yMax);
         if (yMax - yMin > 1)
         {
-            return TryBuildHorCorr(ra, rb);
+            return TryBuildHorCorr(ra, rb, roomTiles, corridors);
         }
 
         // vertical
@@ -30,7 +31,7 @@ public partial class BSPGen
         int xMax = Mathf.Min(ra.bounds.xMax, rb.bounds.xMax);
         if (xMax - xMin > 1)
         {
-            return TryBuildVerCorr(ra, rb);
+            return TryBuildVerCorr(ra, rb, roomTiles, corridors);
         }
         return false;
     }
@@ -43,7 +44,7 @@ public partial class BSPGen
         }
     }
 
-    private void BuildReservedTiles()
+    public void BuildReservedTiles(List<DungeonRoom> dungeonRooms)
     {
         foreach (var room in dungeonRooms)
         {
@@ -61,7 +62,7 @@ public partial class BSPGen
         }
     }
 
-    private bool TryBuildVerCorr(DungeonRoom ra, DungeonRoom rb)
+    private bool TryBuildVerCorr(DungeonRoom ra, DungeonRoom rb, HashSet<Vector2Int> roomTiles, List<RectInt> corridors)
     {
         DungeonRoom T;
         if (ra.bounds.yMax < rb.bounds.yMax)
@@ -109,7 +110,7 @@ public partial class BSPGen
         return true;
     }
 
-    private bool TryBuildHorCorr(DungeonRoom ra, DungeonRoom rb)
+    private bool TryBuildHorCorr(DungeonRoom ra, DungeonRoom rb, HashSet<Vector2Int> roomTiles, List<RectInt> corridors)
     {
         DungeonRoom L;
         if (ra.bounds.xMin < rb.bounds.xMin)

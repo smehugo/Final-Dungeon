@@ -10,10 +10,10 @@ public class Artifact : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            Debug.Log("artifact");
-            Destroy(gameObject);
-        }
+        if (!collision.CompareTag("Player")) return;
+
+        ArtifactManager.Collect();
+        Destroy(gameObject);
+        Debug.Log("artifact:" + ArtifactManager.collected + " / " + ArtifactManager.total);
     }
 }

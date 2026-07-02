@@ -12,6 +12,8 @@ public class DungeonContentPlacer : MonoBehaviour
         ClearPrefabs();
         var placedPositions = new List<Vector2Int>();
 
+        ArtifactManager.ResetArtis();
+
         foreach (var def in spawnDefs)
         {
             foreach (var room in mapData.rooms)
@@ -79,6 +81,9 @@ public class DungeonContentPlacer : MonoBehaviour
         Vector3 worldPos = mapData.GetWorldPosFromTile(tile);
         GameObject obj = Instantiate(def.prefab, worldPos, Quaternion.identity, transform);
         spawnedObj.Add(obj);
+
+        if (obj.CompareTag("Artifact"))
+            ArtifactManager.total++;
 
         if (def.blocksMovement)
             mapData.Occupy(tile);

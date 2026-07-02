@@ -20,6 +20,7 @@ public class GizmoDraws : MonoBehaviour
     [SerializeField] private bool drawFinalCorridorTiles = false;
     [SerializeField] private bool drawFinalWallTiles = false;
     [SerializeField] private bool drawBlockedTiles = false;
+    [SerializeField] private bool drawDebugPath = true;
 
     private void OnDrawGizmos()
     {
@@ -57,6 +58,9 @@ public class GizmoDraws : MonoBehaviour
             Corridors(generator.DebugCorridors);
 
         RoomDetails(generator.DebugDungeonRooms);
+
+        if (drawDebugPath)
+            DebugPath(generator.DebugPath);
     }
 
     private void BspLeaves(BSPNode node)
@@ -213,6 +217,22 @@ public class GizmoDraws : MonoBehaviour
         {
             DrawTile(tile, color);
         }
+    }
+
+    private void DebugPath(List<Vector2Int> path)
+    {
+        if (path.Count == 0)
+            return;
+
+        Gizmos.color = Color.cyan;
+        for (int i = 0; i < path.Count - 1; i++)
+            Gizmos.DrawLine(TileCenter(path[i]), TileCenter(path[i + 1]));
+
+        foreach (var tile in path)
+            DrawTile(tile, new Color(0f, 1f, 1f, 0.35f));
+
+        DrawSphere(path[0], Color.green, 0.2f);
+        DrawSphere(path[path.Count - 1], Color.red, 0.2f);
     }
 
     private void DrawTile(Vector2Int tile, Color color)

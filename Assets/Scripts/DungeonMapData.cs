@@ -39,4 +39,9 @@ public class DungeonMapData
         return new Vector3(tile.x + 0.5f, tile.y + 0.5f, 0f);
     }
 
+    // inverse of GetWorldPosFromTile
+    public Vector2Int GetTileFromWorldPos(Vector3 worldPos)
+    {
+        return new Vector2Int(Mathf.FloorToInt(worldPos.x), Mathf.FloorToInt(worldPos.y));
+    }
 }

@@ -29,8 +29,10 @@ public class DungeonContentPlacer : MonoBehaviour
                 for (int i = 0; i < range; i++)
                 {
                     if (GetFreeTile(room, def, mapData, placedPositions, out Vector2Int tile))
-                        SpawnObj(def, tile, mapData);
-                    placedPositions.Add(tile);
+                    {
+                        SpawnObj(def, tile, mapData, room);
+                        placedPositions.Add(tile);
+                    }
                 }
             }
         }
@@ -76,7 +78,7 @@ public class DungeonContentPlacer : MonoBehaviour
         return true;
     }
 
-    private void SpawnObj(SpawnDefinition def, Vector2Int tile, DungeonMapData mapData)
+    private void SpawnObj(SpawnDefinition def, Vector2Int tile, DungeonMapData mapData, DungeonRoom room)
     {
         Vector3 worldPos = mapData.GetWorldPosFromTile(tile);
         GameObject obj = Instantiate(def.prefab, worldPos, Quaternion.identity, transform);
@@ -84,6 +86,11 @@ public class DungeonContentPlacer : MonoBehaviour
 
         if (obj.CompareTag("Artifact"))
             ArtifactManager.total++;
+
+        // needs map + room bounds for bfs + activation
+        ChaserEnemy enemy = obj.GetComponent<ChaserEnemy>();
+        if (enemy != null)
+            enemy.Init(mapData, room);
 
         if (def.blocksMovement)
             mapData.Occupy(tile);

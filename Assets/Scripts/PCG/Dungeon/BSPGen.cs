@@ -86,6 +86,17 @@ public class BSPGen : MonoBehaviour
     public HashSet<Vector2Int> DebugFinalWallTiles => finalWallTiles;
     public HashSet<Vector2Int> DebugBlockedTiles => blockedTiles;
 
+    public DungeonMapData MapData { get; private set; }
+
+    private List<Vector2Int> debugPath = new();
+
+    public List<Vector2Int> DebugPath => debugPath;
+
+    private void Start()
+    {
+        GenerateDungeon();
+    }
+
     [ContextMenu("Generate Dungeon")]
 
     private void GenerateDungeon()
@@ -126,10 +137,24 @@ public class BSPGen : MonoBehaviour
         interiorGenerator.BuildRoomInteriors(dungeonRooms, minZoneSize, maxZoneSize, interiorDepthStep, interiorMaxDepth, wallOpeningMin, wallOpeningMax, wallExtraHoleGamba, artifactZones);
         tilemapBuilder.BuildAllTM(floorTilemap, wallTilemap, floorTile, wallTile, corridorTile, stoneTile, woodTile, metalTile, dirtTile, carpetTile, demonicTile, roomTiles, corridors, dungeonRooms, finalFloorTiles, finalCorridorTiles, finalWallTiles, blockedTiles, floorThemeByTile);
 
-        var mapData = new DungeonMapData(dungeonRooms, finalFloorTiles, blockedTiles);
+        MapData = new DungeonMapData(dungeonRooms, finalFloorTiles, blockedTiles);
         if (contentPlacer != null)
         {
-            contentPlacer.PlaceContent(mapData);
+            contentPlacer.PlaceContent(MapData);
         }
+
+        UpdateDebugPath();
+    }
+
+    // for gizmo path draw
+    private void UpdateDebugPath()
+    {
+        debugPath.Clear();
+        if (MapData == null || MapData.rooms.Count < 2 || MapData.rooms[1].doors.Count == 0)
+            return;
+
+        var path = AStar.FindPath(MapData, MapData.rooms[1].center, MapData.rooms[1].doors[0].position, MapData.rooms[1].bounds);
+        if (path != null)
+            debugPath.AddRange(path);
     }
 }

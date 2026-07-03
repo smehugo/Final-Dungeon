@@ -9,6 +9,9 @@ public class ChaserEnemy : MonoBehaviour
     [SerializeField] private float repathTime = 0.25f;
     [SerializeField] private float damageCD = 0.5f;
 
+    [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer sr;
+
     private DungeonMapData mapData;
     private DungeonRoom spawnRoom;
     private Transform player;
@@ -71,6 +74,10 @@ public class ChaserEnemy : MonoBehaviour
         {
             currentPathId++;
         }
+
+        Vector2 delta = dir - rb.position;
+        animator.SetBool("isMoving", delta.sqrMagnitude > 0.001f);
+        if (Mathf.Abs(delta.x) > 0.01f) sr.flipX = delta.x < 0;
     }
 
     private void Repath()
@@ -104,5 +111,6 @@ public class ChaserEnemy : MonoBehaviour
 
         if (collision.TryGetComponent(out PlayerHealth health))
             health.TakeDamage(damage);
+            animator.SetTrigger("attack");
     }
 }

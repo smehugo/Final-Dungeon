@@ -40,6 +40,17 @@ public class PlayerAnimator : MonoBehaviour
         }
     }
 
+    public Vector2 FacingDirection => lastDir;
+
+    public void PlayAttack()
+    {
+        if (isDead)
+            return;
+
+        AddFacingToAnim(lastDir);
+        animator.SetTrigger("Attack");
+    }
+
     public void PlayHurt()
     {
         if (isDead)

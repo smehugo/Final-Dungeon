@@ -14,7 +14,10 @@ public class DungeonContentPlacer : MonoBehaviour
 
         ArtifactManager.ResetArtis();
 
-        foreach (var def in spawnDefs)
+        var orderedDefs = new List<SpawnDefinition>(spawnDefs);
+        orderedDefs.Sort((a, b) => a.priority.CompareTo(b.priority));
+
+        foreach (var def in orderedDefs)
         {
             foreach (var room in mapData.rooms)
             {
@@ -92,8 +95,19 @@ public class DungeonContentPlacer : MonoBehaviour
         if (enemy != null)
             enemy.Init(mapData, room);
 
+        mapData.Occupy(tile);
+
         if (def.blocksMovement)
+        {
             mapData.Occupy(tile);
+
+            if (!IsRoomTraversale(room, mapData))
+            {
+                // Revert
+                Destroy(obj);
+                mapData.Unoccupy(tile); // needs to be added
+            }
+        }
     }
 
     private bool IsValidSpawnCell(Vector2Int cell, DungeonRoom room, SpawnDefinition def, DungeonMapData mapData, List<Vector2Int> placedPositions)
@@ -120,5 +134,11 @@ public class DungeonContentPlacer : MonoBehaviour
             if (dist < goated) goated = dist;
         }
         return goated;
+    }
+
+    private bool IsRoomTraversale(DungeonRoom room, DungeonMapData mapData)
+    {
+        var validator = new RoomValidaton();
+        return validator.IsRoomValid(room);
     }
 }

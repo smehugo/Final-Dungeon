@@ -44,4 +44,9 @@ public class DungeonMapData
     {
         return new Vector2Int(Mathf.FloorToInt(worldPos.x), Mathf.FloorToInt(worldPos.y));
     }
+
+    public void Unoccupy(Vector2Int tile)
+    {
+        occupiedTiles.Remove(tile);
+    }
 }

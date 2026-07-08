@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fa23de45becf25382816f35976b034, type: 3}
   m_Name: Candle
   m_EditorClassIdentifier: Assembly-CSharp::SpawnDefinition
+  priority: 100
   prefab: {fileID: 4447810809411658742, guid: 49a5a734dbb900e3fbadd8741d09e670, type: 3}
   requiredTag: 0
   avoidStartRoom: 0

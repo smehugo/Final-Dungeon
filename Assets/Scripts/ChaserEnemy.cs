@@ -21,6 +21,7 @@ public class ChaserEnemy : MonoBehaviour
     private bool roomHasPlayer;
     private float nextRepathTime;
     private float nextDmgTime;
+    private bool isDead = false;
 
     private void Awake()
     {
@@ -36,8 +37,10 @@ public class ChaserEnemy : MonoBehaviour
 
     private void Update()
     {
-        if (mapData == null)
+        if (mapData == null || isDead)
+        {
             return;
+        }
 
         Vector2Int playerTile = mapData.GetTileFromWorldPos(player.position);
 
@@ -61,7 +64,7 @@ public class ChaserEnemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!roomHasPlayer || currentPath == null || currentPathId >= currentPath.Count)
+        if (!roomHasPlayer || currentPath == null || currentPathId >= currentPath.Count || isDead)
         {
             return;
         }
@@ -96,7 +99,7 @@ public class ChaserEnemy : MonoBehaviour
             currentPathId = 1;
         else
             currentPathId = 0;
-   
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -111,6 +114,12 @@ public class ChaserEnemy : MonoBehaviour
 
         if (collision.TryGetComponent(out PlayerHealth health))
             health.TakeDamage(damage);
-            animator.SetTrigger("attack");
+        animator.SetTrigger("attack");
+    }
+
+    public void SetDead()
+    {
+        isDead = true;
+        animator.SetTrigger("die");
     }
 }

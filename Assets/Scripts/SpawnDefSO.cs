@@ -3,6 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "FinalDungeon/SpawnDefSO")]
 public class SpawnDefinition : ScriptableObject
 {
+    // prio
+    [Header("Priority // lower number = higher prio")]
+    public int priority = 50;
+
+    [Header("Rules")]
     // make the SO, assign to placer, assign prefab to SO
     // DungeonMapData, DungeoonContentPlacer, SpawnDefSO
     public GameObject prefab;

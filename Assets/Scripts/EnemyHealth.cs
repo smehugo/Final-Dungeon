@@ -19,7 +19,12 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             animator.SetTrigger("die");
-            Destroy(gameObject, 1f);
+            ChaserEnemy chaser = GetComponent<ChaserEnemy>();
+            if (chaser != null)
+            {
+                chaser.SetDead();
+            }
+            Destroy(gameObject, 2f);
         }
         else
         {

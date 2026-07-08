@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65fa23de45becf25382816f35976b034, type: 3}
-  m_Name: Artifact
+  m_Name: Chest
   m_EditorClassIdentifier: Assembly-CSharp::SpawnDefinition
-  priority: 0
-  prefab: {fileID: 4474790695867493507, guid: 885fdefa9be8e0e9dbedb7bf441da5f7, type: 3}
-  requiredTag: 32
-  avoidStartRoom: 1
+  priority: 60
+  prefab: {fileID: 5409153579210495046, guid: 01bd988c8d10d97c5b03cb967ee11d76, type: 3}
+  requiredTag: 0
+  avoidStartRoom: 0
   avoidFinalRoom: 1
-  minDistanceFromDoors: 0
-  minPerRoom: 1
-  maxPerRoom: 1
+  minDistanceFromDoors: 2
+  minPerRoom: 0
+  maxPerRoom: 5
   roomChance: 1
-  blocksMovement: 0
+  blocksMovement: 1
   minSpacingFromSelf: 0

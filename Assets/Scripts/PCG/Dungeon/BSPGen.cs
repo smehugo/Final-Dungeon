@@ -5,10 +5,10 @@ using UnityEngine.Tilemaps;
 public class BSPGen : MonoBehaviour
 {
     [Header("Map Settings")]
-    [SerializeField] private int MapWidth = 48;
-    [SerializeField] private int MapHeight = 48;
-    [SerializeField] private int roomPadding;
-    [SerializeField] private int roomCount = 10;
+    [SerializeField] private int MapWidth = DungeonGenConfig.MapWidth;
+    [SerializeField] private int MapHeight = DungeonGenConfig.MapHeight;
+    [SerializeField] private int roomPadding = DungeonGenConfig.RoomPadding;
+    [SerializeField] private int roomCount = DungeonGenConfig.RoomCount;
 
     // TODO: clean this up when done!!!
     [SerializeField] private Tilemap floorTilemap;
@@ -30,20 +30,20 @@ public class BSPGen : MonoBehaviour
     private HashSet<Vector2Int> finalWallTiles = new HashSet<Vector2Int>();
     private HashSet<Vector2Int> blockedTiles = new HashSet<Vector2Int>();
 
-    [SerializeField] private int minRoomSize = 8;
-    [SerializeField] private int maxDepth = 5;
-    [SerializeField] private float roomFillMin = 0.5f;
-    [SerializeField] private float roomFillMax = 0.9f;
+    [SerializeField] private int minRoomSize = DungeonGenConfig.MinRoomSize;
+    [SerializeField] private int maxDepth = DungeonGenConfig.MaxDepth;
+    [SerializeField] private float roomFillMin = DungeonGenConfig.RoomFillMin;
+    [SerializeField] private float roomFillMax = DungeonGenConfig.RoomFillMax;
 
     [Header("Interior Settings")]
-    [SerializeField] private int minZoneSize = 8;
-    [SerializeField] private int maxZoneSize = 20;
-    [SerializeField] private int interiorDepthStep = 12;
-    [SerializeField] private int interiorMaxDepth = 4;
-    [SerializeField] private int wallOpeningMin = 3;
-    [SerializeField] private float wallOpeningMax = 0.3f;
-    [SerializeField] private float wallExtraHoleGamba = 0.05f;
-    [SerializeField] private int artifactZones = 5;
+    [SerializeField] private int minZoneSize = DungeonGenConfig.MinZoneSize;
+    [SerializeField] private int maxZoneSize = DungeonGenConfig.MaxZoneSize;
+    [SerializeField] private int interiorDepthStep = DungeonGenConfig.InteriorDepthStep;
+    [SerializeField] private int interiorMaxDepth = DungeonGenConfig.InteriorMaxDepth;
+    [SerializeField] private int wallOpeningMin = DungeonGenConfig.WallOpeningMin;
+    [SerializeField] private float wallOpeningMax = DungeonGenConfig.WallOpeningMax;
+    [SerializeField] private float wallExtraHoleGamba = DungeonGenConfig.WallExtraHoleGamba;
+    [SerializeField] private int artifactZones = DungeonGenConfig.ArtifactZones;
 
     [Header("Map Data")]
     [SerializeField] private DungeonContentPlacer contentPlacer;

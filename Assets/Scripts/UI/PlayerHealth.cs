@@ -4,6 +4,8 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
     private int currentHealth;
+    public int Current => currentHealth;
+    public int Max => maxHealth;
 
     private void Awake()
     {

@@ -12,6 +12,13 @@ public class Artifact : MonoBehaviour
     {
         if (!collision.CompareTag("Player")) return;
 
+        // let pickup handle collection for dupped artifact score
+        if (GetComponent<Pickup>() != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         ArtifactManager.Collect();
         Destroy(gameObject);
         Debug.Log("artifact:" + ArtifactManager.collected + " / " + ArtifactManager.total);

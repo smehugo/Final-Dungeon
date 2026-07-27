@@ -17,6 +17,11 @@ public class BSPGen : MonoBehaviour
     [SerializeField] private TileBase wallTile;
     [SerializeField] private TileBase corridorTile;
 
+    [Header("Seed Settings")]
+    [SerializeField] private int seed = 1;
+    [SerializeField] private bool seedActive = false;
+    public int CurrentSeed { get; private set; }
+
     [Header("Floor Theme Tiles")]
     [SerializeField] private TileBase stoneTile;
     [SerializeField] private TileBase woodTile;
@@ -101,6 +106,14 @@ public class BSPGen : MonoBehaviour
 
     private void GenerateDungeon()
     {
+        if (seedActive)
+        {
+            seed = Random.Range(0, int.MaxValue);
+        }
+        Random.InitState(seed);
+        CurrentSeed = seed;
+        Debug.Log($"seed {seed}");
+
         rootNode = new BSPNode(new RectInt(0, 0, MapWidth, MapHeight));
         currentLeafCount = 1;
         splitter.Split(rootNode, 0, maxDepth, roomCount, MinLeafSize, ref currentLeafCount);
@@ -109,6 +122,7 @@ public class BSPGen : MonoBehaviour
         List<BSPNode> leaves = new List<BSPNode>();
         splitter.GetLeaves(rootNode, leaves);
         // Debug.Log($"leaves: {leaves.Count}");
+        roomsCreated = 0;
         roomBuilder.MakeRooms(leaves, roomPadding, minRoomSize, roomFillMin, roomFillMax, ref roomsCreated);
 
         roomTiles.Clear();

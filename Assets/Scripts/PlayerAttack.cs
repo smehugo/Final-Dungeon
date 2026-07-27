@@ -34,4 +34,10 @@ public class PlayerAttack : MonoBehaviour
             health.TakeDamage(damage);
         }
     }
+
+    public void AddDamage(int delta)
+    {
+        damage += delta;
+        Debug.Log("damage: " + damage);
+    }
 }

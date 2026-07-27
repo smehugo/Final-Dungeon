@@ -20,6 +20,13 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        Debug.Log("hp: " + currentHealth);
+    }
+
     private void Die()
     {
         // TODO: respawn

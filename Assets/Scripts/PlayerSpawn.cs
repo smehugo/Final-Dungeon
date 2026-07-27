@@ -41,7 +41,21 @@ public class PlayerSpawn : MonoBehaviour
         }
 
         if (walkable.Count > 0)
+        {
+            var start = walkable[0];
+            var reachable = Reachability.FloodFill(mapData, start);
+
+            var candidates = new List<Vector2Int>();
+            foreach (var t in walkable)
+            {
+                if (reachable.Contains(t)) candidates.Add(t);
+            }
+
+            if (candidates.Count > 0)
+                return candidates[UnityEngine.Random.Range(0, candidates.Count)];
+
             return walkable[UnityEngine.Random.Range(0, walkable.Count)];
+        }
 
         return startRoom.center;
     }

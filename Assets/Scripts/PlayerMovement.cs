@@ -27,4 +27,10 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movement = moveInput * moveSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + movement);
     }
+
+    public void AddSpeed(float delta)
+    {
+        moveSpeed += delta;
+        Debug.Log("speed: " + moveSpeed);
+    }
 }

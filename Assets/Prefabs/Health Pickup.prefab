@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pickup
   type: 1
-  amount: 2
+  amount: 10
 --- !u!1 &3682383904617519322
 GameObject:
   m_ObjectHideFlags: 0

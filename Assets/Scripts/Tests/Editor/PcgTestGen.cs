@@ -6,28 +6,38 @@ public static class PcgTestGen
 {
     public struct Data
     {
+        public int seed;
         public List<BSPNode> leaves;
         public List<DungeonRoom> rooms;
+        public List<Vector2Int> roomCenters;
         public HashSet<Vector2Int> roomTiles;
         public HashSet<Vector2Int> corridorTiles;
         public HashSet<Vector2Int> floorTiles;
         public HashSet<Vector2Int> blockedTiles;
         public List<RoomEdge> allEdges;
+        public List<RoomEdge> mstBaseEdges;
         public List<RoomEdge> mstEdges;
         public List<RectInt> corridors;
         public DungeonMapData mapData;
+        public int roomsCreated;
+        public int corridorFailures;
     }
 
     public static Data Generate(int seed)
     {
+        return GenerateFresh(seed);
+    }
+
+    public static Data GenerateFresh(int seed)
+    {
         Random.InitState(seed);
 
-        // split rooms graph corridors assign
         var splitter = new BSPSplitter();
         var roomBuilder = new BSPRooms();
         var graphBuilder = new GraphBuilder();
         var corridorBuilder = new CorridorBuilder();
         var finStart = new AssignFinStartRooms();
+        var interiorGenerator = new RoomInteriorGen();
 
         var root = new BSPNode(new RectInt(0, 0, DungeonGenConfig.MapWidth, DungeonGenConfig.MapHeight));
         int leafCount = 1;
@@ -58,11 +68,26 @@ public static class PcgTestGen
         var corridors = new List<RectInt>();
         graphBuilder.BuildEdgeList(rooms, roomCenters, allEdges);
         graphBuilder.BuildMST(allEdges, roomCenters, mstEdges);
-        // skip 2nd-pass
-        corridorBuilder.BuildCorridors(mstEdges, rooms, roomTiles, corridors);
-        // assign start/final
+
+        var mstBaseEdges = new List<RoomEdge>(mstEdges);
+        graphBuilder.BuildMSTSecondPass(roomCenters, mstEdges, allEdges);
+
+        int corridorFailures = corridorBuilder.BuildCorridors(mstEdges, rooms, roomTiles, corridors);
+        corridorBuilder.BuildReservedTiles(rooms);
         finStart.AssignSpecialRooms(rooms, DungeonGenConfig.ArtifactZones);
 
+        interiorGenerator.BuildRoomInteriors(
+            rooms,
+            DungeonGenConfig.MinZoneSize,
+            DungeonGenConfig.MaxZoneSize,
+            DungeonGenConfig.InteriorDepthStep,
+            DungeonGenConfig.InteriorMaxDepth,
+            DungeonGenConfig.WallOpeningMin,
+            DungeonGenConfig.WallOpeningMax,
+            DungeonGenConfig.WallExtraHoleGamba,
+            DungeonGenConfig.ArtifactZones);
+
+        // corridor, floor tiles
         var corridorTiles = new HashSet<Vector2Int>();
         var floorTiles = new HashSet<Vector2Int>(roomTiles);
         foreach (var c in corridors)
@@ -92,16 +117,21 @@ public static class PcgTestGen
 
         return new Data
         {
+            seed = seed,
             leaves = leaves,
             rooms = rooms,
+            roomCenters = roomCenters,
             roomTiles = roomTiles,
             corridorTiles = corridorTiles,
             floorTiles = floorTiles,
             blockedTiles = blocked,
             allEdges = allEdges,
+            mstBaseEdges = mstBaseEdges,
             mstEdges = mstEdges,
             corridors = corridors,
-            mapData = new DungeonMapData(rooms, floorTiles, blocked)
+            mapData = new DungeonMapData(rooms, floorTiles, blocked),
+            roomsCreated = roomsCreated,
+            corridorFailures = corridorFailures
         };
     }
 }

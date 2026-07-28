@@ -3,15 +3,18 @@ using System.Collections.Generic;
 
 public class CorridorBuilder
 {
-    public void BuildCorridors(List<RoomEdge> mstEdges, List<DungeonRoom> dungeonRooms, HashSet<Vector2Int> roomTiles, List<RectInt> corridors)
+    public int BuildCorridors(List<RoomEdge> mstEdges, List<DungeonRoom> dungeonRooms, HashSet<Vector2Int> roomTiles, List<RectInt> corridors)
     {
         corridors.Clear();
+        int failed = 0;
         foreach (var edge in mstEdges)
         {
             var roomA = dungeonRooms[edge.a];
             var roomB = dungeonRooms[edge.b];
-            TryBuildCorr(roomA, roomB, roomTiles, corridors);
+            if (!TryBuildCorr(roomA, roomB, roomTiles, corridors))
+                failed++;
         }
+        return failed;
     }
 
     private bool TryBuildCorr(DungeonRoom ra, DungeonRoom rb, HashSet<Vector2Int> roomTiles, List<RectInt> corridors)

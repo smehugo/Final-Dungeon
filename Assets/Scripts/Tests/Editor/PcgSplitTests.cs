@@ -4,6 +4,7 @@ using NUnit.Framework;
 // macro BSP partition
 public class PcgSplitTests : PcgTestBase
 {
+    // leafs
     [TestCaseSource(typeof(DungeonGenConfig), nameof(DungeonGenConfig.TestSeeds))]
     public void Split_ProducesAtLeastOneLeaf(int seed)
     {
@@ -11,6 +12,7 @@ public class PcgSplitTests : PcgTestBase
         Assert.Greater(data.leaves.Count, 0);
     }
 
+    // leafs inside
     [TestCaseSource(typeof(DungeonGenConfig), nameof(DungeonGenConfig.TestSeeds))]
     public void Leaves_AreInsideTheMap(int seed)
     {
@@ -24,6 +26,7 @@ public class PcgSplitTests : PcgTestBase
         }
     }
 
+    // no overlap on leafs
     [TestCaseSource(typeof(DungeonGenConfig), nameof(DungeonGenConfig.TestSeeds))]
     public void Leaves_DoNotOverlap(int seed)
     {

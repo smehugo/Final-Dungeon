@@ -4,6 +4,7 @@ using UnityEngine;
 // AssignFinStartRooms
 public class PcgSpecialRoomTests : PcgTestBase
 {
+    // start
     [TestCaseSource(typeof(DungeonGenConfig), nameof(DungeonGenConfig.TestSeeds))]
     public void ExactlyOneStartRoom(int seed)
     {
@@ -15,6 +16,7 @@ public class PcgSpecialRoomTests : PcgTestBase
         Assert.AreEqual(1, count);
     }
 
+    // final
     [TestCaseSource(typeof(DungeonGenConfig), nameof(DungeonGenConfig.TestSeeds))]
     public void ExactlyOneFinalRoom(int seed)
     {
@@ -26,6 +28,7 @@ public class PcgSpecialRoomTests : PcgTestBase
         Assert.AreEqual(1, count);
     }
 
+    // startfin rooms are different
     [TestCaseSource(typeof(DungeonGenConfig), nameof(DungeonGenConfig.TestSeeds))]
     public void StartRoom_IsNotTheFinalRoom(int seed)
     {
@@ -37,6 +40,7 @@ public class PcgSpecialRoomTests : PcgTestBase
                 $"room {room.id} is both start and final");
     }
 
+    // origin
     [TestCaseSource(typeof(DungeonGenConfig), nameof(DungeonGenConfig.TestSeeds))]
     public void StartRoom_HasTheLowestCentreSum(int seed)
     {

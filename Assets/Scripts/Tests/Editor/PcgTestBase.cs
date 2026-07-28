@@ -1,6 +1,16 @@
+using UnityEngine;
+using System.Collections.Generic;
+using NUnit.Framework;
+
 // helpers used by the special-room tests
 public class PcgTestBase
 {
+    protected static RectInt MapBounds
+    {
+        get { return new RectInt(0, 0, DungeonGenConfig.MapWidth, DungeonGenConfig.MapHeight); }
+    }
+
+
     protected static DungeonRoom StartRoom(PcgTestGen.Data data)
     {
         foreach (var room in data.rooms)
@@ -23,5 +33,60 @@ public class PcgTestBase
             }
         }
         return null;
+    }
+
+    // returns how many components the rooms fall into, union based
+    protected static int CountComponents(int roomCount, List<RoomEdge> edges)
+    {
+        if (roomCount == 0) return 0;
+
+        var parent = new int[roomCount];
+        for (int i = 0; i < roomCount; i++) parent[i] = i;
+
+        foreach (var edge in edges)
+        {
+            int rootA = FindRoot(parent, edge.a);
+            int rootB = FindRoot(parent, edge.b);
+            if (rootA != rootB) parent[rootA] = rootB;
+        }
+
+        int components = 0;
+        for (int i = 0; i < roomCount; i++)
+            if (FindRoot(parent, i) == i) components++;
+
+        return components;
+    }
+
+    protected static bool HasCycle(int roomCount, List<RoomEdge> edges)
+    {
+        var parent = new int[roomCount];
+        for (int i = 0; i < roomCount; i++) parent[i] = i;
+
+        foreach (var edge in edges)
+        {
+            int rootA = FindRoot(parent, edge.a);
+            int rootB = FindRoot(parent, edge.b);
+            if (rootA == rootB) return true;
+            parent[rootA] = rootB;
+        }
+
+        return false;
+    }
+
+    private static int FindRoot(int[] parent, int i)
+    {
+        while (parent[i] != i) i = parent[i];
+        return i;
+    }
+
+    protected static bool SameEdge(RoomEdge x, RoomEdge y)
+    {
+        return (x.a == y.a && x.b == y.b) || (x.a == y.b && x.b == y.a);
+    }
+
+    protected static bool IsOnPerimeter(RectInt bounds, Vector2Int tile)
+    {
+        return tile.x == bounds.xMin || tile.x == bounds.xMax - 1
+            || tile.y == bounds.yMin || tile.y == bounds.yMax - 1;
     }
 }

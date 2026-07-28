@@ -5,6 +5,7 @@ using UnityEngine;
 // pcg tests
 public class PcgEditModeTests
 {
+    // rooms
     [Test]
     public void RoomsCreated()
     {
@@ -12,6 +13,7 @@ public class PcgEditModeTests
         Assert.Greater(data.rooms.Count, 0);
     }
 
+    // no overlap on rooms
     [Test]
     public void RoomsDontOverlap()
     {
@@ -21,6 +23,7 @@ public class PcgEditModeTests
                 Assert.IsFalse(data.rooms[i].bounds.Overlaps(data.rooms[j].bounds));
     }
 
+    // rooms fit leafs
     [Test]
     public void RoomsFitInLeaves()
     {
@@ -41,6 +44,7 @@ public class PcgEditModeTests
         }
     }
 
+    // corridors
     [Test]
     public void CorridorsGoodMultRooms()
     {
@@ -49,6 +53,7 @@ public class PcgEditModeTests
         Assert.Greater(data.corridorTiles.Count, 0);
     }
 
+    // path
     [Test]
     public void StartToFinPathExists()
     {
@@ -64,6 +69,7 @@ public class PcgEditModeTests
         AssertPathAdj(path);
     }
 
+    // A*
     [Test]
     public void AStarFindPath()
     {

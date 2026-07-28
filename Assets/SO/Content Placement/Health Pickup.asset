@@ -20,6 +20,6 @@ MonoBehaviour:
   minDistanceFromDoors: 2
   minPerRoom: 0
   maxPerRoom: 1
-  roomChance: 0.5
+  roomChance: 1
   blocksMovement: 0
   minSpacingFromSelf: 0

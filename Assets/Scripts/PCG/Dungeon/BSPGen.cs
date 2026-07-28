@@ -52,6 +52,7 @@ public class BSPGen : MonoBehaviour
 
     [Header("Map Data")]
     [SerializeField] private DungeonContentPlacer contentPlacer;
+    [SerializeField] private FinalRoomSeal finalRoomSeal;
 
     private int MinLeafSize => minRoomSize + 2 * roomPadding;
     private int currentLeafCount;
@@ -155,6 +156,10 @@ public class BSPGen : MonoBehaviour
         if (contentPlacer != null)
         {
             contentPlacer.PlaceContent(MapData);
+        }
+
+        {
+            finalRoomSeal.BuildSeal(MapData);
         }
 
         UpdateDebugPath();

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65fa23de45becf25382816f35976b034, type: 3}
-  m_Name: Speed Pickup
+  m_Name: Barrel Water
   m_EditorClassIdentifier: Assembly-CSharp::SpawnDefinition
-  priority: 20
-  prefab: {fileID: 8980424872814692497, guid: 52385b4f9fd56f444aef65bcddd4a003, type: 3}
-  requiredTag: 2
-  avoidStartRoom: 1
+  priority: 80
+  prefab: {fileID: 6642185272935286794, guid: fb8bb407d56ea65448001b486d884e61, type: 3}
+  requiredTag: 0
+  avoidStartRoom: 0
   avoidFinalRoom: 1
   minDistanceFromDoors: 2
   minPerRoom: 0
-  maxPerRoom: 1
-  roomChance: 1
-  blocksMovement: 0
-  minSpacingFromSelf: 0
+  maxPerRoom: 2
+  roomChance: 0.5
+  blocksMovement: 1
+  minSpacingFromSelf: 2

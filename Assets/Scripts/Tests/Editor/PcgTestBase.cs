@@ -35,6 +35,23 @@ public class PcgTestBase
         return null;
     }
 
+    protected static bool TryGetWalkaleTile(PcgTestGen.Data data, DungeonRoom room, out Vector2Int result)
+    {
+        for (int x = room.bounds.xMin; x < room.bounds.xMax; x++)
+            for (int y = room.bounds.yMin; y < room.bounds.yMax; y++)
+            {
+                var tile = new Vector2Int(x, y);
+                if (data.mapData.IsWalkable(tile))
+                {
+                    result = tile;
+                    return true;
+                }
+            }
+
+        result = default;
+        return false;
+    }
+
     // returns how many components the rooms fall into, union based
     protected static int CountComponents(int roomCount, List<RoomEdge> edges)
     {

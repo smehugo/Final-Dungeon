@@ -52,6 +52,27 @@ public class PcgTestBase
         return false;
     }
 
+    protected static HashSet<Vector2Int> ReachableFromStart(PcgTestGen.Data data)
+    {
+        var start = StartRoom(data);
+        if (start == null) return new HashSet<Vector2Int>();
+        if (!TryGetWalkaleTile(data, start, out var tile)) return new HashSet<Vector2Int>();
+        return Reachability.FloodFill(data.mapData, tile);
+    }
+
+    protected static void AssertPathConnected(List<Vector2Int> path)
+    {
+        for (int i = 1; i < path.Count; i++)
+        {
+            var a = path[i - 1];
+            var b = path[i];
+            int dx = Mathf.Abs(a.x - b.x);
+            int dy = Mathf.Abs(a.y - b.y);
+            Assert.IsTrue((dx == 1 && dy == 0) || (dx == 0 && dy == 1),
+                $"step not connected {a} -> {b}");
+        }
+    }
+
     // returns how many components the rooms fall into, union based
     protected static int CountComponents(int roomCount, List<RoomEdge> edges)
     {

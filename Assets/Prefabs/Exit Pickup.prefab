@@ -186,3 +186,5 @@ MonoBehaviour:
   type: 4
   amount: 1
   floatText: {fileID: 517455212679396120, guid: 15fb7fa48467d6b4289ba20ee03ac4f9, type: 3}
+  pickupSound: {fileID: 8300000, guid: ed7afcac750c9074893b2e26ef498dd6, type: 3}
+  vol: 0.568

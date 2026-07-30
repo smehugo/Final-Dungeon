@@ -6,6 +6,9 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
     public int Current => currentHealth;
     public int Max => maxHealth;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip hurtSound;
 
     private void Awake()
     {
@@ -15,7 +18,11 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
-        Debug.Log("hp: " + currentHealth);
+        if (currentHealth > 0)
+        {
+            audioSource.PlayOneShot(hurtSound);
+            Debug.Log("hp: " + currentHealth);
+        }
         if (currentHealth <= 0)
         {
             Die();
@@ -31,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        audioSource.PlayOneShot(deathSound);
         // TODO: respawn
         Debug.Log("died");
     }

@@ -7,6 +7,9 @@ public class CandleLightTrigger : MonoBehaviour
     [SerializeField] private string playerTag = "Player";
     [SerializeField] private Light2D light2D;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip litSound;
+
     private bool isLit;
 
     private void Awake()
@@ -32,5 +35,6 @@ public class CandleLightTrigger : MonoBehaviour
         isLit = true;
         animator.SetBool("IsLit", true);
         light2D.enabled = true;
+        audioSource.PlayOneShot(litSound);
     }
 }

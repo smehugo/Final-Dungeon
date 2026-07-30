@@ -7,6 +7,8 @@ public class Pickup : MonoBehaviour
     [SerializeField] private PickupType type;
     [SerializeField] private int amount = 1;
     [SerializeField] private GameObject floatText;
+    [SerializeField] private AudioClip pickupSound;
+    [SerializeField, Range(0f, 1f)] private float vol = 1f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -40,6 +42,10 @@ public class Pickup : MonoBehaviour
                 var menu = FindFirstObjectByType<PauseMenu>();
                 menu.ShowRunOver("DUNGEON ESCAPED");
                 break;
+        }
+        if (pickupSound != null)
+        {
+            AudioSource.PlayClipAtPoint(pickupSound, Camera.main.transform.position, vol);
         }
         Destroy(gameObject);
     }

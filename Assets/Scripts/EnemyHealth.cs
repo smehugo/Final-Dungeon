@@ -5,6 +5,10 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int maxHealth = 20;
     [SerializeField] private Animator animator;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip hurtSound;
+
     private int currentHealth;
 
     private void Awake()
@@ -19,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             animator.SetTrigger("die");
+            audioSource.PlayOneShot(deathSound);
             ChaserEnemy chaser = GetComponent<ChaserEnemy>();
             if (chaser != null)
             {
@@ -29,6 +34,7 @@ public class EnemyHealth : MonoBehaviour
         else
         {
             animator.SetTrigger("hurt");
+            audioSource.PlayOneShot(hurtSound);
         }
     }
 }

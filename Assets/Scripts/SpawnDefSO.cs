@@ -15,6 +15,7 @@ public class SpawnDefinition : ScriptableObject
 
     public bool avoidStartRoom = true;
     public bool avoidFinalRoom = false;
+    public bool finalRoomOnly = false;
     public int minDistanceFromDoors = 2;
     public int minPerRoom = 0;
     public int maxPerRoom = 2;

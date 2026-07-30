@@ -25,6 +25,8 @@ public class DungeonContentPlacer : MonoBehaviour
                 { continue; }
                 if (def.avoidFinalRoom && room.isFinalRoom)
                 { continue; }
+                if (def.finalRoomOnly && !room.isFinalRoom)
+                { continue; }
                 if (Random.value > def.roomChance)
                 { continue; }
 

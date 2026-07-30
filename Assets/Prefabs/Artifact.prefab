@@ -166,3 +166,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Pickup
   type: 0
   amount: 1
+  floatText: {fileID: 517455212679396120, guid: 15fb7fa48467d6b4289ba20ee03ac4f9, type: 3}

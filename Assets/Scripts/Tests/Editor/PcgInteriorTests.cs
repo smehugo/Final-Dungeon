@@ -113,7 +113,7 @@ public class PcgInteriorTests : PcgTestBase
         var validator = new RoomValidaton();
 
         foreach (var room in data.rooms)
-            Assert.IsTrue(validator.IsRoomValid(room), $"room {room.id} failed validation");
+            Assert.IsTrue(validator.IsRoomValid(room, data.mapData), $"room {room.id} failed validation");
     }
 
     // walkable if on centre

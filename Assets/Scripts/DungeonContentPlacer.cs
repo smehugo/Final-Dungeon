@@ -97,8 +97,6 @@ public class DungeonContentPlacer : MonoBehaviour
         if (enemy != null)
             enemy.Init(mapData, room);
 
-        mapData.Occupy(tile);
-
         if (def.blocksMovement)
         {
             mapData.Occupy(tile);
@@ -141,6 +139,6 @@ public class DungeonContentPlacer : MonoBehaviour
     private bool IsRoomTraversale(DungeonRoom room, DungeonMapData mapData)
     {
         var validator = new RoomValidaton();
-        return validator.IsRoomValid(room);
+        return validator.IsRoomValid(room, mapData);
     }
 }

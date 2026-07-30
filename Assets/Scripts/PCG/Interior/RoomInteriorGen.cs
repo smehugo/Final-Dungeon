@@ -51,7 +51,7 @@ public class RoomInteriorGen
             }
 
             // validate room
-            if (roomValidator.IsRoomValid(room))
+            if (roomValidator.IsRoomValid(room, null))
             {
                 return;
             }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class RoomValidaton
 {
-    public bool IsRoomValid(DungeonRoom room)
+    public bool IsRoomValid(DungeonRoom room, DungeonMapData mapData)
     {
         // need all blocked tiles: walls
         HashSet<Vector2Int> blocked = new();
@@ -12,6 +12,19 @@ public class RoomValidaton
             {
                 blocked.Add(tile);
             }
+
+        if (mapData != null)
+        {
+            for (int x = room.bounds.min.x; x < room.bounds.max.x; x++)
+            {
+                for (int y = room.bounds.min.y; y < room.bounds.max.y; y++)
+                {
+                    Vector2Int tile = new Vector2Int(x, y);
+                    if (mapData.IsWalkable(tile) && !mapData.IsFree(tile))
+                        blocked.Add(tile);
+                }
+            }
+        }
 
         HashSet<Vector2Int> visited = FloodFill(room.center, room.bounds, blocked);
         // debugLastFlood = visited;

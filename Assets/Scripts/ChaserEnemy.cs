@@ -104,7 +104,7 @@ public class ChaserEnemy : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!roomHasPlayer || !collision.CompareTag("Player"))
+        if (!roomHasPlayer || !collision.CompareTag("Player") || isDead)
             return;
 
         if (Time.time < nextDmgTime)

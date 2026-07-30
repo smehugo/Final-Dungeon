@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float maxSpeed = 10f;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void AddSpeed(float delta)
     {
-        moveSpeed += delta;
+        moveSpeed = Mathf.Min(moveSpeed + delta, maxSpeed);
         Debug.Log("speed: " + moveSpeed);
     }
 }

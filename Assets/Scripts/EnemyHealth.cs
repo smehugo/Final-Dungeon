@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip hurtSound;
 
+    [SerializeField] private GameObject[] loot;
+    [SerializeField] private float dropChance = 0.3f;
+    [SerializeField] private float deathDuration = 1f;
+
     private int currentHealth;
 
     private void Awake()
@@ -18,6 +23,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
+        if (currentHealth <= 0) return;
+
         currentHealth -= dmg;
 
         if (currentHealth <= 0)
@@ -29,12 +36,22 @@ public class EnemyHealth : MonoBehaviour
             {
                 chaser.SetDead();
             }
-            Destroy(gameObject, 2f);
+            StartCoroutine(DropLoot());
         }
         else
         {
             animator.SetTrigger("hurt");
             audioSource.PlayOneShot(hurtSound);
         }
+    }
+
+    private IEnumerator DropLoot()
+    {
+        yield return new WaitForSeconds(deathDuration);
+
+        if (Random.value < dropChance)
+            Instantiate(loot[Random.Range(0, loot.Length)], transform.position, Quaternion.identity, transform.parent);
+
+        Destroy(gameObject);
     }
 }

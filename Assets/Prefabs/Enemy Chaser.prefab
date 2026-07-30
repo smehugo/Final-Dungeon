@@ -313,6 +313,11 @@ MonoBehaviour:
   audioSource: {fileID: 2733113877449276871}
   deathSound: {fileID: 8300000, guid: a1a8d5f36e146d54988d8dd2bc59a71c, type: 3}
   hurtSound: {fileID: 8300000, guid: 17421c7629243d243b821c9de5010ec4, type: 3}
+  loot:
+  - {fileID: 3677385536525488948, guid: 8a0ab44d162dda2428022e3d84d84cca, type: 3}
+  - {fileID: 9044361242227462965, guid: 38c07febddc13424fa1752ae7bd38945, type: 3}
+  dropChance: 0.3
+  deathDuration: 2
 --- !u!82 &2733113877449276871
 AudioSource:
   m_ObjectHideFlags: 0

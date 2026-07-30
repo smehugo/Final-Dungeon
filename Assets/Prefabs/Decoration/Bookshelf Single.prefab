@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6685765409162330789}
   - component: {fileID: 5093550255552297171}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VelmoraRealms-Environments_Free_91
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8438294122154589997}
   - component: {fileID: 7603491266627536549}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bookshelf Single
   m_TagString: Untagged
   m_Icon: {fileID: 0}

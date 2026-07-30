@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6868054804730756168}
   - component: {fileID: 965410466373208636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Vase Green big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5720272385918091735}
   - component: {fileID: 4143320342053741416}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: decorative_38
   m_TagString: Untagged
   m_Icon: {fileID: 0}

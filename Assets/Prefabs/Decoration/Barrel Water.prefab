@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5696020594720733954}
   - component: {fileID: 555606217493240053}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VelmoraRealms-Environments_Free_20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1530397876378759660}
   - component: {fileID: 2939801239949306733}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barrel Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}

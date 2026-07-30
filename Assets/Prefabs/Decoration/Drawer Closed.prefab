@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4759058875974625849}
   - component: {fileID: 2587842265886394856}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VelmoraRealms-Environments_Free_87
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8803381469740619767}
   - component: {fileID: 5519658681786207520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Drawer Closed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

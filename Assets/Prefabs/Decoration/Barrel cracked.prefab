@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8092335103950641044}
   - component: {fileID: 2553035383235676782}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VelmoraRealms-Environments_Free_23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6134848164988005488}
   - component: {fileID: 740632041771284396}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barrel cracked
   m_TagString: Untagged
   m_Icon: {fileID: 0}

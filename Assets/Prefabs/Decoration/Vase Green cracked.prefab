@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5021900648063594847}
   - component: {fileID: 7859383474659597458}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: decorative_45
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8869481666748054672}
   - component: {fileID: 3915809097137579775}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Vase Green cracked
   m_TagString: Untagged
   m_Icon: {fileID: 0}

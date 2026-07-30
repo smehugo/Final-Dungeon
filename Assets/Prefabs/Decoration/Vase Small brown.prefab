@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5799201077981528853}
   - component: {fileID: 4985030879800026003}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: decorative_28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 927248675436652354}
   - component: {fileID: 96333265193613732}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Vase Small brown
   m_TagString: Untagged
   m_Icon: {fileID: 0}

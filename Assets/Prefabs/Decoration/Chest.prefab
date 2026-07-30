@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7608018750377594499}
   - component: {fileID: 1190120941313401346}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VelmoraRealms-Environments_Free_28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 193540053911589692}
   - component: {fileID: 3987423130805019252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}

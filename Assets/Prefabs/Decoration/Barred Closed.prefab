@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9021041225571297274}
   - component: {fileID: 5990710066169175190}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VelmoraRealms-Environments_Free_21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4748465761527251763}
   - component: {fileID: 7109659116558643017}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barred Closed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

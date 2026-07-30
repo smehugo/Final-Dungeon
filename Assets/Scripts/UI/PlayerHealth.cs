@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip hurtSound;
 
+    [SerializeField] private PauseMenu pauseMenu;
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -17,6 +19,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
+        if (currentHealth <= 0)
+            return;
+
         currentHealth -= dmg;
         if (currentHealth > 0)
         {
@@ -39,7 +44,9 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         audioSource.PlayOneShot(deathSound);
-        // TODO: respawn
         Debug.Log("died");
+
+        if (pauseMenu != null)
+            pauseMenu.ShowRunOver("YOU DIED");
     }
 }

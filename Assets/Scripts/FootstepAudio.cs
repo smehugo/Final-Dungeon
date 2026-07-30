@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Audio : MonoBehaviour
+public class FootstepAudio : MonoBehaviour
 {
     [SerializeField] private AudioSource source;
     [SerializeField] private float footstepInterval = 0.35f;

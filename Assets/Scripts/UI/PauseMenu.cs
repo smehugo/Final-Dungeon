@@ -15,6 +15,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         pausePanel.SetActive(false);
         runOverPanel.SetActive(false);
     }
@@ -24,7 +25,6 @@ public class PauseMenu : MonoBehaviour
         if (runOver) return;
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
             SetPaused(!isPaused);
-        if (Keyboard.current.pKey.wasPressedThisFrame) ShowRunOver("DUNGEON ESCAPED");
     }
 
     private void SetPaused(bool paused)

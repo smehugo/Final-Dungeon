@@ -27,6 +27,7 @@ public class SpawnDefinition : ScriptableObject
     public int extraOnTier = 0;
     public int maxExtraCount = 3;
     public int healthOnTier = 0;
+    public int damageOnTier = 0;
 
 
 }

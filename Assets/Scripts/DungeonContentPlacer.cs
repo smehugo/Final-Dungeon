@@ -105,6 +105,11 @@ public class DungeonContentPlacer : MonoBehaviour
             enemyHealth.AddHealth(room.difficultyTier * def.healthOnTier);
         }
 
+        if (enemy != null && def.damageOnTier > 0)
+        {
+            enemy.AddDamage(room.difficultyTier * def.damageOnTier);
+        }
+
         if (def.blocksMovement)
         {
             mapData.Occupy(tile);

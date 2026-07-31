@@ -139,7 +139,7 @@ Transform:
   m_GameObject: {fileID: 1788357592497508565}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -345,8 +345,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.6}
-  m_SizeDelta: {x: 80, y: 12}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 90, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5346128054683195826
 Canvas:
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d66ce33af534d842bf523394f39d763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChaserEnemy
-  damage: 1
+  damage: 2
   speed: 2
   repathTime: 0.25
   damageCD: 0.5
@@ -673,6 +673,12 @@ MonoBehaviour:
   loot:
   - {fileID: 3677385536525488948, guid: 8a0ab44d162dda2428022e3d84d84cca, type: 3}
   - {fileID: 9044361242227462965, guid: 38c07febddc13424fa1752ae7bd38945, type: 3}
+  - {fileID: 7016369131439059175, guid: 86cddb9d5aa04a841b026ac006fdc5a1, type: 3}
+  - {fileID: 7443315566326365218, guid: baf211e4c28347c4f950c02c37dccb5a, type: 3}
+  - {fileID: 5232264070261183780, guid: fd5c8675349ef3845885f0fd666ba4b2, type: 3}
+  - {fileID: 1631811804952246582, guid: 988099da21ddbb1499e0c05b863f082a, type: 3}
+  - {fileID: 4029225438571237972, guid: e4fc04c106b3f46458e21528df5e16d0, type: 3}
+  - {fileID: 4449370474637219744, guid: 23365073cba7eda43bef18d5bf8215cd, type: 3}
   dropChance: 0.3
   deathDuration: 2
 --- !u!82 &2733113877449276871

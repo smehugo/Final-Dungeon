@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299698670000195472, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
       propertyPath: damage
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 299698670000195472, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
       propertyPath: damageCD
@@ -110,6 +110,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2243819742971454910, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181691327110935357, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 6184046363629610163, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}

@@ -44,13 +44,18 @@ public class EnemyHealth : MonoBehaviour
             if (chaser != null)
             {
                 chaser.SetDead();
+                PlayerHealth player = FindFirstObjectByType<PlayerHealth>();
+                if (player != null && Random.value < 0.5f)
+                {
+                    player.AddMaxHealth(1);
+                }
+                StartCoroutine(DropLoot());
             }
-            StartCoroutine(DropLoot());
-        }
-        else
-        {
-            animator.SetTrigger("hurt");
-            audioSource.PlayOneShot(hurtSound);
+            else
+            {
+                animator.SetTrigger("hurt");
+                audioSource.PlayOneShot(hurtSound);
+            }
         }
     }
 

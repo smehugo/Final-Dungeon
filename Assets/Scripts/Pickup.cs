@@ -5,10 +5,11 @@ public enum PickupType { Artifact, Health, Speed, Damage, Exit }
 public class Pickup : MonoBehaviour
 {
     [SerializeField] private PickupType type;
-    [SerializeField] private int amount = 1;
+    [SerializeField] private float amount = 1f;
     [SerializeField] private GameObject floatText;
     [SerializeField] private AudioClip pickupSound;
     [SerializeField, Range(0f, 1f)] private float vol = 1f;
+    [SerializeField] private int maxHealthBonus = 0;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,17 +26,28 @@ public class Pickup : MonoBehaviour
                 break;
             case PickupType.Health:
                 var pickupHealth = other.GetComponent<PlayerHealth>();
-                pickupHealth.Heal(amount);
-                Popup($"+{amount} Health");
+                int healAmount = Mathf.RoundToInt(amount);
+
+                if (maxHealthBonus > 0)
+                {
+                    pickupHealth.AddMoreMaxHealth(maxHealthBonus);
+                    Popup($"+{healAmount} HP, Max Health +{maxHealthBonus}");
+                }
+                else
+                {
+                    pickupHealth.Heal(healAmount);
+                    Popup($"+{healAmount} Health");
+                }
+
                 break;
             case PickupType.Speed:
                 var pickupMovement = other.GetComponent<PlayerMovement>();
                 pickupMovement.AddSpeed(amount);
-                Popup($"+{amount} Speed");
+                Popup($"+{amount:0.##} Speed");
                 break;
             case PickupType.Damage:
                 var pickupAttack = other.GetComponent<PlayerAttack>();
-                pickupAttack.AddDamage(amount);
+                pickupAttack.AddDamage(Mathf.RoundToInt(amount));
                 Popup($"+{amount} Damage");
                 break;
             case PickupType.Exit:

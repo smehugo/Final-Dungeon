@@ -122,4 +122,9 @@ public class ChaserEnemy : MonoBehaviour
         isDead = true;
         animator.SetTrigger("die");
     }
+
+    public void AddDamage(int extra)
+    {
+        damage += extra;
+    }
 }

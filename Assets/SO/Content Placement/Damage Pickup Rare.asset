@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65fa23de45becf25382816f35976b034, type: 3}
-  m_Name: Enemy Chaser
+  m_Name: Damage Pickup Rare
   m_EditorClassIdentifier: Assembly-CSharp::SpawnDefinition
-  priority: 50
-  prefab: {fileID: 6184046363629610163, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
-  requiredTag: 0
+  priority: 20
+  prefab: {fileID: 7443315566326365218, guid: baf211e4c28347c4f950c02c37dccb5a, type: 3}
+  requiredTag: 2
   avoidStartRoom: 1
   avoidFinalRoom: 1
   finalRoomOnly: 0
   minDistanceFromDoors: 2
-  minPerRoom: 1
-  maxPerRoom: 3
-  roomChance: 1
+  minPerRoom: 0
+  maxPerRoom: 1
+  roomChance: 0.5
   blocksMovement: 0
-  minSpacingFromSelf: 2
-  extraOnTier: 1
-  maxExtraCount: 4
-  healthOnTier: 5
-  damageOnTier: 1
+  minSpacingFromSelf: 0
+  extraOnTier: 0
+  maxExtraCount: 3
+  healthOnTier: 0
+  damageOnTier: 0

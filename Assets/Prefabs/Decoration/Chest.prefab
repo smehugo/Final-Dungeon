@@ -180,6 +180,12 @@ MonoBehaviour:
   - {fileID: 3677385536525488948, guid: 8a0ab44d162dda2428022e3d84d84cca, type: 3}
   - {fileID: 8980424872814692497, guid: 52385b4f9fd56f444aef65bcddd4a003, type: 3}
   - {fileID: 9044361242227462965, guid: 38c07febddc13424fa1752ae7bd38945, type: 3}
+  - {fileID: 7016369131439059175, guid: 86cddb9d5aa04a841b026ac006fdc5a1, type: 3}
+  - {fileID: 7443315566326365218, guid: baf211e4c28347c4f950c02c37dccb5a, type: 3}
+  - {fileID: 5232264070261183780, guid: fd5c8675349ef3845885f0fd666ba4b2, type: 3}
+  - {fileID: 1631811804952246582, guid: 988099da21ddbb1499e0c05b863f082a, type: 3}
+  - {fileID: 4029225438571237972, guid: e4fc04c106b3f46458e21528df5e16d0, type: 3}
+  - {fileID: 4449370474637219744, guid: 23365073cba7eda43bef18d5bf8215cd, type: 3}
   artifact: {fileID: 4474790695867493507, guid: 885fdefa9be8e0e9dbedb7bf441da5f7, type: 3}
   artifactChance: 0.1
   animator: {fileID: 582615560949841389}

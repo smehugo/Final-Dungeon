@@ -30,7 +30,9 @@ public class DungeonContentPlacer : MonoBehaviour
                 if (Random.value > def.roomChance)
                 { continue; }
 
-                int range = Random.Range(def.minPerRoom, def.maxPerRoom + 1);
+                int bonus = Mathf.Min(room.difficultyTier * def.extraOnTier, def.maxExtraCount);
+                int range = Random.Range(def.minPerRoom + bonus, def.maxPerRoom + bonus + 1);
+
                 for (int i = 0; i < range; i++)
                 {
                     if (GetFreeTile(room, def, mapData, placedPositions, out Vector2Int tile))
@@ -96,6 +98,12 @@ public class DungeonContentPlacer : MonoBehaviour
         ChaserEnemy enemy = obj.GetComponent<ChaserEnemy>();
         if (enemy != null)
             enemy.Init(mapData, room);
+
+        EnemyHealth enemyHealth = obj.GetComponent<EnemyHealth>();
+        if (enemyHealth != null && def.healthOnTier > 0)
+        {
+            enemyHealth.AddHealth(room.difficultyTier * def.healthOnTier);
+        }
 
         if (def.blocksMovement)
         {

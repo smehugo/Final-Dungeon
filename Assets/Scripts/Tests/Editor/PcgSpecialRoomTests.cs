@@ -127,7 +127,39 @@ public class PcgSpecialRoomTests : PcgTestBase
 
             foreach (var zone in room.zones)
                 Assert.AreEqual(ZoneType.Open, zone.type,
-                    $"room {room.id} has a {zone.type} zone");
+                    $"room {room.id} has {zone.type} zone");
         }
+    }
+
+    [TestCaseSource(typeof(DungeonGenConfig), nameof(DungeonGenConfig.TestSeeds))]
+    public void StartRoom_IsTierZero(int seed)
+    {
+        var data = PcgTestGen.Generate(seed);
+        var start = StartRoom(data);
+        Assert.AreEqual(0, start.difficultyTier);
+    }
+
+    [TestCaseSource(typeof(DungeonGenConfig), nameof(DungeonGenConfig.TestSeeds))]
+    public void FinalRoom_IsTheHighestTier(int seed)
+    {
+        var data = PcgTestGen.Generate(seed);
+        var final = FinalRoom(data);
+        Assert.AreEqual(DungeonGenConfig.DifficultyTiers, final.difficultyTier);
+    }
+
+    [TestCaseSource(typeof(DungeonGenConfig), nameof(DungeonGenConfig.TestSeeds))]
+    public void FartherRooms_AreNeverALowerTier(int seed)
+    {
+        var data = PcgTestGen.Generate(seed);
+        var start = StartRoom(data);
+        foreach (var a in data.rooms)
+            foreach (var b in data.rooms)
+            {
+                if (Vector2Int.Distance(start.center, a.center)
+                    <= Vector2Int.Distance(start.center, b.center)) continue;
+
+                Assert.GreaterOrEqual(a.difficultyTier, b.difficultyTier,
+                    $"room {a.id} is farther than {b.id} but lower tier");
+            }
     }
 }

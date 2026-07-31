@@ -12,7 +12,8 @@ public class PcgMetricsTests : PcgTestBase
     "run,seed,rooms,leaves,roomsCreated,floorTiles,corridorTiles,blockedTiles," +
     "mstBaseEdges,mstEdges,mstComponents,corridorFailures,doors," +
     "zones,interiorWalls,solidWalls,blockedRoomCentres,artifactRooms," +
-    "walkableTiles,reachableTiles,reachableRatio,startToFinalPathLength,detourFactor";
+    "walkableTiles,reachableTiles,reachableRatio,startToFinalPathLength,detourFactor," +
+    "maxTier,meanTier,tierHistogram";
 
     [Test]
     public void RecordMetrics4Seeds()
@@ -36,6 +37,9 @@ public class PcgMetricsTests : PcgTestBase
         int solidWalls = 0;
         int blockedCentres = 0;
         int artifactRooms = 0;
+        int maxTier = 0;
+        int tierTotal = 0;
+        var histogram = new int[DungeonGenConfig.DifficultyTiers + 1];
 
         foreach (var room in data.rooms)
         {
@@ -44,6 +48,11 @@ public class PcgMetricsTests : PcgTestBase
             walls += room.interiorWalls.Count;
             if (room.hasArtifact) artifactRooms++;
             if (!data.mapData.IsWalkable(room.center)) blockedCentres++;
+
+            int tier = Mathf.Clamp(room.difficultyTier, 0, DungeonGenConfig.DifficultyTiers);
+            if (tier > maxTier) maxTier = tier;
+            tierTotal += tier;
+            histogram[tier]++;
 
             foreach (var wall in room.interiorWalls)
                 if (wall.tiles.Count >= wall.bounds.width * wall.bounds.height) solidWalls++;
@@ -102,6 +111,9 @@ public class PcgMetricsTests : PcgTestBase
             reachable.ToString(CultureInfo.InvariantCulture),
             ratio.ToString("F4", CultureInfo.InvariantCulture),
             pathLength.ToString(CultureInfo.InvariantCulture),
-            detour.ToString("F4", CultureInfo.InvariantCulture));
+            detour.ToString("F4", CultureInfo.InvariantCulture),
+            maxTier.ToString(CultureInfo.InvariantCulture),
+            (data.rooms.Count > 0 ? (float)tierTotal / data.rooms.Count : 0f).ToString("F4", CultureInfo.InvariantCulture),
+            string.Join(":", histogram));
     }
 }

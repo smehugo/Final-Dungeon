@@ -16,6 +16,7 @@ public class AssignFinStartRooms
             room.isStartRoom = false;
             room.isFinalRoom = false;
             room.hasArtifact = false;
+            room.difficultyTier = 0;
         }
 
         if (dungeonRooms.Count == 0)
@@ -49,6 +50,15 @@ public class AssignFinStartRooms
         }
 
         finalRoom.isFinalRoom = true;
+
+        foreach (var room in dungeonRooms)
+        {
+            if (farthestDistance <= 0f) continue;
+
+            float distance = Vector2Int.Distance(startRoom.center, room.center);
+            room.difficultyTier = Mathf.RoundToInt(
+                (distance / farthestDistance) * DungeonGenConfig.DifficultyTiers);
+        }
 
         List<DungeonRoom> artifactCandidates = new List<DungeonRoom>();
 

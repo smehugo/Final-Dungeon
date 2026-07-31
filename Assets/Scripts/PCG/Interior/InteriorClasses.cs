@@ -46,6 +46,8 @@ public class DungeonRoom
     public List<RoomZone> zones = new();
     public List<InteriorWall> interiorWalls = new();
 
+    public int difficultyTier;
+
     public bool isStartRoom;
     public bool isFinalRoom;
     public bool hasArtifact;

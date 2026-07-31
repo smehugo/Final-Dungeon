@@ -16,8 +16,17 @@ public class EnemyHealth : MonoBehaviour
 
     private int currentHealth;
 
+    public int Current => currentHealth;
+    public int Max => maxHealth;
+
     private void Awake()
     {
+        currentHealth = maxHealth;
+    }
+
+    public void AddHealth(int extra)
+    {
+        maxHealth += extra;
         currentHealth = maxHealth;
     }
 

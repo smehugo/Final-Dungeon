@@ -16,11 +16,14 @@ MonoBehaviour:
   prefab: {fileID: 6184046363629610163, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
   requiredTag: 0
   avoidStartRoom: 1
-  avoidFinalRoom: 0
+  avoidFinalRoom: 1
   finalRoomOnly: 0
   minDistanceFromDoors: 2
   minPerRoom: 1
-  maxPerRoom: 5
+  maxPerRoom: 3
   roomChance: 1
   blocksMovement: 0
-  minSpacingFromSelf: 3
+  minSpacingFromSelf: 2
+  extraOnTier: 1
+  maxExtraCount: 4
+  healthOnTier: 5

@@ -23,4 +23,10 @@ public class SpawnDefinition : ScriptableObject
     public bool blocksMovement = true;
     public int minSpacingFromSelf = 0;
 
+    [Header("Enemy difficulty")]
+    public int extraOnTier = 0;
+    public int maxExtraCount = 3;
+    public int healthOnTier = 0;
+
+
 }

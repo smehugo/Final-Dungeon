@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &855926724593880966
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -7465500991147058727, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: maxHealth
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: -7465500991147058727, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: dropChance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7465500991147058727, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: loot.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7465500991147058727, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: 'loot.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8980424872814692497, guid: 7113aed32d3f0cc479e0fb9320c899e0, type: 3}
+    - target: {fileID: 299698670000195472, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: speed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 299698670000195472, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 299698670000195472, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: damageCD
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 496347767788360226, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496347767788360226, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496347767788360226, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496347767788360226, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 496347767788360226, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496347767788360226, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496347767788360226, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496347767788360226, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496347767788360226, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496347767788360226, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468072948581974441, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468072948581974441, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468072948581974441, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213736916143312489, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213736916143312489, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6179246
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213736916143312489, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_Color.r
+      value: 0.84830374
+      objectReference: {fileID: 0}
+    - target: {fileID: 2243819742971454910, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2243819742971454910, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2243819742971454910, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6184046363629610163, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_Name
+      value: Enemy Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185821120154018603, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185821120154018603, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274882760679410274, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_Size.y
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274882760679410274, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}

@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
 
     private PlayerAnimator playerAnimator;
     private float nextAttackTime;
+    public int Damage => damage;
 
     private void Awake()
     {

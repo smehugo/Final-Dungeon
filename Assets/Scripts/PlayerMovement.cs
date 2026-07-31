@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
 
     private PlayerAnimator playerAnimator;
+    public float MoveSpeed => moveSpeed;
 
     private void Awake()
     {

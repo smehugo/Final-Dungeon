@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum PickupType { Artifact, Health, Speed, Damage, Exit }
+public enum PickupType { Artifact, Health, Speed, Damage, Exit, FireRate }
 
 public class Pickup : MonoBehaviour
 {
@@ -46,9 +46,14 @@ public class Pickup : MonoBehaviour
                 Popup($"+{amount:0.##} Speed");
                 break;
             case PickupType.Damage:
-                var pickupAttack = other.GetComponent<PlayerAttack>();
-                pickupAttack.AddDamage(Mathf.RoundToInt(amount));
+                var pickupBow = other.GetComponent<Bow>();
+                pickupBow.AddDamage(Mathf.RoundToInt(amount));
                 Popup($"+{amount} Damage");
+                break;
+            case PickupType.FireRate:
+                var rateBow = other.GetComponent<Bow>();
+                rateBow.AddFireRate(amount);
+                Popup($"+{amount:0.##} Fire Rate");
                 break;
             case PickupType.Exit:
                 var menu = FindFirstObjectByType<PauseMenu>();

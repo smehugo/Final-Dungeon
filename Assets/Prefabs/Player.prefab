@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7904934470274330446}
   - component: {fileID: 5692835119316319208}
   m_Layer: 0
-  m_Name: Sword
+  m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14814589552747736}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0, z: -0.9238796, w: -0.38268328}
   m_LocalPosition: {x: 0.4, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7473842746094280961}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -225}
 --- !u!212 &7904934470274330446
 SpriteRenderer:
   serializedVersion: 2
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 11
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5422827306534978575, guid: b74abd271a67435248a0c52581ad01d7, type: 3}
+  m_Sprite: {fileID: 431562129946660119, guid: b74abd271a67435248a0c52581ad01d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -179,10 +179,10 @@ GameObject:
   - component: {fileID: 4850260989511218326}
   - component: {fileID: 4831924406927829416}
   - component: {fileID: 9168271100089127432}
-  - component: {fileID: 2528079467025093231}
   - component: {fileID: 2830902986618295785}
   - component: {fileID: 7783099872412624880}
   - component: {fileID: 483550534609088772}
+  - component: {fileID: 2737323176046074155}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
   movementDeadZone: 0.01
-  sword: {fileID: 187914028231745870}
+  bow: {fileID: 187914028231745870}
 --- !u!114 &9168271100089127432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,27 +481,6 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: ce16be4f81d36544d8af43e8634eb4b7, type: 3}
   hurtSound: {fileID: 8300000, guid: 713268327e3dfbe4daa667a468b1684c, type: 3}
   pauseMenu: {fileID: 0}
---- !u!114 &2528079467025093231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086100796089981945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bd3418cf87f84d1996aab83cedfdb75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  damage: 10
-  attackRange: 1
-  attackOffset: 0.4
-  attackCD: 0.4
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 64
-  audioSource: {fileID: 7783099872412624880}
-  hitSound: {fileID: 8300000, guid: 746cc21d441d56e4d8fffeae03d5b8f8, type: 3}
 --- !u!114 &2830902986618295785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,6 +611,26 @@ MonoBehaviour:
   source: {fileID: 7783099872412624880}
   footstepInterval: 0.3
   stepDistance: 1.75
+--- !u!114 &2737323176046074155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086100796089981945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35577d6f3c557354d9b5fb63f46412f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bow
+  dmg: 10
+  fireCD: 0.5
+  minFireCD: 0.1
+  arrowPrefab: {fileID: 1841024278109592165, guid: 2f86aa3964ec8b64baee0944cb1bf848, type: 3}
+  spawnOfset: 0.4
+  audioSource: {fileID: 7783099872412624880}
+  shootSound: {fileID: 8300000, guid: 9d05916de11dbcb4fb3c1662a31229ea, type: 3}
+  bowAnim: {fileID: 187914028231745870}
 --- !u!1 &4838506707337154245
 GameObject:
   m_ObjectHideFlags: 0

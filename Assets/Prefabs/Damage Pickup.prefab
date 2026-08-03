@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5422827306534978575, guid: b74abd271a67435248a0c52581ad01d7, type: 3}
+  m_Sprite: {fileID: 1329060588, guid: b631ed305dfd43c488e0f8edf5c829bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -188,3 +188,4 @@ MonoBehaviour:
   floatText: {fileID: 517455212679396120, guid: 15fb7fa48467d6b4289ba20ee03ac4f9, type: 3}
   pickupSound: {fileID: 8300000, guid: 4377a55cdb1f79f40acf7c7a9335d85e, type: 3}
   vol: 0.255
+  maxHealthBonus: 0

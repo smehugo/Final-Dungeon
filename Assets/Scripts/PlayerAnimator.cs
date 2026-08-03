@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] private float movementDeadZone = 0.01f;
+    [SerializeField] private SwordAnim sword;
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -49,6 +50,8 @@ public class PlayerAnimator : MonoBehaviour
 
         AddFacingToAnim(lastDir);
         animator.SetTrigger("Attack");
+
+        sword.Swing();
     }
 
     public void PlayHurt()
@@ -89,6 +92,8 @@ public class PlayerAnimator : MonoBehaviour
 
         animator.SetFloat(MoveX, animDirection.x);
         animator.SetFloat(MoveY, animDirection.y);
+
+        sword.SetDir(lastDir);
     }
 
     private Vector2 MixedDirection(Vector2 input)

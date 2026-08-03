@@ -97,6 +97,7 @@ MonoBehaviour:
   floatText: {fileID: 517455212679396120, guid: 15fb7fa48467d6b4289ba20ee03ac4f9, type: 3}
   pickupSound: {fileID: 8300000, guid: ed7afcac750c9074893b2e26ef498dd6, type: 3}
   vol: 0.555
+  maxHealthBonus: 0
 --- !u!1 &3682383904617519322
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +179,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8584757745520640472, guid: 7874ea724870c6df7ae6f4211afddb49, type: 3}
+  m_Sprite: {fileID: 1903202154, guid: b631ed305dfd43c488e0f8edf5c829bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

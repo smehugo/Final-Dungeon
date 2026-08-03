@@ -68,4 +68,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         if (playerInput != null) playerInput.DeactivateInput();
     }
+
+    public void ToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
 }

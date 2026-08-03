@@ -31,7 +31,22 @@ public class DungeonContentPlacer : MonoBehaviour
                 { continue; }
 
                 int bonus = Mathf.Min(room.difficultyTier * def.extraOnTier, def.maxExtraCount);
-                int range = Random.Range(def.minPerRoom + bonus, def.maxPerRoom + bonus + 1);
+
+                // menu difficulty - offset to SO so it doesnt stack
+                bool isEnemy = def.prefab != null && def.prefab.GetComponent<ChaserEnemy>() != null;
+                int diffBonus;
+                if (isEnemy)
+                {
+                    diffBonus = RunConfig.EnemyCountBonus;
+                }
+                else
+                {
+                    diffBonus = 0;
+                }
+
+                int min = Mathf.Max(0, def.minPerRoom + bonus + diffBonus);
+                int max = Mathf.Max(min, def.maxPerRoom + bonus + diffBonus);
+                int range = Random.Range(min, max + 1);
 
                 for (int i = 0; i < range; i++)
                 {

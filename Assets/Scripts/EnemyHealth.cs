@@ -38,6 +38,11 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+            boxCollider.enabled = false;
+            CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
+            circleCollider.enabled = false;
+
             animator.SetTrigger("die");
             audioSource.PlayOneShot(deathSound);
             ChaserEnemy chaser = GetComponent<ChaserEnemy>();

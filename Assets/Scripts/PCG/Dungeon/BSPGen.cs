@@ -107,13 +107,18 @@ public class BSPGen : MonoBehaviour
 
     private void GenerateDungeon()
     {
-        if (seedActive)
+        if (RunConfig.UseFixedSeed)
+        {
+            seed = RunConfig.Seed;
+        }
+        else if (seedActive)
         {
             seed = Random.Range(0, int.MaxValue);
         }
+
         Random.InitState(seed);
         CurrentSeed = seed;
-        Debug.Log($"seed {seed}");
+        Debug.Log($"seed {seed} difficulty {RunConfig.DiffName}");
 
         rootNode = new BSPNode(new RectInt(0, 0, MapWidth, MapHeight));
         currentLeafCount = 1;

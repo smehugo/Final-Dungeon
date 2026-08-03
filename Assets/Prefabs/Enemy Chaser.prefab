@@ -139,7 +139,7 @@ Transform:
   m_GameObject: {fileID: 1788357592497508565}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5038990388040602523}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 2733113877449276871}
   - component: {fileID: 800948118398773566}
   - component: {fileID: 9151116619502984948}
+  - component: {fileID: 4365384764284798022}
   m_Layer: 6
   m_Name: Enemy Chaser
   m_TagString: Enemy
@@ -522,8 +523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d66ce33af534d842bf523394f39d763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChaserEnemy
-  damage: 2
-  speed: 2
+  damage: 3
+  speed: 2.5
   repathTime: 0.25
   damageCD: 0.5
   animator: {fileID: 4043786624784890305}
@@ -536,14 +537,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6184046363629610163}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -599,7 +600,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.2}
   m_EdgeRadius: 0
 --- !u!114 &7773282000948522931
 MonoBehaviour:
@@ -665,22 +666,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b90575e6a2ad40ab55a77f6d48e4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 20
+  maxHealth: 40
   animator: {fileID: 4043786624784890305}
   audioSource: {fileID: 2733113877449276871}
   deathSound: {fileID: 8300000, guid: a1a8d5f36e146d54988d8dd2bc59a71c, type: 3}
   hurtSound: {fileID: 8300000, guid: 17421c7629243d243b821c9de5010ec4, type: 3}
   loot:
-  - {fileID: 3677385536525488948, guid: 8a0ab44d162dda2428022e3d84d84cca, type: 3}
   - {fileID: 9044361242227462965, guid: 38c07febddc13424fa1752ae7bd38945, type: 3}
   - {fileID: 7016369131439059175, guid: 86cddb9d5aa04a841b026ac006fdc5a1, type: 3}
   - {fileID: 7443315566326365218, guid: baf211e4c28347c4f950c02c37dccb5a, type: 3}
+  - {fileID: 3677385536525488948, guid: 8a0ab44d162dda2428022e3d84d84cca, type: 3}
   - {fileID: 5232264070261183780, guid: fd5c8675349ef3845885f0fd666ba4b2, type: 3}
   - {fileID: 1631811804952246582, guid: 988099da21ddbb1499e0c05b863f082a, type: 3}
   - {fileID: 4029225438571237972, guid: e4fc04c106b3f46458e21528df5e16d0, type: 3}
   - {fileID: 4449370474637219744, guid: 23365073cba7eda43bef18d5bf8215cd, type: 3}
-  dropChance: 0.3
-  deathDuration: 2
+  - {fileID: 8980424872814692497, guid: b20e4698131917e44b29f961162bfb72, type: 3}
+  - {fileID: 3606757532551795759, guid: 374fb5866c159a14d88e6dfca0752552, type: 3}
+  - {fileID: 38052609504857075, guid: a0e4a5c637eb45b4092fad9bc99c68ca, type: 3}
+  dropChance: 0.2
+  deathDuration: 1
 --- !u!82 &2733113877449276871
 AudioSource:
   m_ObjectHideFlags: 0
@@ -808,6 +812,42 @@ MonoBehaviour:
   enemyHealth: {fileID: -7465500991147058727}
   barRoot: {fileID: 3253777209195208694}
   bar: {fileID: 6321797358497760282}
+--- !u!58 &4365384764284798022
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6184046363629610163}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.3
 --- !u!1 &6917809385787661781
 GameObject:
   m_ObjectHideFlags: 0

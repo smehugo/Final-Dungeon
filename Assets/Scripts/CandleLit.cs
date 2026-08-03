@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class CandleLightTrigger : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class CandleLightTrigger : MonoBehaviour
         animator = GetComponent<Animator>();
         light2D = GetComponent<Light2D>();
         light2D.enabled = false;
+
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            LightCandle();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,6 +41,7 @@ public class CandleLightTrigger : MonoBehaviour
         isLit = true;
         animator.SetBool("IsLit", true);
         light2D.enabled = true;
-        audioSource.PlayOneShot(litSound);
+        if (SceneManager.GetActiveScene().name != "MainMenu")
+            audioSource.PlayOneShot(litSound);
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fa23de45becf25382816f35976b034, type: 3}
   m_Name: Enemy Boss
   m_EditorClassIdentifier: Assembly-CSharp::SpawnDefinition
-  priority: 10
+  priority: 0
   prefab: {fileID: 6787762144447228725, guid: 94682ea0e027f3445975fffa68a6fe9b, type: 3}
   requiredTag: 0
   avoidStartRoom: 1
@@ -27,3 +27,4 @@ MonoBehaviour:
   extraOnTier: 0
   maxExtraCount: 0
   healthOnTier: 0
+  damageOnTier: 0

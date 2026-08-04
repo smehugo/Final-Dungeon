@@ -107,6 +107,15 @@ public class BSPGen : MonoBehaviour
 
     private void GenerateDungeon()
     {
+        if (RunConfig.UseCustomGen)
+        {
+            MapWidth = RunConfig.MapSize;
+            MapHeight = RunConfig.MapSize;
+            roomCount = RunConfig.RoomCount;
+            artifactZones = RunConfig.Artifacts;
+            roomFillMin = RunConfig.RoomFill;
+        }
+
         if (RunConfig.UseFixedSeed)
         {
             seed = RunConfig.Seed;
@@ -118,7 +127,7 @@ public class BSPGen : MonoBehaviour
 
         Random.InitState(seed);
         CurrentSeed = seed;
-        Debug.Log($"seed {seed} difficulty {RunConfig.DiffName}");
+        Debug.Log($"seed {seed} difficulty {RunConfig.DiffName} map {MapWidth} rooms {roomCount} artifacts {artifactZones}");
 
         rootNode = new BSPNode(new RectInt(0, 0, MapWidth, MapHeight));
         currentLeafCount = 1;

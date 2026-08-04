@@ -523,8 +523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d66ce33af534d842bf523394f39d763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChaserEnemy
-  damage: 8
-  speed: 1.5
+  damage: 10
+  speed: 2
   repathTime: 0.25
   damageCD: 1
   animator: {fileID: 3746632397163722311}
@@ -666,7 +666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b90575e6a2ad40ab55a77f6d48e4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 1000
+  maxHealth: 10000
   animator: {fileID: 3746632397163722311}
   audioSource: {fileID: 3318348381111415361}
   deathSound: {fileID: 8300000, guid: a1a8d5f36e146d54988d8dd2bc59a71c, type: 3}

@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -8,6 +9,16 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private TMP_Text seedModeTxt;
     [SerializeField] private TMP_Dropdown difficultyDrop;
     [SerializeField] private string sceneName = "ProceduralGen";
+
+    [SerializeField] private Slider mapSizeSlider;
+    [SerializeField] private Slider roomsSlider;
+    [SerializeField] private Slider artifactsSlider;
+    [SerializeField] private Slider roomFillSlider;
+
+    [SerializeField] private TMP_Text mapSizeTxt;
+    [SerializeField] private TMP_Text roomsTxt;
+    [SerializeField] private TMP_Text artifactsTxt;
+    [SerializeField] private TMP_Text roomFillTxt;
 
     private bool useFixedSeed;
 
@@ -75,8 +86,36 @@ public class MainMenu : MonoBehaviour
                 break;
         }
 
+        ApplyGenOptions();
         Time.timeScale = 1f;
         SceneManager.LoadScene(sceneName);
+    }
+
+    // slider onvalue hook
+    public void OnGenOptionChanged()
+    {
+        mapSizeTxt.text = "Map size: " + (int)mapSizeSlider.value;
+        roomsTxt.text = "Room Count: " + (int)roomsSlider.value;
+        artifactsTxt.text = "Artifacts Required: " + (int)artifactsSlider.value;
+        roomFillTxt.text = "Room Coverage: " + roomFillSlider.value.ToString("0.00");
+    }
+
+    private void ApplyGenOptions()
+    {
+        RunConfig.UseCustomGen = true;
+        RunConfig.MapSize = (int)mapSizeSlider.value;
+        RunConfig.RoomCount = (int)roomsSlider.value;
+        RunConfig.Artifacts = (int)artifactsSlider.value;
+        RunConfig.RoomFill = roomFillSlider.value;
+    }
+
+    public void ResetGenOptions()
+    {
+        mapSizeSlider.value = 128;
+        roomsSlider.value = 16;
+        artifactsSlider.value = 5;
+        roomFillSlider.value = 0.8f;
+        OnGenOptionChanged();
     }
 
     public void Quit()

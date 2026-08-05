@@ -53,7 +53,15 @@ public class MainMenu : MonoBehaviour
         if (useFixedSeed && seedInput != null)
         {
             RunConfig.UseFixedSeed = true;
-            RunConfig.Seed = int.Parse(seedInput.text);
+            // setSeed true, input empty
+            if (int.TryParse(seedInput.text, out var seed))
+            {
+                RunConfig.Seed = seed;
+            }
+            else
+            {
+                RunConfig.Seed = Random.Range(0, int.MaxValue);
+            }
         }
         else
         {
@@ -73,11 +81,11 @@ public class MainMenu : MonoBehaviour
         switch (choice)
         {
             case 0:
-                RunConfig.EnemyCountBonus = -1;
+                RunConfig.EnemyCountBonus = -2;
                 RunConfig.DiffName = "Easy";
                 break;
             case 2:
-                RunConfig.EnemyCountBonus = 2;
+                RunConfig.EnemyCountBonus = 3;
                 RunConfig.DiffName = "Hard";
                 break;
             default:

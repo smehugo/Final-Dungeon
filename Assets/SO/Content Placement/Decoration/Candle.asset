@@ -17,9 +17,14 @@ MonoBehaviour:
   requiredTag: 0
   avoidStartRoom: 0
   avoidFinalRoom: 0
+  finalRoomOnly: 0
   minDistanceFromDoors: 1
   minPerRoom: 50
   maxPerRoom: 50
   roomChance: 1
   blocksMovement: 0
   minSpacingFromSelf: 10
+  extraOnTier: 0
+  maxExtraCount: 3
+  healthOnTier: 0
+  damageOnTier: 0

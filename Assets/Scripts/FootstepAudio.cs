@@ -3,7 +3,6 @@ using UnityEngine;
 public class FootstepAudio : MonoBehaviour
 {
     [SerializeField] private AudioSource source;
-    [SerializeField] private float footstepInterval = 0.35f;
     [SerializeField] private float stepDistance = 1.75f;
 
     private Rigidbody2D rb;

@@ -110,7 +110,7 @@ public class PcgInteriorTests : PcgTestBase
     public void EveryRoom_PassesRoomValidation(int seed)
     {
         var data = PcgTestGen.Generate(seed);
-        var validator = new RoomValidaton();
+        var validator = new RoomValidation();
 
         foreach (var room in data.rooms)
             Assert.IsTrue(validator.IsRoomValid(room, data.mapData), $"room {room.id} failed validation");

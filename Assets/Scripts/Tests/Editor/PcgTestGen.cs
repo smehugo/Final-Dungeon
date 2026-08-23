@@ -30,108 +30,51 @@ public static class PcgTestGen
 
     public static Data GenerateFresh(int seed)
     {
-        Random.InitState(seed);
-
-        var splitter = new BSPSplitter();
-        var roomBuilder = new BSPRooms();
-        var graphBuilder = new GraphBuilder();
-        var corridorBuilder = new CorridorBuilder();
-        var finStart = new AssignFinStartRooms();
-        var interiorGenerator = new RoomInteriorGen();
-
-        var root = new BSPNode(new RectInt(0, 0, DungeonGenConfig.MapWidth, DungeonGenConfig.MapHeight));
-        int leafCount = 1;
-        splitter.Split(root, 0, DungeonGenConfig.MaxDepth, DungeonGenConfig.RoomCount, DungeonGenConfig.MinLeafSize, ref leafCount);
-
-        var leaves = new List<BSPNode>();
-        splitter.GetLeaves(root, leaves);
-
-        int roomsCreated = 0;
-        roomBuilder.MakeRooms(leaves, DungeonGenConfig.RoomPadding, DungeonGenConfig.MinRoomSize, DungeonGenConfig.RoomFillMin, DungeonGenConfig.RoomFillMax, ref roomsCreated);
-
-        var roomTiles = new HashSet<Vector2Int>();
-        foreach (var leaf in leaves)
+        var config = new DungeonPipeline.PipelineConfig
         {
-            if (!leaf.hasRoom) continue;
-            for (int x = leaf.roomRect.xMin; x < leaf.roomRect.xMax; x++)
-                for (int y = leaf.roomRect.yMin; y < leaf.roomRect.yMax; y++)
-                    roomTiles.Add(new Vector2Int(x, y));
-        }
+            mapWidth = DungeonGenConfig.MapWidth,
+            mapHeight = DungeonGenConfig.MapHeight,
+            roomPadding = DungeonGenConfig.RoomPadding,
+            roomCount = DungeonGenConfig.RoomCount,
+            minRoomSize = DungeonGenConfig.MinRoomSize,
+            maxDepth = DungeonGenConfig.MaxDepth,
+            roomFillMin = DungeonGenConfig.RoomFillMin,
+            roomFillMax = DungeonGenConfig.RoomFillMax,
+            minZoneSize = DungeonGenConfig.MinZoneSize,
+            maxZoneSize = DungeonGenConfig.MaxZoneSize,
+            interiorDepthStep = DungeonGenConfig.InteriorDepthStep,
+            interiorMaxDepth = DungeonGenConfig.InteriorMaxDepth,
+            wallOpeningMin = DungeonGenConfig.WallOpeningMin,
+            wallOpeningMax = DungeonGenConfig.WallOpeningMax,
+            wallExtraHoleGamba = DungeonGenConfig.WallExtraHoleGamba,
+            artifactZones = DungeonGenConfig.ArtifactZones
+        };
 
-        var roomCenters = new List<Vector2Int>();
-        var rooms = new List<DungeonRoom>();
-        var tileToRoom = new Dictionary<Vector2Int, int>();
-        roomBuilder.GetRoomCenters(root, roomCenters, rooms, tileToRoom);
+        var result = DungeonPipeline.Run(config, seed);
 
-        var allEdges = new List<RoomEdge>();
-        var mstEdges = new List<RoomEdge>();
-        var corridors = new List<RectInt>();
-        graphBuilder.BuildEdgeList(rooms, roomCenters, allEdges);
-        graphBuilder.BuildMST(allEdges, roomCenters, mstEdges);
-
-        var mstBaseEdges = new List<RoomEdge>(mstEdges);
-        graphBuilder.BuildMSTSecondPass(roomCenters, mstEdges, allEdges);
-
-        int corridorFailures = corridorBuilder.BuildCorridors(mstEdges, rooms, roomTiles, corridors);
-        corridorBuilder.BuildReservedTiles(rooms);
-        finStart.AssignSpecialRooms(rooms, DungeonGenConfig.ArtifactZones);
-
-        interiorGenerator.BuildRoomInteriors(
-            rooms,
-            DungeonGenConfig.MinZoneSize,
-            DungeonGenConfig.MaxZoneSize,
-            DungeonGenConfig.InteriorDepthStep,
-            DungeonGenConfig.InteriorMaxDepth,
-            DungeonGenConfig.WallOpeningMin,
-            DungeonGenConfig.WallOpeningMax,
-            DungeonGenConfig.WallExtraHoleGamba,
-            DungeonGenConfig.ArtifactZones);
-
-        // corridor, floor tiles
         var corridorTiles = new HashSet<Vector2Int>();
-        var floorTiles = new HashSet<Vector2Int>(roomTiles);
-        foreach (var c in corridors)
-        {
+        foreach (var c in result.corridors)
             for (int x = c.xMin; x < c.xMax; x++)
                 for (int y = c.yMin; y < c.yMax; y++)
-                {
-                    var tile = new Vector2Int(x, y);
-                    corridorTiles.Add(tile);
-                    floorTiles.Add(tile);
-                }
-        }
-
-        var blocked = new HashSet<Vector2Int>();
-        foreach (var room in rooms)
-            foreach (var wall in room.interiorWalls)
-                foreach (var tile in wall.tiles)
-                    blocked.Add(tile);
-
-        foreach (var tile in floorTiles)
-            for (int x = tile.x - 1; x <= tile.x + 1; x++)
-                for (int y = tile.y - 1; y <= tile.y + 1; y++)
-                {
-                    var w = new Vector2Int(x, y);
-                    if (!floorTiles.Contains(w)) blocked.Add(w);
-                }
+                    corridorTiles.Add(new Vector2Int(x, y));
 
         return new Data
         {
             seed = seed,
-            leaves = leaves,
-            rooms = rooms,
-            roomCenters = roomCenters,
-            roomTiles = roomTiles,
+            leaves = result.leaves,
+            rooms = result.rooms,
+            roomCenters = result.roomCenters,
+            roomTiles = result.roomTiles,
             corridorTiles = corridorTiles,
-            floorTiles = floorTiles,
-            blockedTiles = blocked,
-            allEdges = allEdges,
-            mstBaseEdges = mstBaseEdges,
-            mstEdges = mstEdges,
-            corridors = corridors,
-            mapData = new DungeonMapData(rooms, floorTiles, blocked),
-            roomsCreated = roomsCreated,
-            corridorFailures = corridorFailures
+            floorTiles = result.floorTiles,
+            blockedTiles = result.blockedTiles,
+            allEdges = result.allEdges,
+            mstBaseEdges = result.mstBaseEdges,
+            mstEdges = result.mstEdges,
+            corridors = result.corridors,
+            mapData = new DungeonMapData(result.rooms, result.floorTiles, result.blockedTiles),
+            roomsCreated = result.roomsCreated,
+            corridorFailures = result.corridorFailures
         };
     }
 }

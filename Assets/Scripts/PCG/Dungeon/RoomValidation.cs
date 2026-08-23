@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class RoomValidaton
+public class RoomValidation
 {
     public bool IsRoomValid(DungeonRoom room, DungeonMapData mapData)
     {

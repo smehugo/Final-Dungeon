@@ -19,7 +19,6 @@ public class BSPGen : MonoBehaviour
 
     [Header("Seed Settings")]
     [SerializeField] private int seed = 1;
-    [SerializeField] private bool seedActive = false;
     public int CurrentSeed { get; private set; }
 
     [Header("Floor Theme Tiles")]
@@ -54,8 +53,8 @@ public class BSPGen : MonoBehaviour
     [SerializeField] private DungeonContentPlacer contentPlacer;
     [SerializeField] private FinalRoomSeal finalRoomSeal;
 
-    private int MinLeafSize => minRoomSize + 2 * roomPadding;
-    private int currentLeafCount;
+    // private int MinLeafSize => minRoomSize + 2 * roomPadding;
+    // private int currentLeafCount;
 
     private BSPNode rootNode;
     private List<RoomEdge> allEdges = new List<RoomEdge>();
@@ -66,19 +65,19 @@ public class BSPGen : MonoBehaviour
 
     private List<DungeonRoom> dungeonRooms = new List<DungeonRoom>();
 
-    private Dictionary<Vector2Int, int> tileToRoom = new Dictionary<Vector2Int, int>();
+    // private Dictionary<Vector2Int, int> tileToRoom = new Dictionary<Vector2Int, int>();
     private Dictionary<Vector2Int, FloorTheme> floorThemeByTile = new();
     // private HashSet<Vector2Int> debugLastFlood = new HashSet<Vector2Int>();
 
     public int roomsCreated = 0;
 
-    private BSPSplitter splitter = new BSPSplitter();
-    private BSPRooms roomBuilder = new BSPRooms();
-    private GraphBuilder graphBuilder = new GraphBuilder();
-    private CorridorBuilder corridorBuilder = new CorridorBuilder();
-    private RoomInteriorGen interiorGenerator = new RoomInteriorGen();
+    // private BSPSplitter splitter = new BSPSplitter();
+    // private BSPRooms roomBuilder = new BSPRooms();
+    // private GraphBuilder graphBuilder = new GraphBuilder();
+    // private CorridorBuilder corridorBuilder = new CorridorBuilder();
+    // private RoomInteriorGen interiorGenerator = new RoomInteriorGen();
     private BuildTilemap tilemapBuilder = new BuildTilemap();
-    private AssignFinStartRooms finStartAssigner = new AssignFinStartRooms();
+    // private AssignFinStartRooms finStartAssigner = new AssignFinStartRooms();
 
     // debug getters for DebugObject
     public BSPNode DebugRootNode => rootNode;
@@ -120,7 +119,7 @@ public class BSPGen : MonoBehaviour
         {
             seed = RunConfig.Seed;
         }
-        else if (seedActive)
+        else
         {
             seed = Random.Range(0, int.MaxValue);
         }
@@ -129,41 +128,38 @@ public class BSPGen : MonoBehaviour
         CurrentSeed = seed;
         Debug.Log($"seed {seed} difficulty {RunConfig.DiffName} map {MapWidth} rooms {roomCount} artifacts {artifactZones}");
 
-        rootNode = new BSPNode(new RectInt(0, 0, MapWidth, MapHeight));
-        currentLeafCount = 1;
-        splitter.Split(rootNode, 0, maxDepth, roomCount, MinLeafSize, ref currentLeafCount);
-
-        //collect the final rects
-        List<BSPNode> leaves = new List<BSPNode>();
-        splitter.GetLeaves(rootNode, leaves);
-        // Debug.Log($"leaves: {leaves.Count}");
-        roomsCreated = 0;
-        roomBuilder.MakeRooms(leaves, roomPadding, minRoomSize, roomFillMin, roomFillMax, ref roomsCreated);
-
-        roomTiles.Clear();
-        foreach (var leaf in leaves)
+        var pipelineConfig = new DungeonPipeline.PipelineConfig
         {
-            if (leaf.hasRoom)
-            {
-                for (int x = leaf.roomRect.xMin; x < leaf.roomRect.xMax; x++)
-                {
-                    for (int y = leaf.roomRect.yMin; y < leaf.roomRect.yMax; y++)
-                    {
-                        roomTiles.Add(new Vector2Int(x, y));
-                    }
-                }
-            }
-        }
+            mapWidth = MapWidth,
+            mapHeight = MapHeight,
+            roomPadding = roomPadding,
+            roomCount = roomCount,
+            minRoomSize = minRoomSize,
+            maxDepth = maxDepth,
+            roomFillMin = roomFillMin,
+            roomFillMax = roomFillMax,
+            minZoneSize = minZoneSize,
+            maxZoneSize = maxZoneSize,
+            interiorDepthStep = interiorDepthStep,
+            interiorMaxDepth = interiorMaxDepth,
+            wallOpeningMin = wallOpeningMin,
+            wallOpeningMax = wallOpeningMax,
+            wallExtraHoleGamba = wallExtraHoleGamba,
+            artifactZones = artifactZones
+        };
 
-        //MST
-        roomBuilder.GetRoomCenters(rootNode, roomCenterPoints, dungeonRooms, tileToRoom);
-        graphBuilder.BuildEdgeList(dungeonRooms, roomCenterPoints, allEdges);
-        graphBuilder.BuildMST(allEdges, roomCenterPoints, mstEdges);
-        graphBuilder.BuildMSTSecondPass(roomCenterPoints, mstEdges, allEdges);
-        corridorBuilder.BuildCorridors(mstEdges, dungeonRooms, roomTiles, corridors);
-        corridorBuilder.BuildReservedTiles(dungeonRooms);
-        finStartAssigner.AssignSpecialRooms(dungeonRooms, artifactZones);
-        interiorGenerator.BuildRoomInteriors(dungeonRooms, minZoneSize, maxZoneSize, interiorDepthStep, interiorMaxDepth, wallOpeningMin, wallOpeningMax, wallExtraHoleGamba, artifactZones);
+        DungeonPipeline.PipelineResult result = DungeonPipeline.Run(pipelineConfig, seed);
+
+        rootNode = result.rootNode;
+        roomsCreated = result.roomsCreated;
+        dungeonRooms = result.rooms;
+        roomCenterPoints = result.roomCenters;
+        allEdges = result.allEdges;
+        mstEdges = result.mstEdges;
+        corridors = result.corridors;
+        roomTiles = result.roomTiles;
+        int corridorFailures = result.corridorFailures;
+
         tilemapBuilder.BuildAllTM(floorTilemap, wallTilemap, floorTile, wallTile, corridorTile, stoneTile, woodTile, metalTile, dirtTile, carpetTile, demonicTile, roomTiles, corridors, dungeonRooms, finalFloorTiles, finalCorridorTiles, finalWallTiles, blockedTiles, floorThemeByTile);
 
         MapData = new DungeonMapData(dungeonRooms, finalFloorTiles, blockedTiles);
@@ -176,7 +172,80 @@ public class BSPGen : MonoBehaviour
             finalRoomSeal.BuildSeal(MapData);
         }
 
+        ValidateLayout(MapData, corridorFailures);
+
         UpdateDebugPath();
+    }
+
+    // global validation: flood from start, every room/door reached, no corridor failures
+    private void ValidateLayout(DungeonMapData mapData, int corridorFailures)
+    {
+        if (corridorFailures > 0)
+            Debug.LogError($"seed {seed} validation corridor failed {corridorFailures}");
+
+        DungeonRoom start = null;
+        foreach (var room in mapData.rooms)
+        {
+            if (room.isStartRoom)
+            {
+                start = room;
+                break;
+            }
+        }
+
+        if (start == null)
+        {
+            Debug.LogError($"seed {seed} no start room");
+            return;
+        }
+
+        if (!GetWalkableTile(mapData, start, out Vector2Int startTile))
+        {
+            Debug.LogError($"seed {seed} start room blocked");
+            return;
+        }
+
+        HashSet<Vector2Int> reached = Reachability.FloodFill(mapData, startTile);
+
+        foreach (var room in mapData.rooms)
+        {
+            if (!GetWalkableTile(mapData, room, out Vector2Int tile))
+            {
+                Debug.LogError($"seed {seed} room {room.id} blocked");
+                continue;
+            }
+
+            if (!reached.Contains(tile))
+            {
+                string tag = room.hasArtifact ? "artifact room" : "room";
+                Debug.LogError($"seed {seed} {tag} {room.id} cant reach from start");
+            }
+
+            foreach (var door in room.doors)
+            {
+                if (!reached.Contains(door.position))
+                    Debug.LogError($"seed {seed} door {door.position} in room {room.id} cant reach from start");
+            }
+        }
+    }
+
+    private bool GetWalkableTile(DungeonMapData mapData, DungeonRoom room, out Vector2Int result)
+    {
+        for (int x = room.bounds.xMin; x < room.bounds.xMax; x++)
+        {
+            for (int y = room.bounds.yMin; y < room.bounds.yMax; y++)
+            {
+                Vector2Int tile = new Vector2Int(x, y);
+                if (mapData.IsWalkable(tile))
+                {
+                    result = tile;
+                    return true;
+                }
+            }
+        }
+
+        result = default;
+        return false;
     }
 
     // for gizmo path draw

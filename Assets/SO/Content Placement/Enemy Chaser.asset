@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnDefinition
   priority: 50
   prefab: {fileID: 6184046363629610163, guid: 69ff0528e966e516a9744ec949b277fd, type: 3}
-  requiredTag: 0
+  requiredTag: 1
   avoidStartRoom: 1
   avoidFinalRoom: 0
   finalRoomOnly: 0
@@ -24,6 +24,7 @@ MonoBehaviour:
   roomChance: 1
   blocksMovement: 0
   minSpacingFromSelf: 1
+  affectedByDiff: 1
   extraOnTier: 2
   maxExtraCount: 10
   healthOnTier: 12

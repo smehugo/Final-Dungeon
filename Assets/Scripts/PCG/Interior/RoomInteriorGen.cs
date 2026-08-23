@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class RoomInteriorGen
 {
     private InteriorWallOpener wallOpener = new InteriorWallOpener();
-    private RoomValidaton roomValidator = new RoomValidaton();
+    private RoomValidation roomValidator = new RoomValidation();
 
     public void BuildRoomInteriors(List<DungeonRoom> dungeonRooms, int minZoneSize, int maxZoneSize, int interiorDepthStep, int interiorMaxDepth, int wallOpeningMin, float wallOpeningMax, float wallExtraHoleGamba, int artifactZones)
     {

@@ -24,6 +24,7 @@ MonoBehaviour:
   roomChance: 1
   blocksMovement: 0
   minSpacingFromSelf: 0
+  affectedByDiff: 0
   extraOnTier: 0
   maxExtraCount: 0
   healthOnTier: 0

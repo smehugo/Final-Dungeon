@@ -33,9 +33,8 @@ public class DungeonContentPlacer : MonoBehaviour
                 int bonus = Mathf.Min(room.difficultyTier * def.extraOnTier, def.maxExtraCount);
 
                 // menu difficulty - offset to SO so it doesnt stack
-                bool isEnemy = def.prefab != null && def.prefab.GetComponent<ChaserEnemy>() != null;
                 int diffBonus;
-                if (isEnemy)
+                if (def.affectedByDiff)
                 {
                     diffBonus = RunConfig.EnemyCountBonus;
                 }
@@ -166,7 +165,7 @@ public class DungeonContentPlacer : MonoBehaviour
 
     private bool IsRoomTraversale(DungeonRoom room, DungeonMapData mapData)
     {
-        var validator = new RoomValidaton();
+        var validator = new RoomValidation();
         return validator.IsRoomValid(room, mapData);
     }
 }

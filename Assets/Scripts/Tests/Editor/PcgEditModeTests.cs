@@ -64,7 +64,7 @@ public class PcgEditModeTests
         Assert.IsNotNull(final);
 
         var bounds = new RectInt(0, 0, DungeonGenConfig.MapWidth, DungeonGenConfig.MapHeight);
-        var path = AStar.FindPath(data.mapData, start.center, final.center, bounds);
+        var path = BFS.FindPath(data.mapData, start.center, final.center, bounds);
         Assert.IsNotNull(path);
         AssertPathAdj(path);
     }
@@ -85,7 +85,7 @@ public class PcgEditModeTests
         blocked.Add(new Vector2Int(2, 3));
 
         var map = new DungeonMapData(new List<DungeonRoom>(), floor, blocked);
-        var path = AStar.FindPath(map, new Vector2Int(0, 0), new Vector2Int(4, 0), new RectInt(0, 0, 5, 5));
+        var path = BFS.FindPath(map, new Vector2Int(0, 0), new Vector2Int(4, 0), new RectInt(0, 0, 5, 5));
         Assert.IsNotNull(path);
         AssertPathAdj(path);
     }

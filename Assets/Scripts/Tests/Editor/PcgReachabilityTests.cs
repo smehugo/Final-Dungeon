@@ -39,7 +39,7 @@ public class PcgReachabilityTests : PcgTestBase
         Assert.IsTrue(TryGetWalkaleTile(data, start, out var from), "the start room blocked");
         Assert.IsTrue(TryGetWalkaleTile(data, final, out var to), "the final room blocked");
 
-        var path = AStar.FindPath(data.mapData, from, to, MapBounds);
+        var path = BFS.FindPath(data.mapData, from, to, MapBounds);
         Assert.IsNotNull(path, $"no path from start to the final room seed {seed}");
     }
 
@@ -56,7 +56,7 @@ public class PcgReachabilityTests : PcgTestBase
         Assert.IsTrue(TryGetWalkaleTile(data, start, out var from), "the start room blocked");
         Assert.IsTrue(TryGetWalkaleTile(data, final, out var to), "the final room blocked");
 
-        var path = AStar.FindPath(data.mapData, from, to, MapBounds);
+        var path = BFS.FindPath(data.mapData, from, to, MapBounds);
         Assert.IsNotNull(path, "no path");
 
         AssertPathConnected(path);
@@ -126,7 +126,7 @@ public class PcgReachabilityTests : PcgTestBase
             if (!TryGetWalkaleTile(data, room, out var tile)) continue;
 
             bool flooded = reached.Contains(tile);
-            List<Vector2Int> path = AStar.FindPath(data.mapData, from, tile, MapBounds);
+            List<Vector2Int> path = BFS.FindPath(data.mapData, from, tile, MapBounds);
 
             Assert.AreEqual(flooded, path != null,
                 $"flood fill and pathfinder not compatible room {room.id}");

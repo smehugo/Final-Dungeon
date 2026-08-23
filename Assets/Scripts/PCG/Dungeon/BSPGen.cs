@@ -186,7 +186,7 @@ public class BSPGen : MonoBehaviour
         if (MapData == null || MapData.rooms.Count < 2 || MapData.rooms[1].doors.Count == 0)
             return;
 
-        var path = AStar.FindPath(MapData, MapData.rooms[1].center, MapData.rooms[1].doors[0].position, MapData.rooms[1].bounds);
+        var path = BFS.FindPath(MapData, MapData.rooms[1].center, MapData.rooms[1].doors[0].position, MapData.rooms[1].bounds);
         if (path != null)
             debugPath.AddRange(path);
     }

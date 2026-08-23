@@ -75,7 +75,7 @@ public class PcgMetricsTests : PcgTestBase
 
             if (final != null && TryGetWalkaleTile(data, final, out var to))
             {
-                var path = AStar.FindPath(data.mapData, from, to, MapBounds);
+                var path = BFS.FindPath(data.mapData, from, to, MapBounds);
                 if (path != null)
                 {
                     pathLength = path.Count;

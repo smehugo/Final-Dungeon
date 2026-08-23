@@ -26,7 +26,8 @@ public class RoomValidaton
             }
         }
 
-        HashSet<Vector2Int> visited = FloodFill(room.center, room.bounds, blocked);
+        Vector2Int start = room.doors[0].position;
+        HashSet<Vector2Int> visited = FloodFill(start, room.bounds, blocked);
         // debugLastFlood = visited;
 
         // Debug.Log($"Room {room.id} bounds={room.bounds} center={room.center} inBounds={room.bounds.Contains(room.center)} doors={room.doors.Count} visited={visited.Count} blocked={blocked.Count}");

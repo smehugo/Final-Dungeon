@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 
 // https://www.redblobgames.com/pathfinding/a-star/introduction.html
-// all tiles cost 1 = no heuristic
+// all tiles cost 1 = no heuristic... therefore technically a BFS not A*
 
-public static class AStar
+public static class BFS
 {
     private static readonly Vector2Int[] dirs =
     {

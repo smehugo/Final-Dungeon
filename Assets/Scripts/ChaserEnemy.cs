@@ -88,7 +88,7 @@ public class ChaserEnemy : MonoBehaviour
         Vector2Int startTile = mapData.GetTileFromWorldPos(transform.position);
         Vector2Int goalTile = mapData.GetTileFromWorldPos(player.position);
 
-        currentPath = AStar.FindPath(mapData, startTile, goalTile, spawnRoom.bounds);
+        currentPath = BFS.FindPath(mapData, startTile, goalTile, spawnRoom.bounds);
         if (currentPath == null)
         {
             return;

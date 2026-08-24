@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private AudioClip hurtSound;
 
     [SerializeField] private GameObject[] loot;
+    [SerializeField] private LootTableSO lootTable;
     [SerializeField] private float dropChance = 0.3f;
     [SerializeField] private float deathDuration = 1f;
 
@@ -69,8 +70,26 @@ public class EnemyHealth : MonoBehaviour
         yield return new WaitForSeconds(deathDuration);
 
         if (Random.value < dropChance)
-            Instantiate(loot[Random.Range(0, loot.Length)], transform.position, Quaternion.identity, transform.parent);
+        {
+            GameObject drop = RollLoot();
+            Instantiate(drop, transform.position, Quaternion.identity, transform.parent);
+        }
 
         Destroy(gameObject);
+    }
+
+    private GameObject RollLoot()
+    {
+        if (lootTable != null)
+        {
+            LootTableSO.Entry entry = lootTable.Roll();
+            return entry.pickupPrefab;
+        }
+
+        if (loot != null && loot.Length > 0)
+        {
+            return loot[Random.Range(0, loot.Length)];
+        }
+        return null;
     }
 }

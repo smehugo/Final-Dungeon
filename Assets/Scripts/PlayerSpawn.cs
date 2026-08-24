@@ -23,7 +23,6 @@ public class PlayerSpawn : MonoBehaviour
         var mapData = generator.MapData;
         Vector2Int spawnTile = GetSpawnTile(mapData);
         player.position = mapData.GetWorldPosFromTile(spawnTile);
-        mapData.Occupy(spawnTile);
     }
 
     private Vector2Int GetSpawnTile(DungeonMapData mapData)

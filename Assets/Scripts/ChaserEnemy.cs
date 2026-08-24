@@ -23,6 +23,8 @@ public class ChaserEnemy : MonoBehaviour
     private float nextDmgTime;
     private bool isDead = false;
 
+    private static RectInt chaseBounds = new RectInt(-10000, -10000, 20000, 20000);
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,14 +46,15 @@ public class ChaserEnemy : MonoBehaviour
 
         Vector2Int playerTile = mapData.GetTileFromWorldPos(player.position);
 
-        // outside spawn room idle
-        if (!spawnRoom.bounds.Contains(playerTile))
+        if (spawnRoom.bounds.Contains(playerTile))
         {
-            roomHasPlayer = false;
-            return;
+            roomHasPlayer = true;
         }
 
-        roomHasPlayer = true;
+        if (!roomHasPlayer)
+        {
+            return;
+        }
 
         if (Time.time < nextRepathTime)
         {
@@ -88,7 +91,7 @@ public class ChaserEnemy : MonoBehaviour
         Vector2Int startTile = mapData.GetTileFromWorldPos(transform.position);
         Vector2Int goalTile = mapData.GetTileFromWorldPos(player.position);
 
-        currentPath = BFS.FindPath(mapData, startTile, goalTile, spawnRoom.bounds);
+        currentPath = BFS.FindPath(mapData, startTile, goalTile, chaseBounds);
         if (currentPath == null)
         {
             return;

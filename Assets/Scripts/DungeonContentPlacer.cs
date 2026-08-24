@@ -124,6 +124,12 @@ public class DungeonContentPlacer : MonoBehaviour
             enemy.AddDamage(room.difficultyTier * def.damageOnTier);
         }
 
+        Chest chest = obj.GetComponent<Chest>();
+        if (chest != null)
+        {
+            chest.Init(mapData, tile);
+        }
+
         if (def.blocksMovement)
         {
             mapData.Occupy(tile);

@@ -22,7 +22,7 @@ public class SpawnDefinition : ScriptableObject
     [Range(0f, 1f)] public float roomChance = 1f;
     public bool blocksMovement = true;
     public int minSpacingFromSelf = 0;
-    public bool affectedByDiff = true;
+    public bool affectedByDiff = false;
 
     [Header("Enemy difficulty")]
     public int extraOnTier = 0;

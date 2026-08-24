@@ -21,6 +21,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private TMP_Text roomFillTxt;
 
     private bool useFixedSeed;
+    // caps at 2^maxDepth anyways so this should be max anyways
+    private static int MaxRoomCount = (int)Mathf.Pow(2, DungeonGenConfig.MaxDepth);
 
     private void Start()
     {
@@ -103,7 +105,7 @@ public class MainMenu : MonoBehaviour
     public void OnGenOptionChanged()
     {
         mapSizeTxt.text = "Map size: " + (int)mapSizeSlider.value;
-        roomsTxt.text = "Room Count: " + (int)roomsSlider.value;
+        roomsTxt.text = "Room count: " + Mathf.Min((int)roomsSlider.value, MaxRoomCount);
         artifactsTxt.text = "Artifacts Required: " + (int)artifactsSlider.value;
         roomFillTxt.text = "Room Coverage: " + roomFillSlider.value.ToString("0.00");
     }
@@ -112,7 +114,7 @@ public class MainMenu : MonoBehaviour
     {
         RunConfig.UseCustomGen = true;
         RunConfig.MapSize = (int)mapSizeSlider.value;
-        RunConfig.RoomCount = (int)roomsSlider.value;
+        RunConfig.RoomCount = Mathf.Min((int)roomsSlider.value, MaxRoomCount);
         RunConfig.Artifacts = (int)artifactsSlider.value;
         RunConfig.RoomFill = roomFillSlider.value;
     }

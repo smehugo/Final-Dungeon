@@ -4,6 +4,7 @@ using System.Collections.Generic;
 // shared generation pipeline merged from BSPGen and PcgTestGen so both run same pipeline
 public static class DungeonPipeline
 {
+    [System.Serializable]
     public class PipelineConfig
     {
         public int mapWidth;

@@ -5,10 +5,26 @@ using UnityEngine.Tilemaps;
 public class BSPGen : MonoBehaviour
 {
     [Header("Map Settings")]
-    [SerializeField] private int MapWidth = DungeonGenConfig.MapWidth;
-    [SerializeField] private int MapHeight = DungeonGenConfig.MapHeight;
-    [SerializeField] private int roomPadding = DungeonGenConfig.RoomPadding;
-    [SerializeField] private int roomCount = DungeonGenConfig.RoomCount;
+    [SerializeField]
+    private DungeonPipeline.PipelineConfig genConfig = new DungeonPipeline.PipelineConfig
+    {
+        mapWidth = DungeonGenConfig.MapWidth,
+        mapHeight = DungeonGenConfig.MapHeight,
+        roomPadding = DungeonGenConfig.RoomPadding,
+        roomCount = DungeonGenConfig.RoomCount,
+        minRoomSize = DungeonGenConfig.MinRoomSize,
+        maxDepth = DungeonGenConfig.MaxDepth,
+        roomFillMin = DungeonGenConfig.RoomFillMin,
+        roomFillMax = DungeonGenConfig.RoomFillMax,
+        minZoneSize = DungeonGenConfig.MinZoneSize,
+        maxZoneSize = DungeonGenConfig.MaxZoneSize,
+        interiorDepthStep = DungeonGenConfig.InteriorDepthStep,
+        interiorMaxDepth = DungeonGenConfig.InteriorMaxDepth,
+        wallOpeningMin = DungeonGenConfig.WallOpeningMin,
+        wallOpeningMax = DungeonGenConfig.WallOpeningMax,
+        wallExtraHoleGamba = DungeonGenConfig.WallExtraHoleGamba,
+        artifactZones = DungeonGenConfig.ArtifactZones
+    };
 
     // TODO: clean this up when done!!!
     [SerializeField] private Tilemap floorTilemap;
@@ -33,21 +49,6 @@ public class BSPGen : MonoBehaviour
     private HashSet<Vector2Int> finalCorridorTiles = new();
     private HashSet<Vector2Int> finalWallTiles = new HashSet<Vector2Int>();
     private HashSet<Vector2Int> blockedTiles = new HashSet<Vector2Int>();
-
-    [SerializeField] private int minRoomSize = DungeonGenConfig.MinRoomSize;
-    [SerializeField] private int maxDepth = DungeonGenConfig.MaxDepth;
-    [SerializeField] private float roomFillMin = DungeonGenConfig.RoomFillMin;
-    [SerializeField] private float roomFillMax = DungeonGenConfig.RoomFillMax;
-
-    [Header("Interior Settings")]
-    [SerializeField] private int minZoneSize = DungeonGenConfig.MinZoneSize;
-    [SerializeField] private int maxZoneSize = DungeonGenConfig.MaxZoneSize;
-    [SerializeField] private int interiorDepthStep = DungeonGenConfig.InteriorDepthStep;
-    [SerializeField] private int interiorMaxDepth = DungeonGenConfig.InteriorMaxDepth;
-    [SerializeField] private int wallOpeningMin = DungeonGenConfig.WallOpeningMin;
-    [SerializeField] private float wallOpeningMax = DungeonGenConfig.WallOpeningMax;
-    [SerializeField] private float wallExtraHoleGamba = DungeonGenConfig.WallExtraHoleGamba;
-    [SerializeField] private int artifactZones = DungeonGenConfig.ArtifactZones;
 
     [Header("Map Data")]
     [SerializeField] private DungeonContentPlacer contentPlacer;
@@ -108,11 +109,11 @@ public class BSPGen : MonoBehaviour
     {
         if (RunConfig.UseCustomGen)
         {
-            MapWidth = RunConfig.MapSize;
-            MapHeight = RunConfig.MapSize;
-            roomCount = RunConfig.RoomCount;
-            artifactZones = RunConfig.Artifacts;
-            roomFillMin = RunConfig.RoomFill;
+            genConfig.mapWidth = RunConfig.MapSize;
+            genConfig.mapHeight = RunConfig.MapSize;
+            genConfig.roomCount = RunConfig.RoomCount;
+            genConfig.artifactZones = RunConfig.Artifacts;
+            genConfig.roomFillMin = RunConfig.RoomFill;
         }
 
         if (RunConfig.UseFixedSeed)
@@ -126,29 +127,9 @@ public class BSPGen : MonoBehaviour
 
         Random.InitState(seed);
         CurrentSeed = seed;
-        Debug.Log($"seed {seed} difficulty {RunConfig.DiffName} map {MapWidth} rooms {roomCount} artifacts {artifactZones}");
+        Debug.Log($"seed {seed} difficulty {RunConfig.DiffName} map {genConfig.mapWidth} rooms {genConfig.roomCount} artifacts {genConfig.artifactZones}");
 
-        var pipelineConfig = new DungeonPipeline.PipelineConfig
-        {
-            mapWidth = MapWidth,
-            mapHeight = MapHeight,
-            roomPadding = roomPadding,
-            roomCount = roomCount,
-            minRoomSize = minRoomSize,
-            maxDepth = maxDepth,
-            roomFillMin = roomFillMin,
-            roomFillMax = roomFillMax,
-            minZoneSize = minZoneSize,
-            maxZoneSize = maxZoneSize,
-            interiorDepthStep = interiorDepthStep,
-            interiorMaxDepth = interiorMaxDepth,
-            wallOpeningMin = wallOpeningMin,
-            wallOpeningMax = wallOpeningMax,
-            wallExtraHoleGamba = wallExtraHoleGamba,
-            artifactZones = artifactZones
-        };
-
-        DungeonPipeline.PipelineResult result = DungeonPipeline.Run(pipelineConfig, seed);
+        DungeonPipeline.PipelineResult result = DungeonPipeline.Run(genConfig, seed);
 
         rootNode = result.rootNode;
         roomsCreated = result.roomsCreated;

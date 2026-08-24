@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private LootTableSO lootTable;
     [SerializeField] private float dropChance = 0.3f;
     [SerializeField] private float deathDuration = 1f;
+    [SerializeField] private GameObject floatText;
 
     private int currentHealth;
 
@@ -36,6 +37,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0) return;
 
         currentHealth -= dmg;
+        Popup(dmg.ToString());
 
         if (currentHealth <= 0)
         {
@@ -63,6 +65,13 @@ public class EnemyHealth : MonoBehaviour
                 audioSource.PlayOneShot(hurtSound);
             }
         }
+    }
+
+    private void Popup(string message)
+    {
+        var obj = Instantiate(floatText, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+        var text = obj.GetComponent<FloatPickupText>();
+        text.Popup(message);
     }
 
     private IEnumerator DropLoot()

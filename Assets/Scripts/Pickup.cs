@@ -47,8 +47,9 @@ public class Pickup : MonoBehaviour
                 break;
             case PickupType.Damage:
                 var pickupBow = other.GetComponent<Bow>();
-                pickupBow.AddDamage(Mathf.RoundToInt(amount));
-                Popup($"+{amount} Damage");
+                int addedDamage = Mathf.RoundToInt(amount);
+                pickupBow.AddDamage(addedDamage);
+                Popup($"+{addedDamage} Damage");
                 break;
             case PickupType.FireRate:
                 var rateBow = other.GetComponent<Bow>();

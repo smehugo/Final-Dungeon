@@ -27,5 +27,5 @@ MonoBehaviour:
   affectedByDiff: 1
   extraOnTier: 2
   maxExtraCount: 10
-  healthOnTier: 12
+  healthOnTier: 15
   damageOnTier: 1

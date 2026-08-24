@@ -666,7 +666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b90575e6a2ad40ab55a77f6d48e4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 40
+  maxHealth: 20
   animator: {fileID: 4043786624784890305}
   audioSource: {fileID: 2733113877449276871}
   deathSound: {fileID: 8300000, guid: a1a8d5f36e146d54988d8dd2bc59a71c, type: 3}
@@ -683,8 +683,10 @@ MonoBehaviour:
   - {fileID: 8980424872814692497, guid: b20e4698131917e44b29f961162bfb72, type: 3}
   - {fileID: 3606757532551795759, guid: 374fb5866c159a14d88e6dfca0752552, type: 3}
   - {fileID: 38052609504857075, guid: a0e4a5c637eb45b4092fad9bc99c68ca, type: 3}
+  lootTable: {fileID: 0}
   dropChance: 0.2
   deathDuration: 1
+  floatText: {fileID: 6391839468573257304, guid: 7cc0dd00aa92fb74196060d023f2bbe6, type: 3}
 --- !u!82 &2733113877449276871
 AudioSource:
   m_ObjectHideFlags: 0
